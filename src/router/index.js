@@ -23,7 +23,7 @@ export default new Router({
     {
       path: '/dashboard',
       name: 'DashboardMain',
-      component: DashboardMain,
+      component: DashboardMain
     },
     {
       path: '/address',

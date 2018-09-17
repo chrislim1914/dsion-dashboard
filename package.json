@@ -15,7 +15,9 @@
   },
   "dependencies": {
     "axios": "^0.18.0",
+    "axios-jsonp": "^1.0.2",
     "datatables.net": "^1.10.19",
+    "moment": "^2.22.2",
     "style-loader": "^0.23.0",
     "vue": "^2.5.2",
     "vue-router": "^3.0.1",

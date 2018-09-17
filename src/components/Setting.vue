@@ -6,7 +6,6 @@
             <div class="container">
                 <div class="d-flex">
                     <global-sidebar></global-sidebar>
-                    
                     <div class="user-content">
                         <div class="user-panel">
                             <h2 class="user-panel-title">Security Settings</h2>
@@ -56,7 +55,7 @@
                                     <div class="gaps-1x"></div>
                                     <div class="ath-content">
                                         <div class="gaps-2x"></div>
-                                        <h5>1) Install an authentication app on your device. Any app that supports the Time-based One-Time Password (TOTP) protocol should work, including:</h5>   
+                                        <h5>1) Install an authentication app on your device. Any app that supports the Time-based One-Time Password (TOTP) protocol should work, including:</h5>
                                         <ul class="ath-content-sublist">
                                             <li><a href="#">Google Authenticator</a> (Android/iOS)</li>
                                             <li><a href="#">Authy</a> (Android/iOS)</li>
