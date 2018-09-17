@@ -6,7 +6,7 @@
                  <div class="col-lg-6 col-md-8  text-center">
                      <div class="user-ath-logo">
                          <a href="#">
-                             <img src="~images/logo-sm.png"  srcset="~images/logo-sm2x.png 2x" alt="icon">
+                             <img src="assets/dashboard/assets/images/logo-sm.png"  srcset="assets/dashboard/assets/images/logo-sm2x.png 2x" alt="icon">
                          </a>
                      </div>
                      <div class="user-ath-box">
@@ -58,3 +58,14 @@ export default {
   }
 }
 </script>
+
+<style>
+  * {
+    margin: 0;
+    padding: 0;
+  }
+
+  .debugger {
+    border: 2px solid red;
+  }
+</style>

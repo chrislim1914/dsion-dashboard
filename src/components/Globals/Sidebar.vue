@@ -4,30 +4,39 @@
         <div class="user-sidebar-overlay"></div>
         <div class="user-box d-none d-lg-block">
             <div class="user-image">
-                <img src="~images/user-thumb-lg.png" alt="thumb">
+                <img src="/static/images/user-thumb-lg.png" alt="thumb">
             </div>
-            <h6 class="user-name">Stefan Harary</h6>
-            <div class="user-uid">Unique ID: <span>IXIA1A105</span></div>
-            <ul class="btn-grp guttar-10px">
-                <li><a href="#" class="btn btn-xs btn-warning">Confirm Email</a></li>
-                <li><a href="kyc.html" class="btn btn-xs btn-warning">KYC Pending</a></li>
-            </ul>
+            <h6 class="user-name">email@email.com</h6>
         </div><!-- .user-box -->
         <ul class="user-icon-nav">
-            <li><a href="index.html"><em class="ti ti-dashboard"></em>Dashboard</a></li>
-            <li><a href="kyc.html"><em class="ti ti-files"></em>KYC Application</a></li>
-            <li><a href="tokens.html"><em class="ti ti-pie-chart"></em>Contributions</a></li>
-            <li><a href="transactions.html"><em class="ti ti-control-shuffle"></em>Transactions</a></li>
-            <li><a href="referrals.html"><em class="ti ti-infinite"></em>Referral</a></li>
-            <li><a href="account.html"><em class="ti ti-user"></em>Account</a></li>
-            <li><a href="security.html"><em class="ti ti-lock"></em>Security</a></li>
+            <li>
+              <router-link :to="{ name: 'Main' }"><em class="ti ti-dashboard"></em>Dashboard</router-link>
+            </li>
+            <li>
+              <router-link :to="{ name: 'DashboardAddress' }"><em class="ti ti-direction"></em>Address</router-link>
+            </li>
+            <li>
+              <router-link :to="{ name: 'DashboardKnowYourCustomer' }"><em class="ti ti-files"></em>KYC Application</router-link>
+            </li>
+            <li>
+              <router-link :to="{ name: 'DashboardContribution' }"><em class="ti ti-pie-chart"></em>Contributions</router-link>
+            </li>
+            <li>
+              <router-link :to="{ name: 'DashboardReferral' }"><em class="ti ti-infinite"></em>Referral</router-link>
+            </li>
+            <li>
+              <router-link :to="{ name: 'DashboardPromotion' }"><em class="ti ti-star"></em>Promotion</router-link>
+            </li>
+            <li>
+              <router-link :to="{ name: 'DashboardSetting' }"><em class="ti ti-settings"></em>Setting</router-link>
+            </li>
         </ul><!-- .user-icon-nav -->
         <div class="user-sidebar-sap"></div><!-- .user-sidebar-sap -->
         <ul class="user-nav">
             <li><a href="how-to.html">How to buy?</a></li>
             <li><a href="faq.html">Faqs</a></li>
             <li><a href="#">Whitepaper</a></li>
-            <li>Contact Support<span>info@icocrypto.com</span></li>
+            <li>Contact Support<span>contact@dsion.io</span></li>
         </ul><!-- .user-nav -->
         <div class="d-lg-none">
             <div class="user-sidebar-sap"></div>

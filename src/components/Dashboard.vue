@@ -17,22 +17,22 @@
                                     <div class="tile-bubbles"></div>
                                     <h6 class="tile-title">ICO TOKEN BALANCE</h6>
                                     <h1 class="tile-info">120,000,000 IC0X</h1>
-                                    <ul class="tile-list-inline">
+                                    <!-- <ul class="tile-list-inline">
                                         <li>1.240 BTC</li>
                                         <li>19.043 ETH</li>
                                         <li>6,500.13 USD</li>
-                                    </ul>
+                                    </ul> -->
                                 </div>
                             </div><!-- .col -->
                             <div class="col-md-6">
                                 <div class="tile-item tile-light">
                                     <div class="tile-bubbles"></div>
                                     <h6 class="tile-title">YOUR CONTRIBUTION</h6>
-                                    <ul class="tile-info-list">
+                                    <!-- <ul class="tile-info-list">
                                         <li><span>1.646</span>ETH</li>
                                         <li><span>~</span>BTC</li>
                                         <li><span>5,940</span>USD</li>
-                                    </ul>
+                                    </ul> -->
                                 </div>
                             </div><!-- .col -->
                         </div><!-- .row -->
@@ -40,7 +40,7 @@
                             <div class="row align-items-center">
                                 <div class="col-sm-3">
                                     <div class="info-card-image">
-                                        <img src="~images/vector-a.png" alt="vector">
+                                        <img src="/static/images/vector-a.png" alt="vector">
                                     </div>
                                     <div class="gaps-2x d-md-none"></div>
                                 </div>
@@ -146,14 +146,3 @@ export default {
   }
 }
 </script>
-
-<style>
-  * {
-    margin: 0;
-    padding: 0;
-  }
-
-  .debugger {
-    border: 2px solid red;
-  }
-</style>

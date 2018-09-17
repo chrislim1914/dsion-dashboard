@@ -61,40 +61,37 @@
                                                 <div class="input-item input-with-label">
                                                     <label for="nationality" class="input-item-label">Nationality</label>
                                                     <select class="country-select" name="Nationality" id="Nationality">
-                                                        <option value="us">United State</option>
-                                                        <option value="uk">United KingDom</option>
-                                                        <option value="fr">France</option>
-                                                        <option value="ch">China</option>
-                                                        <option value="cr">Czech Republic</option>
-                                                        <option value="cb">Colombia</option>
+                                                        <option :value="nationality" :key="index" v-for="(nationality, index) in nationalities">
+                                                          {{ nationality }}
+                                                        </option>
                                                     </select>
                                                 </div><!-- .input-item -->
                                             </div><!-- .col -->
-                                            <div class="col-md-6">
+                                            <div class="col-md-6 d-none">
                                                 <div class="input-item input-with-label">
                                                     <label for="address-line-1" class="input-item-label">Address Line 1</label>
                                                     <input class="input-bordered" type="text" id="address-line-1" name="address-line-1">
                                                 </div><!-- .input-item -->
                                             </div><!-- .col -->
-                                            <div class="col-md-6">
+                                            <div class="col-md-6 d-none">
                                                 <div class="input-item input-with-label">
                                                     <label for="address-line-2" class="input-item-label">Address Line 2 <span>(optional)</span></label>
                                                     <input class="input-bordered" type="text" id="address-line-2" name="address-line-2">
                                                 </div><!-- .input-item -->
                                             </div><!-- .col -->
-                                            <div class="col-md-6">
+                                            <div class="col-md-6 d-none">
                                                 <div class="input-item input-with-label">
                                                     <label for="email-address" class="input-item-label">City of Residence</label>
                                                     <input class="input-bordered" type="text" id="email-address" name="email-address">
                                                 </div><!-- .input-item -->
                                             </div><!-- .col -->
-                                            <div class="col-md-6">
+                                            <div class="col-md-6 d-none">
                                                 <div class="input-item input-with-label">
                                                     <label for="phone-number" class="input-item-label">Zip Code</label>
                                                     <input class="input-bordered" type="text" id="phone-number" name="phone-number">
                                                 </div><!-- .input-item -->
                                             </div><!-- .col -->
-                                            <div class="col-md-6">
+                                            <div class="col-md-6 d-none">
                                                 <div class="input-item input-with-label">
                                                     <label for="phone-number" class="input-item-label">Telegram Username <span>(optional)</span></label>
                                                     <input class="input-bordered" type="text" id="phone-number" name="phone-number">
@@ -121,8 +118,8 @@
                                             <li class="nav-item">
                                                 <a class="nav-link active" data-toggle="tab" href="#passport">
                                                     <div class="nav-tabs-icon">
-                                                        <img src="~images/icon-passport.png" alt="icon">
-                                                        <img src="~images/icon-passport-color.png" alt="icon">
+                                                        <img src="/static/images/icon-passport.png" alt="icon">
+                                                        <img src="/static/images/icon-passport-color.png" alt="icon">
                                                     </div>
                                                     <span>Passport</span>
                                                 </a>
@@ -130,8 +127,8 @@
                                             <li class="nav-item">
                                                 <a class="nav-link" data-toggle="tab" href="#national-card">
                                                     <div class="nav-tabs-icon">
-                                                        <img src="~images/icon-national-id.png" alt="icon">
-                                                        <img src="~images/icon-national-id-color.png" alt="icon">
+                                                        <img src="/static/images/icon-national-id.png" alt="icon">
+                                                        <img src="/static/images/icon-national-id-color.png" alt="icon">
                                                     </div>
                                                     <span>National Card</span>
                                                 </a>
@@ -139,8 +136,8 @@
                                             <li class="nav-item">
                                                 <a class="nav-link" data-toggle="tab" href="#driver-licence">
                                                     <div class="nav-tabs-icon">
-                                                        <img src="~images/icon-licence.png" alt="icon">
-                                                        <img src="~images/icon-licence-color.png" alt="icon">
+                                                        <img src="/static/images/icon-licence.png" alt="icon">
+                                                        <img src="/static/images/icon-licence-color.png" alt="icon">
                                                     </div>
                                                     <span>Driver’s License</span>
                                                 </a>
@@ -170,7 +167,7 @@
                                                     </div>
                                                     <div class="col-4">
                                                         <div class="kyc-upload-img">
-                                                            <img src="~images/vector-passport.png" alt="vector">
+                                                            <img src="/static/images/vector-passport.png" alt="vector">
                                                         </div>
                                                     </div>
                                                 </div>
@@ -199,7 +196,7 @@
                                                     </div>
                                                     <div class="col-4">
                                                         <div class="kyc-upload-img">
-                                                            <img src="~images/vector-id-front.png" alt="vector">
+                                                            <img src="/static/images/vector-id-front.png" alt="vector">
                                                         </div>
                                                     </div>
                                                 </div>
@@ -219,7 +216,7 @@
                                                     </div>
                                                     <div class="col-4">
                                                         <div class="kyc-upload-img">
-                                                            <img src="~images/vector-id-back.png" alt="vector">
+                                                            <img src="/static/images/vector-id-back.png" alt="vector">
                                                         </div>
                                                     </div>
                                                 </div>
@@ -248,7 +245,7 @@
                                                     </div>
                                                     <div class="col-4">
                                                         <div class="kyc-upload-img">
-                                                            <img src="~images/vector-licence.png" alt="vector">
+                                                            <img src="/static/images/vector-licence.png" alt="vector">
                                                         </div>
                                                     </div>
                                                 </div>
@@ -340,13 +337,18 @@
 import Topbar from './Globals/Topbar'
 import Sidebar from './Globals/Sidebar'
 import Footer from './Globals/Footer'
-
+import Nationalities from 'static/nationality.json'
 export default {
   name: 'KycApplication',
   components: {
     'global-topbar': Topbar,
     'global-sidebar': Sidebar,
     'global-footer': Footer
+  },
+  data () {
+    return {
+      nationalities: Nationalities
+    }
   }
 }
 </script>
