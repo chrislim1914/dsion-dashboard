@@ -15,7 +15,7 @@
 
                     <div class="site-logo">
                         <a href="index.html" class="site-brand">
-                            <img src="~images/logo.png" alt="logo" srcset="images/logo2x.png 2x">
+                          <img src="~images/logo_dsion.png" alt="logo" srcset="~images/logo_dsion.png 2x">
                         </a>
                     </div><!-- .site-logo -->
 
@@ -59,7 +59,7 @@
                 <div class="topbar-lg d-none d-lg-block">
                     <div class="site-logo">
                         <a href="index.html" class="site-brand">
-                            <img src="~images/logo.png" alt="logo" srcset="images/logo2x.png 2x">
+                            <img src="~images/logo_dsion.png" alt="logo" srcset="~images/logo_dsion.png 2x">
                         </a>
                     </div><!-- .site-logo -->
                 </div><!-- .topbar-lg -->

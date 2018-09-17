@@ -58,14 +58,3 @@ export default {
   }
 }
 </script>
-
-<style>
-  * {
-    margin: 0;
-    padding: 0;
-  }
-
-  .debugger {
-    border: 2px solid red;
-  }
-</style>
