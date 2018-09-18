@@ -121,7 +121,7 @@
                                                         <div class="upload-box">
                                                             <div class="upload-zone">
                                                                 <div class="dz-message" data-dz-message>
-                                                                    <input type="file" class="btn text-dark" ref="kycForm_front" accept="image/*" style="background-color: #f3f8ff;"/>
+                                                                    <input type="file" class="btn text-dark" ref="kycForm_front_1" accept="image/*" style="background-color: #f3f8ff;"/>
                                                                 </div>
                                                             </div>
                                                         </div>
@@ -139,7 +139,7 @@
                                                         <div class="upload-box">
                                                             <div class="upload-zone">
                                                                 <div class="dz-message" data-dz-message>
-                                                                    <input type="file" class="btn text-dark" ref="kycForm_selfie" accept="image/*" style="background-color: #f3f8ff;"/>
+                                                                    <input type="file" class="btn text-dark" ref="kycForm_selfie_1" accept="image/*" style="background-color: #f3f8ff;"/>
                                                                 </div>
                                                             </div>
                                                         </div>
@@ -164,7 +164,7 @@
                                                         <div class="upload-box">
                                                             <div class="upload-zone">
                                                                 <div class="dz-message" data-dz-message>
-                                                                    <input type="file" class="btn text-dark" ref="kycForm_front" accept="image/*" style="background-color: #f3f8ff;"/>
+                                                                    <input type="file" class="btn text-dark" v-el="kycForm_front" ref="kycForm_front_2" accept="image/*" style="background-color: #f3f8ff;"/>
                                                                 </div>
                                                             </div>
                                                         </div>
@@ -182,7 +182,7 @@
                                                         <div class="upload-box">
                                                             <div class="upload-zone">
                                                                 <div class="dz-message" data-dz-message>
-                                                                    <input type="file" class="btn text-dark" ref="kycForm_back" accept="image/*" style="background-color: #f3f8ff;"/>
+                                                                    <input type="file" class="btn text-dark" v-el="kycForm_back" ref="kycForm_back_2" accept="image/*" style="background-color: #f3f8ff;"/>
                                                                 </div>
                                                             </div>
                                                         </div>
@@ -200,7 +200,7 @@
                                                         <div class="upload-box">
                                                             <div class="upload-zone">
                                                                 <div class="dz-message" data-dz-message>
-                                                                    <input type="file" class="btn text-dark" ref="kycForm_selfie" accept="image/*" style="background-color: #f3f8ff;"/>
+                                                                    <input type="file" class="btn text-dark" v-el="kycForm_selfie" ref="kycForm_selfie_2" accept="image/*" style="background-color: #f3f8ff;"/>
                                                                 </div>
                                                             </div>
                                                         </div>
@@ -225,7 +225,7 @@
                                                         <div class="upload-box">
                                                             <div class="upload-zone">
                                                                 <div class="dz-message" data-dz-message>
-                                                                    <input type="file" class="btn text-dark" ref="kycForm_front" accept="image/*" style="background-color: #f3f8ff;"/>
+                                                                    <input type="file" class="btn text-dark" v-el="kycForm_front" ref="kycForm_front_3" accept="image/*" style="background-color: #f3f8ff;"/>
                                                                 </div>
                                                             </div>
                                                         </div>
@@ -243,7 +243,7 @@
                                                         <div class="upload-box">
                                                             <div class="upload-zone">
                                                                 <div class="dz-message" data-dz-message>
-                                                                    <input type="file" class="btn text-dark" ref="kycForm_back" accept="image/*" style="background-color: #f3f8ff;"/>
+                                                                    <input type="file" class="btn text-dark" ref="kycForm_back_3" accept="image/*" style="background-color: #f3f8ff;"/>
                                                                 </div>
                                                             </div>
                                                         </div>
@@ -261,7 +261,7 @@
                                                         <div class="upload-box">
                                                             <div class="upload-zone">
                                                                 <div class="dz-message" data-dz-message>
-                                                                    <input type="file" class="btn text-dark" ref="kycForm_selfie" accept="image/*" style="background-color: #f3f8ff;"/>
+                                                                    <input type="file" class="btn text-dark" ref="kycForm_selfie_3" accept="image/*" style="background-color: #f3f8ff;"/>
                                                                 </div>
                                                             </div>
                                                         </div>
@@ -399,11 +399,27 @@ export default {
     },
     onSubmitKycApplication () {
        this.isLoading = true
-        this.documentFront = this.$refs.kycForm_front.files[0]
-        this.documentBack = this.$refs.kycForm_back.files[0]
-        this.selfie = this.$refs.kycForm_selfie.files[0]
+       //this.documentFront = this.$$.kycForm_front.files[0]
+       //this.documentBack = this.$$.kycForm_back.files[0]
+       //this.selfie = this.$$.kycForm_selfie.files[0]
 
-        console.log(this.$refs.kycForm_front.files[0])
+       if(this.kycForm.documentType=="여권"){
+         this.documentFront = this.$refs.kycForm_front_1.files[0]
+         this.documentBack = ""
+         this.selfie = this.$refs.kycForm_selfie_1.files[0]
+
+       }else if(this.kycForm.documentType=="주민등록증"){
+         this.documentFront = this.$refs.kycForm_front_2.files[0]
+         this.documentBack = this.$refs.kycForm_back_2.files[0]
+         this.selfie = this.$refs.kycForm_selfie_2.files[0]
+
+       }if(this.kycForm.documentType=="운전면허증"){
+         this.documentFront = this.$refs.kycForm_front_3.files[0]
+         this.documentBack = this.$refs.kycForm_back_3.files[0]
+         this.selfie = this.$refs.kycForm_selfie_3.files[0]
+
+       }
+
        const formData = new FormData()
        if (Validate.isValidEmail(this.kycForm.email)) {
          this.documentFront = this.$refs.kycForm_front.files[0]
