@@ -58,7 +58,7 @@
                                     <div>Soft cap <span>{{ salesData.Total_Soft_Cap | digitCommafy }} DSN</span></div>
                                 </div>
                                 <div class="progress-psale" style="width:12%">
-                                    <div>{{ activeSale[0].name }}<span>{{ activeSale[0].cap_limit | digitCommafy }}DSN</span></div>
+                                    <div>{{ activeSale[0].name }}<span>{{ activeSale[0].cap_limit | digitCommafy }} DSN</span></div>
                                 </div>
                                 <div class="progress-percent" style="width:25%"></div>
                             </div>
