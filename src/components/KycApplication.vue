@@ -403,7 +403,7 @@ export default {
        //this.documentBack = this.$$.kycForm_back.files[0]
        //this.selfie = this.$$.kycForm_selfie.files[0]
        console.log(this.kycForm.documentType)
-       
+
        if(this.kycForm.documentType == '여권'){
          this.documentFront = this.$refs.kycForm_front_1.files[0]
          this.documentBack = ''
@@ -418,6 +418,11 @@ export default {
          this.documentFront = this.$refs.kycForm_front_3.files[0]
          this.documentBack = this.$refs.kycForm_back_3.files[0]
          this.selfie = this.$refs.kycForm_selfie_3.files[0]
+       }else{
+          this.kycForm.documentType == '여권'
+          this.documentFront = this.$refs.kycForm_front_1.files[0]
+          this.documentBack = ''
+          this.selfie = this.$refs.kycForm_selfie_1.files[0]
        }
 
        const formData = new FormData()
