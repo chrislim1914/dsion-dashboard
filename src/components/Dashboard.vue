@@ -54,16 +54,16 @@
                         </div><!-- .info-card -->
                         <div class="token-card">
                             <div class="token-info">
-                                <span class="token-smartag">ICO Phase 2</span>
-                                <h2 class="token-bonus">20% <span>Current Bonus</span></h2>
+                                <span class="token-smartag">{{ activeSale[0].name }}</span>
+                                <h2 class="token-bonus">{{ activeSale[0].bonus_rate }}% <span>Current Bonus</span></h2>
                                 <ul class="token-timeline">
-                                    <li><span>START DATE</span>14 Jul 2018</li>
-                                    <li><span>END DATE</span>25 Aug 2018</li>
+                                    <li><span>START DATE</span>{{ activeSale[0].startdate | shorterDate }}</li>
+                                    <li><span>END DATE</span>{{ activeSale[0].enddate | shorterDate }}</li>
                                 </ul>
                             </div>
                             <div class="token-countdown">
                                 <span class="token-countdown-title">THE BONUS END IN</span>
-                                <div class="token-countdown-clock" data-date="2018/09/05"></div>
+                                <Countdown deadline="October 1, 2018"></Countdown>
                             </div>
                         </div><!-- .token-card -->
                         <div class="progress-card">
@@ -133,16 +133,51 @@
 </template>
 
 <script>
+import Countdown from 'vuejs-countdown'
 import Topbar from './Globals/Topbar'
 import Sidebar from './Globals/Sidebar'
 import Footer from './Globals/Footer'
-
+import {
+  mapActions,
+  mapGetters,
+  mapState
+} from 'vuex'
 export default {
   name: 'UnknownComponent',
   components: {
+    Countdown,
     'global-topbar': Topbar,
     'global-sidebar': Sidebar,
     'global-footer': Footer
+  },
+  computed: {
+    ...mapState({
+      'sales': ({sales}) => sales.responseData
+    }),
+    ...mapGetters([
+      'activeSale'
+    ])
+  },
+  methods: {
+    ...mapActions([
+      'fetchAllSaleStatus'
+    ])
+  },
+  created () {
+    this.fetchAllSaleStatus()
   }
 }
 </script>
+
+<style lang="scss">
+ .vuejs-countdown {
+    & li:nth-child(4) {
+        display: none;
+    }
+    & li:nth-child(3) {
+        &::after {
+            display: none;
+        }
+    }
+ }
+</style>

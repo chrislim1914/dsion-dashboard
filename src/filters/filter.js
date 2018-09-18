@@ -38,6 +38,10 @@ export function readerDate (entry = '') {
   return moment(entry).format('MMMM D, Y')
 }
 
+export function shorterDate (entry = '') {
+  return moment(entry).format('D MMM, Y')
+}
+
 export function salesPeriodFrom (entry = '') {
   return moment(entry).format('YYYY.MM.DD')
 }
