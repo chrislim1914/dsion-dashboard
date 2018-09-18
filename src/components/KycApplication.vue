@@ -417,7 +417,6 @@ export default {
          this.documentFront = this.$refs.kycForm_front_3.files[0]
          this.documentBack = this.$refs.kycForm_back_3.files[0]
          this.selfie = this.$refs.kycForm_selfie_3.files[0]
-
        }
 
        const formData = new FormData()
