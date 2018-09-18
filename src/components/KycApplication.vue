@@ -415,9 +415,9 @@ export default {
          formData.append('contactnumber', this.kycForm.phoneNumber)
          formData.append('doctype', this.kycForm.documentType)
          formData.append('nationality', this.kycForm.nationality)
-         formData.append('docfront', this.kycForm.documentFront)
-         formData.append('docback', this.kycForm.documentBack)
-         formData.append('selfie', this.kycForm.selfie)
+         formData.append('docfront', this.documentFront)
+         formData.append('docback', this.documentBack)
+         formData.append('selfie', this.selfie)
          formData.append('iduser', this.$session.get('user').iduser)
          formData.append('token', this.$session.get('token'))
          this.storeKycApplication(formData).then(() => {
