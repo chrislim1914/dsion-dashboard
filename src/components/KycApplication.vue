@@ -402,18 +402,19 @@ export default {
        //this.documentFront = this.$$.kycForm_front.files[0]
        //this.documentBack = this.$$.kycForm_back.files[0]
        //this.selfie = this.$$.kycForm_selfie.files[0]
-
-       if(this.kycForm.documentType=="여권"){
+       console.log(this.kycForm.documentType)
+       
+       if(this.kycForm.documentType == '여권'){
          this.documentFront = this.$refs.kycForm_front_1.files[0]
-         this.documentBack = ""
+         this.documentBack = ''
          this.selfie = this.$refs.kycForm_selfie_1.files[0]
 
-       }else if(this.kycForm.documentType=="주민등록증"){
+       }else if(this.kycForm.documentType == '주민등록증'){
          this.documentFront = this.$refs.kycForm_front_2.files[0]
          this.documentBack = this.$refs.kycForm_back_2.files[0]
          this.selfie = this.$refs.kycForm_selfie_2.files[0]
 
-       }if(this.kycForm.documentType=="운전면허증"){
+       }if(this.kycForm.documentType == '운전면허증'){
          this.documentFront = this.$refs.kycForm_front_3.files[0]
          this.documentBack = this.$refs.kycForm_back_3.files[0]
          this.selfie = this.$refs.kycForm_selfie_3.files[0]
@@ -421,9 +422,6 @@ export default {
 
        const formData = new FormData()
        if (Validate.isValidEmail(this.kycForm.email)) {
-         //this.documentFront = this.$refs.kycForm_front.files[0]
-         //this.documentBack = this.$refs.kycForm_back.files[0]
-         //this.selfie = this.$refs.kycForm_selfie.files[0]
          formData.append('first_name', this.kycForm.firstName)
          formData.append('last_name', this.kycForm.lastName)
          formData.append('email', this.kycForm.email)
