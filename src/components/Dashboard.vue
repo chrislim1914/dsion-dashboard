@@ -52,13 +52,13 @@
                             <h4>Token Sale Progress</h4>
                             <div class="progress-bar">
                                 <div class="progress-hcap" style="width:90%">
-                                    <div>Hard cap <span>1,400,000 DSN</span></div>
+                                    <div>Hard cap <span>{{ salesData.Hard_Cap | digitCommafy }} DSN</span></div>
                                 </div>
                                 <div class="progress-scap" style="width:34%">
-                                    <div>Soft cap <span>40,000 DSN</span></div>
+                                    <div>Soft cap <span>{{ salesData.Total_Soft_Cap | digitCommafy }} DSN</span></div>
                                 </div>
                                 <div class="progress-psale" style="width:12%">
-                                    <div>Pre Sale <span>10,000 DSN</span></div>
+                                    <div>{{ activeSale[0].name }}<span>{{ activeSale[0].cap_limit | digitCommafy }}DSN</span></div>
                                 </div>
                                 <div class="progress-percent" style="width:25%"></div>
                             </div>
@@ -68,26 +68,26 @@
                             <table class="table">
                                 <thead>
                                     <tr>
-                                        <th :key="index" v-for="(sale, index) in sales">
+                                        <th :key="index" v-for="(sale, index) in salesTableData">
                                           {{ sale.name }}
                                         </th>
                                     </tr>
                                 </thead>
                                 <tbody>
                                     <tr>
-                                        <td :key="index" v-for="(sale, index) in sales">
+                                        <td :key="index" v-for="(sale, index) in salesTableData" >
                                             <span>Start Date</span>
                                             {{ sale.startdate }}
                                         </td>
                                     </tr>
                                     <tr>
-                                        <td :key="index" v-for="(sale, index) in sales">
+                                        <td :key="index" v-for="(sale, index) in salesTableData" >
                                             <span>End Date</span>
                                             {{ sale.enddate }}
                                         </td>
                                     </tr>
                                     <tr>
-                                        <td :key="index" v-for="(sale, index) in sales">
+                                        <td :key="index" v-for="(sale, index) in salesTableData" >
                                             <span>Bonus</span>
                                             {{ sale.bonus_rate }}%
                                         </td>
@@ -129,15 +129,17 @@ export default {
   data () {
     return {
       tokenBalance: '0',
-      contribution: '0'
+      contribution: '0',
+      salesTableData: []
     }
   },
   computed: {
     ...mapState({
-      'sales': ({sales}) => sales.responseData
+      'sales': ({sales}) => sales.sales,
+      'salesData': ({sales}) => sales.responseData
     }),
     ...mapGetters([
-      'activeSale'
+        'activeSale'
     ])
   },
   methods: {
@@ -147,8 +149,10 @@ export default {
     ])
   },
   created () {
-    this.fetchTotalSales()
     this.fetchAllSaleStatus()
+    this.fetchTotalSales().then(() => {
+        this.salesTableData = this.sales
+    })
   }
 }
 </script>

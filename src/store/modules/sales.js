@@ -30,9 +30,7 @@ const actions = {
     try {
       var resp = await axios.get(sales.getAllSalesStatus)
       context.commit('setSalesStatus', resp.data)
-      context.commit('updateResponseMessage', resp.data)
     } catch (error) {
-      console.log(error)
       context.commit('updateResponseMessage', 'General Error')
     }
   },
@@ -41,7 +39,6 @@ const actions = {
       var resp = await axios.get(sales.getTotalSales)
       context.commit('updateResponseMessage', resp.data[0])
     } catch (error) {
-      console.log(error)
       context.commit('updateResponseMessage', 'General Error')
     }
   }
