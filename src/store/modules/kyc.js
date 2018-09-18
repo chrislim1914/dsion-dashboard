@@ -40,14 +40,6 @@ const actions = {
       })
       context.commit('updateResponseMessage', resp.data)
 
-      var resp = await axios({
-
-
-
-      })
-
-
-
     } catch (error) {
       console.log(error)
       context.commit('updateResponseMessage', 'General Error')
