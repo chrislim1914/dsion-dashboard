@@ -33,8 +33,6 @@
         </ul><!-- .user-icon-nav -->
         <div class="user-sidebar-sap"></div><!-- .user-sidebar-sap -->
         <ul class="user-nav">
-            <li><a href="how-to.html">How to buy?</a></li>
-            <li><a href="faq.html">Faqs</a></li>
             <li><a href="https://api.dsion.io/whitepaper/Dsion_whitepaperKorean.pdf" target="_blank">Whitepaper</a></li>
             <li>Contact Support<a href="mailto:contact@dsion.io" style="font-weight: 300 !important; text-transform: none;color: #6783b8;">contact@dsion.io</a></li>
         </ul><!-- .user-nav -->

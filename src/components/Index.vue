@@ -33,11 +33,13 @@ export default {
           this.isLoading = false
           this.$router.push({ name: 'DashboardMain' })
         } else {
-          window.location.href = 'http://localhost:8081'
+          window.location.href = 'https://dsion.io'
+          // window.location.href = 'http://localhost:8081'
         }
       })
     } else {
-      window.location.href = 'http://localhost:8081'
+      window.location.href = 'https://dsion.io'
+      // window.location.href = 'http://localhost:8081'
     }
   }
 }

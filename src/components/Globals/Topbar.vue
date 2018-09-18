@@ -132,7 +132,8 @@ export default {
         if (this.userResponse.result) {
           this.isLoading = false
           this.$session.destroy()
-          window.location.href = 'http://localhost:8081'
+        //   window.location.href = 'http://localhost:8081'
+          window.location.href = 'https://dsion.io'
         }
       })
     }
