@@ -21,6 +21,7 @@ Updated	 :	08.17.2018
 /*! 02.0 - RESET */
 body { font-family: "Poppins", sans-serif; color: #3c3c3c; font-size: 14px; line-height: 1.86; font-weight: 300; -webkit-font-smoothing: antialiased; -moz-osx-font-smoothing: grayscale; position: relative; background: #eaf3fc; min-width: 320px; color: #6783b8; }
 
+a {cursor: pointer !important;}
 img { max-width: 100%; }
 
 h1, h2, h3, h4, h5, h6, p, ul:not(.btn-grp), ol, table { margin-bottom: 12px; line-height: 1.68; }

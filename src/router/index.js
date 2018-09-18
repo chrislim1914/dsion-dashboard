@@ -1,5 +1,6 @@
 import Vue from 'vue'
 import Router from 'vue-router'
+import Dashboard from '@/components/Index'
 import DashboardLogin from '@/components/Login'
 import DashboardMain from '@/components/Dashboard'
 import DashboardAddress from '@/components/Address'
@@ -17,48 +18,54 @@ export default new Router({
   routes: [
     {
       path: '',
-      name: 'DashboardLogin',
-      component: DashboardLogin
-    },
-    {
-      path: '/dashboard',
-      name: 'DashboardMain',
-      component: DashboardMain
-    },
-    {
-      path: '/address',
-      name: 'DashboardAddress',
-      component: DashboardAddress
-    },
-    {
-      path: 'know-your-customer',
-      name: 'DashboardKnowYourCustomer',
-      component: DashboardKnowYourCustomer
-    },
-    {
-      path: 'know-your-customer/application',
-      name: 'DashboardKnowYourCustomerApplication',
-      component: DashboardKnowYourCustomerApplication
-    },
-    {
-      path: 'contribution',
-      name: 'DashboardContribution',
-      component: DashboardContribution
-    },
-    {
-      path: 'referral-program',
-      name: 'DashboardReferral',
-      component: DashboardReferral
-    },
-    {
-      path: 'promotion',
-      name: 'DashboardPromotion',
-      component: DashboardPromotion
-    },
-    {
-      path: 'setting',
-      name: 'DashboardSetting',
-      component: DashboardSetting
+      component: Dashboard,
+      children: [
+        {
+          path: '/dashboard',
+          name: 'DashboardMain',
+          component: DashboardMain
+        },
+        {
+          path: '',
+          name: 'DashboardLogin',
+          component: DashboardLogin
+        },
+        {
+          path: 'address',
+          name: 'DashboardAddress',
+          component: DashboardAddress
+        },
+        {
+          path: 'know-your-customer',
+          name: 'DashboardKnowYourCustomer',
+          component: DashboardKnowYourCustomer
+        },
+        {
+          path: 'know-your-customer/application',
+          name: 'DashboardKnowYourCustomerApplication',
+          component: DashboardKnowYourCustomerApplication
+        },
+        {
+          path: 'contribution',
+          name: 'DashboardContribution',
+          component: DashboardContribution
+        },
+        {
+          path: 'referral-program',
+          name: 'DashboardReferral',
+          component: DashboardReferral
+        },
+        {
+          path: 'promotion',
+          name: 'DashboardPromotion',
+          component: DashboardPromotion
+        },
+        {
+          path: 'setting',
+          name: 'DashboardSetting',
+          component: DashboardSetting
+        }
+      ]
     }
   ]
 })

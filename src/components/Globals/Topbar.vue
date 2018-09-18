@@ -24,7 +24,7 @@
                         <div class="dropdown-menu dropdown-menu-right">
                             <div class="user-dropdown">
                                 <div class="user-dropdown-head">
-                                    <span class="user-dropdown-email">useremail@example.com</span>
+                                    <span class="user-dropdown-email">{{ $session.get('user').email }}</span>
                                 </div>
                                 <div class="user-dropdown-balance">
                                     <h6>ICO TOKEN BALANCE</h6>
@@ -79,7 +79,7 @@
                             <div class="dropdown-menu dropdown-menu-right">
                                 <div class="user-dropdown">
                                     <div class="user-dropdown-head">
-                                        <span class="user-dropdown-email">useremail@example.com</span>
+                                        <span class="user-dropdown-email">{{ $session.get('user').email }}</span>
                                     </div>
                                     <div class="user-dropdown-balance">
                                         <h6>ICO TOKEN BALANCE</h6>
@@ -89,7 +89,7 @@
                                         <li><a href="account.html"><i class="ti ti-id-badge"></i>Setting</a></li>
                                     </ul>
                                     <ul class="user-dropdown-links">
-                                        <li><a href="login.html"><i class="ti ti-power-off"></i>Logout</a></li>
+                                        <li><a @click="signOutUser" style="color: #6783b8;"><i class="ti ti-power-off"></i>Logout</a></li>
                                     </ul>
                                 </div>
                             </div>
@@ -103,7 +103,39 @@
 </template>
 
 <script>
+import Loading from 'vue-loading-overlay'
+import 'vue-loading-overlay/dist/vue-loading.min.css'
+import {
+  mapState,
+  mapActions
+} from 'vuex'
 export default {
-  name: 'Topbar'
+  name: 'Topbar',
+  components: {
+    Loading
+  },
+  data () {
+    return {
+      isLoading: false
+    }
+  },
+  computed: {
+    ...mapState({
+      'userResponse': ({users}) => users.responseData
+    })
+  },
+  methods: {
+    ...mapActions(['logoutUser']),
+    signOutUser () {
+      this.isLoading = true
+      this.logoutUser({ token: this.$session.get('token') }).then(() => {
+        if (this.userResponse.result) {
+          this.isLoading = false
+          this.$session.destroy()
+          window.location.href = 'http://localhost:8081'
+        }
+      })
+    }
+  }
 }
 </script>

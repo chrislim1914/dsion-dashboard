@@ -1,5 +1,5 @@
 <template>
-  <div class="user-ath">
+  <div class="user-ath d-none">
     <div class="user-ath-page">
         <div class="container">
              <div class="row justify-content-center">
@@ -45,15 +45,21 @@
              </div>
          </div>
      </div>
+    <loading :active.sync="isLoading" :is-full-page="true"></loading>
   </div>
 </template>
 
 <script>
+import Loading from 'vue-loading-overlay'
+import 'vue-loading-overlay/dist/vue-loading.min.css'
 export default {
   name: 'Login',
+  components: {
+    Loading
+  },
   data () {
     return {
-
+      isLoading: false
     }
   }
 }

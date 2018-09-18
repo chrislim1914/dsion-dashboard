@@ -30,71 +30,45 @@
                                             <div class="col-md-6">
                                                 <div class="input-item input-with-label">
                                                     <label for="first-name" class="input-item-label">First Name</label>
-                                                    <input class="input-bordered" type="text" id="first-name" name="first-name">
+                                                    <input v-model="kycForm.firstName" class="input-bordered" type="text" id="first-name" name="first-name" required>
                                                 </div><!-- .input-item -->
                                             </div><!-- .col -->
                                             <div class="col-md-6">
                                                 <div class="input-item input-with-label">
                                                     <label for="last-name" class="input-item-label">Last Name</label>
-                                                    <input class="input-bordered" type="text" id="last-name" name="last-name">
+                                                    <input v-model="kycForm.lastName" class="input-bordered" type="text" id="last-name" name="last-name" required>
                                                 </div><!-- .input-item -->
                                             </div><!-- .col -->
                                             <div class="col-md-6">
                                                 <div class="input-item input-with-label">
                                                     <label for="email-address" class="input-item-label">Email Address</label>
-                                                    <input class="input-bordered" type="text" id="email-address" name="email-address">
+                                                    <input v-model="kycForm.email" class="input-bordered" type="text" id="email-address" name="email-address" required>
                                                 </div><!-- .input-item -->
                                             </div><!-- .col -->
                                             <div class="col-md-6">
                                                 <div class="input-item input-with-label">
                                                     <label for="phone-number" class="input-item-label">Phone Number</label>
-                                                    <input class="input-bordered" type="text" id="phone-number" name="phone-number">
+                                                    <input v-model="kycForm.phoneNumber" class="input-bordered" type="text" id="phone-number" name="phone-number" required>
                                                 </div><!-- .input-item -->
                                             </div><!-- .col -->
                                             <div class="col-md-6">
                                                 <div class="input-item input-with-label">
-                                                    <label for="date-of-birth" class="input-item-label">Date of Birth</label>
-                                                    <input class="input-bordered date-picker" type="text" id="date-of-birth" name="date-of-birth">
+                                                    <label for="nationality" class="input-item-label">Document type</label>
+                                                    <select v-model="kycForm.documentType" class="input-bordered">
+                                                        <option value="여권">여권</option>
+                                                        <option value="주민등록증">주민등록증</option>
+                                                        <option value="운전면허증">운전면허증</option>
+                                                    </select>
                                                 </div><!-- .input-item -->
                                             </div><!-- .col -->
                                             <div class="col-md-6">
                                                 <div class="input-item input-with-label">
                                                     <label for="nationality" class="input-item-label">Nationality</label>
-                                                    <select class="country-select" name="Nationality" id="Nationality">
+                                                    <select v-model="kycForm.nationality" class="input-bordered" name="Nationality" id="Nationality">
                                                         <option :value="nationality" :key="index" v-for="(nationality, index) in nationalities">
                                                           {{ nationality }}
                                                         </option>
                                                     </select>
-                                                </div><!-- .input-item -->
-                                            </div><!-- .col -->
-                                            <div class="col-md-6 d-none">
-                                                <div class="input-item input-with-label">
-                                                    <label for="address-line-1" class="input-item-label">Address Line 1</label>
-                                                    <input class="input-bordered" type="text" id="address-line-1" name="address-line-1">
-                                                </div><!-- .input-item -->
-                                            </div><!-- .col -->
-                                            <div class="col-md-6 d-none">
-                                                <div class="input-item input-with-label">
-                                                    <label for="address-line-2" class="input-item-label">Address Line 2 <span>(optional)</span></label>
-                                                    <input class="input-bordered" type="text" id="address-line-2" name="address-line-2">
-                                                </div><!-- .input-item -->
-                                            </div><!-- .col -->
-                                            <div class="col-md-6 d-none">
-                                                <div class="input-item input-with-label">
-                                                    <label for="email-address" class="input-item-label">City of Residence</label>
-                                                    <input class="input-bordered" type="text" id="email-address" name="email-address">
-                                                </div><!-- .input-item -->
-                                            </div><!-- .col -->
-                                            <div class="col-md-6 d-none">
-                                                <div class="input-item input-with-label">
-                                                    <label for="phone-number" class="input-item-label">Zip Code</label>
-                                                    <input class="input-bordered" type="text" id="phone-number" name="phone-number">
-                                                </div><!-- .input-item -->
-                                            </div><!-- .col -->
-                                            <div class="col-md-6 d-none">
-                                                <div class="input-item input-with-label">
-                                                    <label for="phone-number" class="input-item-label">Telegram Username <span>(optional)</span></label>
-                                                    <input class="input-bordered" type="text" id="phone-number" name="phone-number">
                                                 </div><!-- .input-item -->
                                             </div><!-- .col -->
                                         </div><!-- .row -->
@@ -111,56 +85,53 @@
                                     <div class="from-step-content">
                                         <div class="note note-md note-info note-plane">
                                             <em class="fas fa-info-circle"></em>
-                                            <p>Please upload any of the following personal document.</p>
+                                            <p>Please upload the following documents.</p>
                                         </div>
                                         <div class="gaps-2x"></div>
                                         <ul class="nav nav-tabs nav-tabs-bordered" role="tablist">
                                             <li class="nav-item">
-                                                <a class="nav-link active" data-toggle="tab" href="#passport">
+                                                <a class="nav-link active" data-toggle="tab" href="#front-side">
                                                     <div class="nav-tabs-icon">
                                                         <img src="/static/images/icon-passport.png" alt="icon">
                                                         <img src="/static/images/icon-passport-color.png" alt="icon">
                                                     </div>
-                                                    <span>Passport</span>
+                                                    <span>File front side</span>
                                                 </a>
                                             </li>
                                             <li class="nav-item">
-                                                <a class="nav-link" data-toggle="tab" href="#national-card">
+                                                <a class="nav-link" data-toggle="tab" href="#back-side">
                                                     <div class="nav-tabs-icon">
                                                         <img src="/static/images/icon-national-id.png" alt="icon">
                                                         <img src="/static/images/icon-national-id-color.png" alt="icon">
                                                     </div>
-                                                    <span>National Card</span>
+                                                    <span>File back side</span>
                                                 </a>
                                             </li>
                                             <li class="nav-item">
-                                                <a class="nav-link" data-toggle="tab" href="#driver-licence">
+                                                <a class="nav-link" data-toggle="tab" href="#selfie">
                                                     <div class="nav-tabs-icon">
                                                         <img src="/static/images/icon-licence.png" alt="icon">
                                                         <img src="/static/images/icon-licence-color.png" alt="icon">
                                                     </div>
-                                                    <span>Driver’s License</span>
+                                                    <span>Selfie with id</span>
                                                 </a>
                                             </li>
                                         </ul><!-- .nav-tabs-line -->
                                         <div class="tab-content" id="myTabContent">
-                                            <div class="tab-pane fade show active" id="passport">
+                                            <div class="tab-pane fade show active" id="front-side">
                                                 <h5 class="kyc-upload-title">To avoid delays when verifying account, Please make sure bellow:</h5>
                                                 <ul class="kyc-upload-list">
-                                                    <li>Chosen credential must not be expaired.</li>
-                                                    <li>Document should be good condition and clearly visible.</li>
-                                                    <li>Make sure that there is no light glare on the card.</li>
+                                                    <li>Please upload jpg, png files only. Maximum upload file size: 6MB</li>
+                                                    <li>jpg, png 형식의 파일만 업로드가 가능합니다. 최대용량: 6MB</li>
                                                 </ul>
                                                 <div class="gaps-4x"></div>
-                                                <span class="upload-title">Upload Here Your Passport Copy</span>
+                                                <span class="upload-title">Upload here your file front side copy.</span>
                                                 <div class="row align-items-center">
                                                     <div class="col-8">
                                                         <div class="upload-box">
                                                             <div class="upload-zone">
                                                                 <div class="dz-message" data-dz-message>
-                                                                    <span class="dz-message-text">Drag and drop file</span>
-                                                                    <span class="dz-message-or">or</span>
-                                                                    <button class="btn btn-primary">SELECT</button>
+                                                                    <input type="file" class="btn btn-primary" ref="kycForm_front" accept="image/*" />
                                                                 </div>
                                                             </div>
                                                         </div>
@@ -173,23 +144,20 @@
                                                 </div>
                                                 <div class="gaps-1x"></div>
                                             </div>
-                                            <div class="tab-pane fade" id="national-card">
+                                            <div class="tab-pane fade" id="back-side">
                                                 <h5 class="kyc-upload-title">To avoid delays when verifying account, Please make sure bellow:</h5>
                                                 <ul class="kyc-upload-list">
-                                                    <li>Chosen credential must not be expaired.</li>
-                                                    <li>Document should be good condition and clearly visible.</li>
-                                                    <li>Make sure that there is no light glare on the card.</li>
+                                                    <li>Please upload jpg, png files only. Maximum upload file size: 6MB</li>
+                                                    <li>jpg, png 형식의 파일만 업로드가 가능합니다. 최대용량: 6MB</li>
                                                 </ul>
                                                 <div class="gaps-4x"></div>
-                                                <span class="upload-title">Upload Here Your National id Front Side</span>
+                                                <span class="upload-title">Upload here your file backside copy.</span>
                                                 <div class="row align-items-center">
                                                     <div class="col-8">
                                                         <div class="upload-box">
                                                             <div class="upload-zone">
                                                                 <div class="dz-message" data-dz-message>
-                                                                    <span class="dz-message-text">Drag and drop file</span>
-                                                                    <span class="dz-message-or">or</span>
-                                                                    <button class="btn btn-primary">SELECT</button>
+                                                                    <input type="file" class="btn btn-primary" ref="kycForm_back" accept="image/*" />
                                                                 </div>
                                                             </div>
                                                         </div>
@@ -200,45 +168,21 @@
                                                         </div>
                                                     </div>
                                                 </div>
-                                                <div class="gaps-3x"></div>
-                                                <span class="upload-title">Upload Here Your National id Back Side</span>
-                                                <div class="row align-items-center">
-                                                    <div class="col-8">
-                                                        <div class="upload-box">
-                                                            <div class="upload-zone">
-                                                                <div class="dz-message" data-dz-message>
-                                                                    <span class="dz-message-text">Drag and drop file</span>
-                                                                    <span class="dz-message-or">or</span>
-                                                                    <button class="btn btn-primary">SELECT</button>
-                                                                </div>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                    <div class="col-4">
-                                                        <div class="kyc-upload-img">
-                                                            <img src="/static/images/vector-id-back.png" alt="vector">
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                                <div class="gaps-1x"></div>
                                             </div>
-                                            <div class="tab-pane fade" id="driver-licence">
+                                            <div class="tab-pane fade" id="selfie">
                                                 <h5 class="kyc-upload-title">To avoid delays when verifying account, Please make sure bellow:</h5>
                                                 <ul class="kyc-upload-list">
-                                                    <li>Chosen credential must not be expaired.</li>
-                                                    <li>Document should be good condition and clearly visible.</li>
-                                                    <li>Make sure that there is no light glare on the card.</li>
+                                                    <li>Selfie picture should display your face clearly, your readable ID and hand written note with today date and "KYC for ZeroBank" phase. Please see our sample for your reference.</li>
+                                                    <li>얼굴이 선명하게 표시되고, 읽을 수 있는 정도의 여권 혹은 신분증을 들고있는 사진을 업로드 해 주세요. 참고하시려면 견본을 보시기 바랍니다.</li>
                                                 </ul>
                                                 <div class="gaps-4x"></div>
-                                                <span class="upload-title">Upload Here Your Driving Licence Copy</span>
+                                                <span class="upload-title">Upload here your selfie with personal id.</span>
                                                 <div class="row align-items-center">
                                                     <div class="col-8">
                                                         <div class="upload-box">
                                                             <div class="upload-zone">
                                                                 <div class="dz-message" data-dz-message>
-                                                                    <span class="dz-message-text">Drag and drop file</span>
-                                                                    <span class="dz-message-or">or</span>
-                                                                    <button class="btn btn-primary">SELECT</button>
+                                                                    <input type="file" class="btn btn-selfie" ref="kycForm_selfie" accept="image/*" />
                                                                 </div>
                                                             </div>
                                                         </div>
@@ -256,38 +200,9 @@
                                     </div><!-- .from-step-content -->
                                 </div><!-- .from-step-item -->
                                 <div class="from-step-item">
-                                    <div class="from-step-heading">
-                                        <div class="from-step-number">03</div>
-                                        <div class="from-step-head">
-                                            <h4>Step 3 : Your Paying Wallet</h4>
-                                            <p>Submit your wallet address that you are going to send funds</p>
-                                        </div>
-                                    </div>
-                                    <div class="from-step-content">
-                                        <div class="note note-md note-info note-plane">
-                                            <em class="fas fa-info-circle"></em>
-                                            <p>DO NOT USE your exchange wallet address such as Kraken, Bitfinex, Bithumb, Binance etc.</p>
-                                        </div>
-                                        <div class="gaps-2x"></div>
-                                        <div class="row">
-                                            <div class="col-md-6">
-                                                <div class="input-item input-with-label">
-                                                    <label for="swalllet" class="input-item-label">Source of Your Wallet</label>
-                                                    <select class="input-bordered" name="swalllet" id="swalllet">
-                                                        <option value="eth">Ethereum</option>
-                                                        <option value="dac">DashCoin</option>
-                                                        <option value="bic">BitCoin</option>
-                                                    </select>
-                                                </div><!-- .input-item -->
-                                            </div><!-- .col -->
-                                        </div><!-- .row -->
-                                        <div class="input-item input-with-label">
-                                            <label for="token-address" class="input-item-label">Enter your wallet address</label>
-                                            <input class="input-bordered" type="text" id="token-address" name="token-address" value="0xde0b295669a9fd93d5f28d9ec85e40f4cb697bae">
-                                            <span class="input-note">Note: Address should be ERC20-compliant. Make sure that you hold this wallet private key.</span>
-                                        </div><!-- .input-item -->
+                                    <div class="from-step-content text-center">
                                         <div class="gaps-2x"></div><!-- 20px gap -->
-                                        <a class="btn btn-primary" href="#" data-toggle="modal" data-target="#kycConfirm">Submit Details</a>
+                                        <a class="btn btn-primary text-white" @click="onSubmitKycApplication">Submit Details</a>
                                         <div class="gaps-2x"></div><!-- 20px gap -->
                                     </div><!-- .from-step-content -->
                                 </div><!-- .from-step-item -->
@@ -322,7 +237,9 @@
                         <label for="tokenKnow">I understand that, I can only in the token distribution event with the wallet address that was entered in the application form.</label>
                     </div>
                     <div class="gaps-2x"></div>
-                    <div class="text-center"><a href="kyc-status.html" class="btn btn-primary">Process for Verify</a></div>
+                    <div class="text-center">
+                        <a class="btn btn-primary" @click="onSubmitKycApplication">Process for Verify</a>
+                    </div>
                 </div><!-- .modal-content -->
             </div><!-- .modal-content -->
         </div><!-- .modal-dialog -->
@@ -330,36 +247,83 @@
 
     <global-footer></global-footer>
     <!-- FooterBar End -->
+
+    <loading :active.sync="isLoading" :is-full-page="true"></loading>
   </div>
 </template>
 
 <script>
+import Loading from 'vue-loading-overlay'
+import 'vue-loading-overlay/dist/vue-loading.min.css'
 import Topbar from './Globals/Topbar'
 import Sidebar from './Globals/Sidebar'
 import Footer from './Globals/Footer'
 import Nationalities from 'static/nationality.json'
+import Validate from '@/validate'
+import {
+  mapActions,
+  mapState
+} from 'vuex'
 export default {
   name: 'KycApplication',
   components: {
+    Loading,
     'global-topbar': Topbar,
     'global-sidebar': Sidebar,
     'global-footer': Footer
   },
   data () {
     return {
-      nationalities: Nationalities
+      isLoading: false,
+      nationalities: Nationalities,
+      kycForm: {
+        firstName: '',
+        lastName: '',
+        email: '',
+        phoneNumber: '',
+        documentType: '',
+        nationality: '',
+        documentFront: '',
+        documentBack: '',
+        selfie: ''
+      }
+    }
+  },
+  computed: {
+    ...mapState({
+      'kycResponse': ({kyc}) => kyc.responseData
+    })
+  },
+  methods: {
+    ...mapActions(['storeKycApplication']),
+    onSubmitKycApplication () {
+      this.isLoading = true
+
+      const formData = new FormData()
+      if (Validate.isValidEmail(this.kycForm.email)) {
+        this.documentFront = this.$refs.kycForm_front.files[0]
+        this.documentBack = this.$refs.kycForm_back.files[0]
+        this.selfie = this.$refs.kycForm_selfie.files[0]
+        formData.append('first_name', this.kycForm.firstName)
+        formData.append('last_name', this.kycForm.lastName)
+        formData.append('email', this.kycForm.email)
+        formData.append('contactnumber', this.kycForm.phoneNumber)
+        formData.append('doctype', this.kycForm.documentType)
+        formData.append('nationality', this.kycForm.nationality)
+        formData.append('docfront', this.kycForm.documentFront)
+        formData.append('docback', this.kycForm.documentBack)
+        formData.append('selfie', this.kycForm.selfie)
+        formData.append('iduser', this.$session.get('user').iduser)
+        formData.append('token', this.$session.get('jwt'))
+        this.storeKycApplication(formData).then(() => {
+          this.isLoading = false
+          this.$router.push({ name: 'DashboardMain' })
+        })
+      } else {
+        this.isLoading = false
+        this.$awn.alert('Invalid email')
+      }
     }
   }
 }
 </script>
-
-<style>
-  * {
-    margin: 0;
-    padding: 0;
-  }
-
-  .debugger {
-    border: 2px solid red;
-  }
-</style>

@@ -1,0 +1,44 @@
+<template>
+  <div id="user-dashboard">
+    <router-view/>
+  </div>
+</template>
+
+<script>
+import {
+  mapActions,
+  mapState
+} from 'vuex'
+export default {
+  name: 'Dashboard',
+  computed: {
+    ...mapState({
+      'userResponse': ({users}) => users.responseData
+    })
+  },
+  methods: {
+    ...mapActions(['fetchUserInfo'])
+  },
+  created () {
+    // condition to check if token is present.
+    if (this.$route.query.tk !== '' && this.$route.query.tk !== undefined) {
+      this.fetchUserInfo({
+        token: 'eyJ' + this.$route.query.tk.slice(3)
+      }).then(() => {
+        // condition to check if token is valid by fetching the user info.
+        if (this.userResponse !== '' && this.userResponse !== undefined) {
+          this.$session.start()
+          this.$session.set('token', 'eyJ' + this.$route.query.tk.slice(3))
+          this.$session.set('user', this.userResponse)
+          this.isLoading = false
+          this.$router.push({ name: 'DashboardMain' })
+        } else {
+          window.location.href = 'http://localhost:8081'
+        }
+      })
+    } else {
+      window.location.href = 'http://localhost:8081'
+    }
+  }
+}
+</script>

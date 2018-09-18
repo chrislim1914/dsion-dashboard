@@ -6,7 +6,7 @@
             <div class="user-image">
                 <img src="/static/images/user-thumb-lg.png" alt="thumb">
             </div>
-            <h6 class="user-name">email@email.com</h6>
+            <h6 class="user-name">{{ $session.get('user').email }}</h6>
         </div><!-- .user-box -->
         <ul class="user-icon-nav">
             <li>
@@ -35,8 +35,8 @@
         <ul class="user-nav">
             <li><a href="how-to.html">How to buy?</a></li>
             <li><a href="faq.html">Faqs</a></li>
-            <li><a href="#">Whitepaper</a></li>
-            <li>Contact Support<span>contact@dsion.io</span></li>
+            <li><a href="https://api.dsion.io/whitepaper/Dsion_whitepaperKorean.pdf" target="_blank">Whitepaper</a></li>
+            <li>Contact Support<a href="mailto:contact@dsion.io" style="font-weight: 300 !important; text-transform: none;color: #6783b8;">contact@dsion.io</a></li>
         </ul><!-- .user-nav -->
         <div class="d-lg-none">
             <div class="user-sidebar-sap"></div>

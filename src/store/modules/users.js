@@ -2,7 +2,6 @@
  * Users store module
  */
 import axios from 'axios'
-import jsonpAdapter from 'axios-jsonp'
 
 import {
   user
@@ -46,6 +45,7 @@ const actions = {
   },
   logoutUser: async (context, payload) => {
     try {
+      axios.defaults.headers.common['Authorization'] = 'Bearer' + payload.token
       var resp = await axios.post(user.logout, payload)
       context.commit('updateResponseData', resp.data)
     } catch (error) {
@@ -54,23 +54,18 @@ const actions = {
   },
   fetchUserInfo: async (context, payload) => {
     try {
-      axios.defaults.headers.common['Authorization'] = 'Bearer ' + payload.token
+      axios.defaults.headers.common['Authorization'] = 'Bearer' + payload.token
       var resp = await axios.post(user.getInfo)
       context.commit('updateResponseData', resp.data)
     } catch (error) {
-      console.log(error)
       context.commit('updateResponseData', 'General Error')
     }
   },
-  authenticateGoogle: async (context) => {
+  authenticateGoogle: async (context, payload) => {
     try {
-      var resp = await axios.get('https://api.dsion.io/google', {adapter: jsonpAdapter})
-      console.log(JSON.stringify(resp))
+      var resp = await axios.post(user.googleLogin, payload)
       context.commit('updateResponseData', resp.data)
-      console.log('success')
     } catch (error) {
-      console.log('error')
-      console.log(error)
       context.commit('updateResponseData', 'General Error')
     }
   }

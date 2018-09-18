@@ -90,31 +90,29 @@
                             <table class="table">
                                 <thead>
                                     <tr>
-                                        <th>PreSale</th>
-                                        <th>Sale Stage 1</th>
-                                        <th>Sale Stage 2</th>
+                                        <th :key="index" v-for="(sale, index) in sales">
+                                          {{ sale.name }}
+                                        </th>
                                     </tr>
                                 </thead>
                                 <tbody>
                                     <tr>
-                                        <td><span>Start Date</span>03 July 2018</td>
-                                        <td><span>Start Date</span>15 August 2018</td>
-                                        <td><span>Start Date</span>28 October 2018</td>
+                                        <td :key="index" v-for="(sale, index) in sales">
+                                            <span>Start Date</span>
+                                            {{ sale.startdate }}
+                                        </td>
                                     </tr>
                                     <tr>
-                                        <td><span>End Date</span>19 July 2018</td>
-                                        <td><span>End Date</span>02 September 2018</td>
-                                        <td><span>End Date</span>16 November 2018</td>
+                                        <td :key="index" v-for="(sale, index) in sales">
+                                            <span>End Date</span>
+                                            {{ sale.enddate }}
+                                        </td>
                                     </tr>
                                     <tr>
-                                        <td><span>Bonus</span>30%</td>
-                                        <td><span>Bonus</span>20%</td>
-                                        <td><span>Bonus</span>10%</td>
-                                    </tr>
-                                    <tr>
-                                        <td><span>Soft Cap</span>$ 20M</td>
-                                        <td><span>Hard Cap</span>$ 50M</td>
-                                        <td><span>Hard Cap</span>$ 30M</td>
+                                        <td :key="index" v-for="(sale, index) in sales">
+                                            <span>Bonus</span>
+                                            {{ sale.bonus_rate }}%
+                                        </td>
                                     </tr>
                                 </tbody>
                             </table>
@@ -164,7 +162,11 @@ export default {
     ])
   },
   created () {
-    this.fetchAllSaleStatus()
+    if (!this.$session.exists()) {
+      window.location.href = 'http://localhost:8081'
+    } else {
+      this.fetchAllSaleStatus()
+    }
   }
 }
 </script>
