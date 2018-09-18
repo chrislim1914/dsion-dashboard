@@ -295,8 +295,8 @@
                                         <div class="row">
                                         </div><!-- .row -->
                                         <div class="input-item input-with-label">
-                                            <label for="token-address" class="input-item-label">Enter your wallet address</label>
-                                            <input class="input-bordered" type="text" id="token-address" name="token-address" value="">
+                                            <label for="eth_address" class="input-item-label">Enter your wallet address</label>
+                                            <input class="input-bordered" type="text" v-model="kycForm.eth_address" id="eth_address" ref="eth_address" name="eth_address" value="">
                                             <span class="input-note">Note: Address should be ERC20-compliant. Make sure that you hold this wallet private key.</span>
                                         </div><!-- .input-item -->
                                         <div class="gaps-2x"></div><!-- 20px gap -->
@@ -432,6 +432,8 @@ export default {
             formData.append('selfie', this.kycForm.selfie)
             formData.append('iduser', this.$session.get('user').iduser)
             formData.append('token', this.$session.get('token'))
+            formData.append('eth_address', this.kycForm.eth_address)
+
             this.storeKycApplication(formData).then(() => {
                 this.isLoading = false
                 if (this.kycResponse.result) {
