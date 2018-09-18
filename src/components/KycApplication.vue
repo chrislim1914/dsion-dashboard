@@ -53,18 +53,8 @@
                                             </div><!-- .col -->
                                             <div class="col-md-6">
                                                 <div class="input-item input-with-label">
-                                                    <label for="nationality" class="input-item-label">Document type</label>
-                                                    <select v-model="kycForm.documentType" class="input-bordered">
-                                                        <option value="여권">여권</option>
-                                                        <option value="주민등록증">주민등록증</option>
-                                                        <option value="운전면허증">운전면허증</option>
-                                                    </select>
-                                                </div><!-- .input-item -->
-                                            </div><!-- .col -->
-                                            <div class="col-md-6">
-                                                <div class="input-item input-with-label">
                                                     <label for="nationality" class="input-item-label">Nationality</label>
-                                                    <select v-model="kycForm.nationality" class="input-bordered" name="Nationality" id="Nationality">
+                                                    <select v-model="kycForm.nationality" class="input-bordered" name="nationality" id="nationality">
                                                         <option :value="nationality" :key="index" v-for="(nationality, index) in nationalities">
                                                           {{ nationality }}
                                                         </option>
@@ -90,74 +80,152 @@
                                         <div class="gaps-2x"></div>
                                         <ul class="nav nav-tabs nav-tabs-bordered" role="tablist">
                                             <li class="nav-item">
-                                                <a class="nav-link active" data-toggle="tab" href="#front-side">
+                                                <a class="nav-link active" data-toggle="tab" href="#passport" @click="changeDocumentType('여권')">
                                                     <div class="nav-tabs-icon">
                                                         <img src="/static/images/icon-passport.png" alt="icon">
                                                         <img src="/static/images/icon-passport-color.png" alt="icon">
                                                     </div>
-                                                    <span>File front side</span>
+                                                    <span>여권</span>
                                                 </a>
                                             </li>
                                             <li class="nav-item">
-                                                <a class="nav-link" data-toggle="tab" href="#back-side">
+                                                <a class="nav-link" data-toggle="tab" href="#id-card" @click="changeDocumentType('주민등록증')">
                                                     <div class="nav-tabs-icon">
                                                         <img src="/static/images/icon-national-id.png" alt="icon">
                                                         <img src="/static/images/icon-national-id-color.png" alt="icon">
                                                     </div>
-                                                    <span>File back side</span>
+                                                    <span>주민등록증</span>
                                                 </a>
                                             </li>
                                             <li class="nav-item">
-                                                <a class="nav-link" data-toggle="tab" href="#selfie">
+                                                <a class="nav-link" data-toggle="tab" href="#drivers-license" @click="changeDocumentType('운전면허증')">
                                                     <div class="nav-tabs-icon">
                                                         <img src="/static/images/icon-licence.png" alt="icon">
                                                         <img src="/static/images/icon-licence-color.png" alt="icon">
                                                     </div>
-                                                    <span>Selfie with id</span>
+                                                    <span>운전면허증</span>
                                                 </a>
                                             </li>
                                         </ul><!-- .nav-tabs-line -->
                                         <div class="tab-content" id="myTabContent">
-                                            <div class="tab-pane fade show active" id="front-side">
+                                            <div class="tab-pane fade show active" id="passport">
                                                 <h5 class="kyc-upload-title">To avoid delays when verifying account, Please make sure bellow:</h5>
                                                 <ul class="kyc-upload-list">
                                                     <li>Please upload jpg, png files only. Maximum upload file size: 6MB</li>
                                                     <li>jpg, png 형식의 파일만 업로드가 가능합니다. 최대용량: 6MB</li>
                                                 </ul>
                                                 <div class="gaps-4x"></div>
-                                                <span class="upload-title">Upload here your file front side copy.</span>
+                                                <span class="upload-title">Upload Here Your Passport Copy</span>
                                                 <div class="row align-items-center">
-                                                    <div class="col-8">
+                                                    <div class="col-7">
                                                         <div class="upload-box">
                                                             <div class="upload-zone">
                                                                 <div class="dz-message" data-dz-message>
-                                                                    <input type="file" class="btn btn-primary" ref="kycForm_front" accept="image/*" />
+                                                                    <input type="file" class="btn text-dark" ref="kycForm_front" accept="image/*" style="background-color: #f3f8ff;"/>
                                                                 </div>
                                                             </div>
                                                         </div>
                                                     </div>
-                                                    <div class="col-4">
+                                                    <div class="col-4 ml-3">
                                                         <div class="kyc-upload-img">
-                                                            <img src="/static/images/vector-passport.png" alt="vector">
+                                                            <img src="/static/images/vector-id-front.png" alt="vector">
                                                         </div>
                                                     </div>
                                                 </div>
                                                 <div class="gaps-1x"></div>
+                                                <span class="upload-title">Upload Here Your Selfie Copy</span>
+                                                <div class="row align-items-center">
+                                                    <div class="col-7">
+                                                        <div class="upload-box">
+                                                            <div class="upload-zone">
+                                                                <div class="dz-message" data-dz-message>
+                                                                    <input type="file" class="btn text-dark" ref="kycForm_selfie" accept="image/*" style="background-color: #f3f8ff;"/>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-5">
+                                                        <div class="kyc-upload-img">
+                                                            <img src="/static/images/selfie_example.png" alt="vector">
+                                                        </div>
+                                                    </div>
+                                                </div>
                                             </div>
-                                            <div class="tab-pane fade" id="back-side">
+                                            <div class="tab-pane fade" id="id-card">
                                                 <h5 class="kyc-upload-title">To avoid delays when verifying account, Please make sure bellow:</h5>
                                                 <ul class="kyc-upload-list">
                                                     <li>Please upload jpg, png files only. Maximum upload file size: 6MB</li>
                                                     <li>jpg, png 형식의 파일만 업로드가 가능합니다. 최대용량: 6MB</li>
                                                 </ul>
                                                 <div class="gaps-4x"></div>
-                                                <span class="upload-title">Upload here your file backside copy.</span>
+                                                <span class="upload-title">Upload Here Your Id Card Front Side</span>
+                                                <div class="row align-items-center">
+                                                    <div class="col-7">
+                                                        <div class="upload-box">
+                                                            <div class="upload-zone">
+                                                                <div class="dz-message" data-dz-message>
+                                                                    <input type="file" class="btn text-dark" ref="kycForm_front" accept="image/*" style="background-color: #f3f8ff;"/>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-4 ml-3">
+                                                        <div class="kyc-upload-img">
+                                                            <img src="/static/images/vector-id-front.png" alt="vector">
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="gaps-4x"></div>
+                                                <span class="upload-title">Upload Here Your Id Card Back Side</span>
+                                                <div class="row align-items-center">
+                                                    <div class="col-7">
+                                                        <div class="upload-box">
+                                                            <div class="upload-zone">
+                                                                <div class="dz-message" data-dz-message>
+                                                                    <input type="file" class="btn text-dark" ref="kycForm_back" accept="image/*" style="background-color: #f3f8ff;"/>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-4 ml-3">
+                                                        <div class="kyc-upload-img">
+                                                            <img src="/static/images/vector-id-back.png" alt="vector">
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="gaps-4x"></div>
+                                                <span class="upload-title">Upload Here Your Selfie.</span>
+                                                <div class="row align-items-center">
+                                                    <div class="col-7">
+                                                        <div class="upload-box">
+                                                            <div class="upload-zone">
+                                                                <div class="dz-message" data-dz-message>
+                                                                    <input type="file" class="btn text-dark" ref="kycForm_selfie" accept="image/*" style="background-color: #f3f8ff;"/>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-5">
+                                                        <div class="kyc-upload-img">
+                                                            <img src="/static/images/selfie_example.png" alt="vector">
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="tab-pane fade" id="drivers-license">
+                                                <h5 class="kyc-upload-title">To avoid delays when verifying account, Please make sure bellow:</h5>
+                                                <ul class="kyc-upload-list">
+                                                    <li>Please upload jpg, png files only. Maximum upload file size: 6MB</li>
+                                                    <li>jpg, png 형식의 파일만 업로드가 가능합니다. 최대용량: 6MB</li>
+                                                </ul>
+                                                <div class="gaps-4x"></div>
+                                                <span class="upload-title">Upload Here Your Driving License Front Side</span>
                                                 <div class="row align-items-center">
                                                     <div class="col-8">
                                                         <div class="upload-box">
                                                             <div class="upload-zone">
                                                                 <div class="dz-message" data-dz-message>
-                                                                    <input type="file" class="btn btn-primary" ref="kycForm_back" accept="image/*" />
+                                                                    <input type="file" class="btn text-dark" ref="kycForm_front" accept="image/*" style="background-color: #f3f8ff;"/>
                                                                 </div>
                                                             </div>
                                                         </div>
@@ -168,39 +236,69 @@
                                                         </div>
                                                     </div>
                                                 </div>
-                                            </div>
-                                            <div class="tab-pane fade" id="selfie">
-                                                <h5 class="kyc-upload-title">To avoid delays when verifying account, Please make sure bellow:</h5>
-                                                <ul class="kyc-upload-list">
-                                                    <li>Selfie picture should display your face clearly, your readable ID and hand written note with today date and "KYC for ZeroBank" phase. Please see our sample for your reference.</li>
-                                                    <li>얼굴이 선명하게 표시되고, 읽을 수 있는 정도의 여권 혹은 신분증을 들고있는 사진을 업로드 해 주세요. 참고하시려면 견본을 보시기 바랍니다.</li>
-                                                </ul>
                                                 <div class="gaps-4x"></div>
-                                                <span class="upload-title">Upload here your selfie with personal id.</span>
+                                                <span class="upload-title">Upload Here Your Driving License Back Side</span>
                                                 <div class="row align-items-center">
                                                     <div class="col-8">
                                                         <div class="upload-box">
                                                             <div class="upload-zone">
                                                                 <div class="dz-message" data-dz-message>
-                                                                    <input type="file" class="btn btn-primary" ref="kycForm_selfie" accept="image/*" />
+                                                                    <input type="file" class="btn text-dark" ref="kycForm_back" accept="image/*" style="background-color: #f3f8ff;"/>
                                                                 </div>
                                                             </div>
                                                         </div>
                                                     </div>
                                                     <div class="col-4">
                                                         <div class="kyc-upload-img">
-                                                            <img src="/static/images/vector-licence.png" alt="vector">
+                                                            <img src="/static/images/vector-id-front.png" alt="vector">
                                                         </div>
                                                     </div>
                                                 </div>
-                                                <div class="gaps-1x"></div>
+                                                <div class="gaps-4x"></div>
+                                                <span class="upload-title">Upload Here Your Selfie.</span>
+                                                <div class="row align-items-center">
+                                                    <div class="col-7">
+                                                        <div class="upload-box">
+                                                            <div class="upload-zone">
+                                                                <div class="dz-message" data-dz-message>
+                                                                    <input type="file" class="btn text-dark" ref="kycForm_selfie" accept="image/*" style="background-color: #f3f8ff;"/>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-5">
+                                                        <div class="kyc-upload-img">
+                                                            <img src="/static/images/selfie_example.png" alt="vector">
+                                                        </div>
+                                                    </div>
+                                                </div>
                                             </div>
                                         </div>
                                         <div class="gaps-2x"></div>
                                     </div><!-- .from-step-content -->
                                 </div><!-- .from-step-item -->
+
                                 <div class="from-step-item">
+                                    <div class="from-step-heading">
+                                        <div class="from-step-number">03</div>
+                                        <div class="from-step-head">
+                                            <h4>Step 3 : Your Paying Wallet</h4>
+                                            <p>Submit your wallet address that you are going to send funds</p>
+                                        </div>
+                                    </div>
                                     <div class="from-step-content text-center">
+                                        <div class="note note-md note-info note-plane">
+                                            <em class="fas fa-info-circle"></em> 
+                                            <p>DO NOT USE your exchange wallet address such as Kraken, Bitfinex, Bithumb, Binance etc.</p>
+                                        </div>
+                                        <div class="gaps-2x"></div>
+                                        <div class="row">
+                                        </div><!-- .row -->
+                                        <div class="input-item input-with-label">
+                                            <label for="token-address" class="input-item-label">Enter your wallet address</label>
+                                            <input class="input-bordered" type="text" id="token-address" name="token-address" value="">
+                                            <span class="input-note">Note: Address should be ERC20-compliant. Make sure that you hold this wallet private key.</span>
+                                        </div><!-- .input-item -->
                                         <div class="gaps-2x"></div><!-- 20px gap -->
                                         <a class="btn btn-primary text-white" @click="onSubmitKycApplication">Submit Details</a>
                                         <div class="gaps-2x"></div><!-- 20px gap -->
@@ -296,33 +394,41 @@ export default {
   },
   methods: {
     ...mapActions(['storeKycApplication']),
+    changeDocumentType (document) {
+      this.kycForm.documentType = document
+    },
     onSubmitKycApplication () {
-      this.isLoading = true
-
-      const formData = new FormData()
-      if (Validate.isValidEmail(this.kycForm.email)) {
+    //   this.isLoading = true
         this.documentFront = this.$refs.kycForm_front.files[0]
         this.documentBack = this.$refs.kycForm_back.files[0]
         this.selfie = this.$refs.kycForm_selfie.files[0]
-        formData.append('first_name', this.kycForm.firstName)
-        formData.append('last_name', this.kycForm.lastName)
-        formData.append('email', this.kycForm.email)
-        formData.append('contactnumber', this.kycForm.phoneNumber)
-        formData.append('doctype', this.kycForm.documentType)
-        formData.append('nationality', this.kycForm.nationality)
-        formData.append('docfront', this.kycForm.documentFront)
-        formData.append('docback', this.kycForm.documentBack)
-        formData.append('selfie', this.kycForm.selfie)
-        formData.append('iduser', this.$session.get('user').iduser)
-        formData.append('token', this.$session.get('token'))
-        this.storeKycApplication(formData).then(() => {
-          this.isLoading = false
-          this.$router.push({ name: 'DashboardMain' })
-        })
-      } else {
-        this.isLoading = false
-        this.$awn.alert('Invalid email')
-      }
+
+        console.log(this.$refs.kycForm_front.files[0])
+    //   const formData = new FormData()
+    //   if (Validate.isValidEmail(this.kycForm.email)) {
+    //     this.documentFront = this.$refs.kycForm_front.files[0]
+    //     this.documentBack = this.$refs.kycForm_back.files[0]
+    //     this.selfie = this.$refs.kycForm_selfie.files[0]
+    //     formData.append('first_name', this.kycForm.firstName)
+    //     formData.append('last_name', this.kycForm.lastName)
+    //     formData.append('email', this.kycForm.email)
+    //     formData.append('contactnumber', this.kycForm.phoneNumber)
+    //     formData.append('doctype', this.kycForm.documentType)
+    //     formData.append('nationality', this.kycForm.nationality)
+    //     formData.append('docfront', this.kycForm.documentFront)
+    //     formData.append('docback', this.kycForm.documentBack)
+    //     formData.append('selfie', this.kycForm.selfie)
+    //     formData.append('iduser', this.$session.get('user').iduser)
+    //     formData.append('token', this.$session.get('token'))
+    //     this.storeKycApplication(formData).then(() => {
+    //       this.isLoading = false
+    //       console.log(this.kycResponse)
+    //     //   this.$router.push({ name: 'DashboardMain' })
+    //     })
+    //   } else {
+    //     this.isLoading = false
+    //     this.$awn.alert('Invalid email')
+    //   }
     }
   }
 }

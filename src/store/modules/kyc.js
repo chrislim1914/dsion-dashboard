@@ -28,8 +28,16 @@ const actions = {
       */
   storeKycApplication: async (context, payload) => {
     try {
-      var resp = await axios.post(kyc.postKycApplication, payload)
-      context.commit('updateResponseMessage', resp.data)
+      console.log(payload.get('docfront'))
+      console.log(payload.get('docback'))
+      console.log(payload.get('selfie'))
+      // axios.defaults.headers.common['Authorization'] = 'Bearer ' + payload.get('token')
+      // var resp = await axios.post(kyc.postKycApplication, payload, {
+      //   headers: {
+      //     'Content-Type': 'multipart/form-data'
+      //   }
+      // })
+      // context.commit('updateResponseMessage', resp.data)
     } catch (error) {
       console.log(error)
       context.commit('updateResponseMessage', 'General Error')

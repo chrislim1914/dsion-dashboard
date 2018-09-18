@@ -28,11 +28,9 @@
                                 <div class="tile-item tile-light">
                                     <div class="tile-bubbles"></div>
                                     <h6 class="tile-title">YOUR CONTRIBUTION</h6>
-                                    <!-- <ul class="tile-info-list">
-                                        <li><span>1.646</span>ETH</li>
-                                        <li><span>~</span>BTC</li>
-                                        <li><span>5,940</span>USD</li>
-                                    </ul> -->
+                                    <ul class="tile-info-list">
+                                        <li><span>{{ contribution }} DSN</span></li>
+                                    </ul>
                                 </div>
                             </div><!-- .col -->
                         </div><!-- .row -->
@@ -134,7 +132,8 @@ export default {
   },
   data () {
     return {
-      tokenBalance: '0'
+      tokenBalance: '0',
+      contribution: '0'
     }
   },
   computed: {

@@ -13,9 +13,9 @@
               <router-link :to="{ name: 'DashboardMain' }"><em class="ti ti-dashboard"></em>Dashboard</router-link>
             </li>
             <li>
-              <router-link :to="{ name: 'DashboardAddress' }"><em class="ti ti-direction"></em>Address</router-link>
+              <router-link :to="{ name: 'DashboardAddress' }"><em class="ti ti-direction"></em>KYC/Address</router-link>
             </li>
-            <li>
+            <li class="d-none">
               <router-link :to="{ name: 'DashboardKnowYourCustomer' }"><em class="ti ti-files"></em>KYC Application</router-link>
             </li>
             <li class="d-none">
