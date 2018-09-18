@@ -402,7 +402,7 @@ export default {
        //this.documentFront = this.$$.kycForm_front.files[0]
        //this.documentBack = this.$$.kycForm_back.files[0]
        //this.selfie = this.$$.kycForm_selfie.files[0]
-       console.log(this.kycForm.documentType)
+       //console.log(this.kycForm.documentType)
 
        if(this.kycForm.documentType == '여권'){
          this.documentFront = this.$refs.kycForm_front_1.files[0]
@@ -414,7 +414,7 @@ export default {
          this.documentBack = this.$refs.kycForm_back_2.files[0]
          this.selfie = this.$refs.kycForm_selfie_2.files[0]
 
-       }if(this.kycForm.documentType == '운전면허증'){
+       }else if(this.kycForm.documentType == '운전면허증'){
          this.documentFront = this.$refs.kycForm_front_3.files[0]
          this.documentBack = this.$refs.kycForm_back_3.files[0]
          this.selfie = this.$refs.kycForm_selfie_3.files[0]
