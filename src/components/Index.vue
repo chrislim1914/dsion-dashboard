@@ -21,7 +21,7 @@ export default {
   },
   created () {
     // condition to check if token is present.
-    if (this.$route.query.tk !== '' && this.$route.query.tk !== undefined) {
+    if ((this.$route.query.tk !== '' && this.$route.query.tk !== undefined) || this.$session.exists()) {
       this.fetchUserInfo({
         token: 'eyJ' + this.$route.query.tk.slice(3)
       }).then(() => {

@@ -16,7 +16,7 @@
                                 <div class="tile-item tile-primary">
                                     <div class="tile-bubbles"></div>
                                     <h6 class="tile-title">ICO TOKEN BALANCE</h6>
-                                    <h1 class="tile-info">120,000,000 IC0X</h1>
+                                    <h1 class="tile-info">{{ tokenBalance }} DSN</h1>
                                     <!-- <ul class="tile-list-inline">
                                         <li>1.240 BTC</li>
                                         <li>19.043 ETH</li>
@@ -36,22 +36,6 @@
                                 </div>
                             </div><!-- .col -->
                         </div><!-- .row -->
-                        <div class="info-card info-card-bordered">
-                            <div class="row align-items-center">
-                                <div class="col-sm-3">
-                                    <div class="info-card-image">
-                                        <img src="/static/images/vector-a.png" alt="vector">
-                                    </div>
-                                    <div class="gaps-2x d-md-none"></div>
-                                </div>
-                                <div class="col-sm-9">
-                                    <h4>Thank you for your interest towards to our ICO Crypto Projects</h4>
-                                    <p>You can contribute ICOX tokens in <a href="#">Contributions</a> section.</p>
-                                    <p>You can get a quick response to any questions, and chat with the project in our Telegram: <a href="htts://t.me/icocrypto">htts://t.me/icocrypto</a></p>
-                                    <p>Don’t hesitate to invite your friends! If your invited referral purchased token then both of you get 10% bonus.</p>
-                                </div>
-                            </div>
-                        </div><!-- .info-card -->
                         <div class="token-card">
                             <div class="token-info">
                                 <span class="token-smartag">{{ activeSale[0].name }}</span>
@@ -63,7 +47,7 @@
                             </div>
                             <div class="token-countdown">
                                 <span class="token-countdown-title">THE BONUS END IN</span>
-                                <Countdown deadline="October 1, 2018"></Countdown>
+                                <Countdown :deadline="activeSale[0].enddate | readerDate"></Countdown>
                             </div>
                         </div><!-- .token-card -->
                         <div class="progress-card">
@@ -148,6 +132,11 @@ export default {
     'global-sidebar': Sidebar,
     'global-footer': Footer
   },
+  data () {
+    return {
+      tokenBalance: '0'
+    }
+  },
   computed: {
     ...mapState({
       'sales': ({sales}) => sales.responseData
@@ -162,11 +151,7 @@ export default {
     ])
   },
   created () {
-    if (!this.$session.exists()) {
-      window.location.href = 'http://localhost:8081'
-    } else {
-      this.fetchAllSaleStatus()
-    }
+    this.fetchAllSaleStatus()
   }
 }
 </script>

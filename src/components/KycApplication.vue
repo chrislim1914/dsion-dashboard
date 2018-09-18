@@ -182,7 +182,7 @@
                                                         <div class="upload-box">
                                                             <div class="upload-zone">
                                                                 <div class="dz-message" data-dz-message>
-                                                                    <input type="file" class="btn btn-selfie" ref="kycForm_selfie" accept="image/*" />
+                                                                    <input type="file" class="btn btn-primary" ref="kycForm_selfie" accept="image/*" />
                                                                 </div>
                                                             </div>
                                                         </div>
@@ -314,7 +314,7 @@ export default {
         formData.append('docback', this.kycForm.documentBack)
         formData.append('selfie', this.kycForm.selfie)
         formData.append('iduser', this.$session.get('user').iduser)
-        formData.append('token', this.$session.get('jwt'))
+        formData.append('token', this.$session.get('token'))
         this.storeKycApplication(formData).then(() => {
           this.isLoading = false
           this.$router.push({ name: 'DashboardMain' })

@@ -10,7 +10,7 @@
         </div><!-- .user-box -->
         <ul class="user-icon-nav">
             <li>
-              <router-link :to="{ name: 'Main' }"><em class="ti ti-dashboard"></em>Dashboard</router-link>
+              <router-link :to="{ name: 'DashboardMain' }"><em class="ti ti-dashboard"></em>Dashboard</router-link>
             </li>
             <li>
               <router-link :to="{ name: 'DashboardAddress' }"><em class="ti ti-direction"></em>Address</router-link>
@@ -18,16 +18,16 @@
             <li>
               <router-link :to="{ name: 'DashboardKnowYourCustomer' }"><em class="ti ti-files"></em>KYC Application</router-link>
             </li>
-            <li>
+            <li class="d-none">
               <router-link :to="{ name: 'DashboardContribution' }"><em class="ti ti-pie-chart"></em>Contributions</router-link>
             </li>
-            <li>
+            <li class="d-none">
               <router-link :to="{ name: 'DashboardReferral' }"><em class="ti ti-infinite"></em>Referral</router-link>
             </li>
-            <li>
+            <li class="d-none">
               <router-link :to="{ name: 'DashboardPromotion' }"><em class="ti ti-star"></em>Promotion</router-link>
             </li>
-            <li>
+            <li class="d-none">
               <router-link :to="{ name: 'DashboardSetting' }"><em class="ti ti-settings"></em>Setting</router-link>
             </li>
         </ul><!-- .user-icon-nav -->

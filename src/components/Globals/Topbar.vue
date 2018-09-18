@@ -28,7 +28,7 @@
                                 </div>
                                 <div class="user-dropdown-balance">
                                     <h6>ICO TOKEN BALANCE</h6>
-                                    <h3>120,000,000 IC0X</h3>
+                                    <h3>{{ tokenBalance }} DSN</h3>
                                 </div>
                                 <ul class="user-dropdown-btns btn-grp guttar-10px">
                                     <li><a href="#" class="btn btn-xs btn-warning">Confirm Email</a></li>
@@ -83,11 +83,8 @@
                                     </div>
                                     <div class="user-dropdown-balance">
                                         <h6>ICO TOKEN BALANCE</h6>
-                                        <h3>120,000,000 IC0X</h3>
+                                        <h3>{{ tokenBalance }} DSN</h3>
                                     </div>
-                                    <ul class="user-dropdown-links">
-                                        <li><a href="account.html"><i class="ti ti-id-badge"></i>Setting</a></li>
-                                    </ul>
                                     <ul class="user-dropdown-links">
                                         <li><a @click="signOutUser" style="color: #6783b8;"><i class="ti ti-power-off"></i>Logout</a></li>
                                     </ul>
@@ -116,6 +113,7 @@ export default {
   },
   data () {
     return {
+      tokenBalance: '0',
       isLoading: false
     }
   },
@@ -132,7 +130,7 @@ export default {
         if (this.userResponse.result) {
           this.isLoading = false
           this.$session.destroy()
-        //   window.location.href = 'http://localhost:8081'
+          // window.location.href = 'http://localhost:8081'
           window.location.href = 'https://dsion.io'
         }
       })
