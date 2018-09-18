@@ -421,9 +421,9 @@ export default {
 
        const formData = new FormData()
        if (Validate.isValidEmail(this.kycForm.email)) {
-         this.documentFront = this.$refs.kycForm_front.files[0]
-         this.documentBack = this.$refs.kycForm_back.files[0]
-         this.selfie = this.$refs.kycForm_selfie.files[0]
+         //this.documentFront = this.$refs.kycForm_front.files[0]
+         //this.documentBack = this.$refs.kycForm_back.files[0]
+         //this.selfie = this.$refs.kycForm_selfie.files[0]
          formData.append('first_name', this.kycForm.firstName)
          formData.append('last_name', this.kycForm.lastName)
          formData.append('email', this.kycForm.email)
