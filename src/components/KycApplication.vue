@@ -121,7 +121,7 @@
                                                         <div class="upload-box">
                                                             <div class="upload-zone">
                                                                 <div class="dz-message" data-dz-message>
-                                                                    <input type="file" class="btn text-dark" ref="kycForm_front" accept="image/*" style="background-color: #f3f8ff;"/>
+                                                                    <input type="file" class="btn text-dark" ref="kycForm_frontPassport" accept="image/*" style="background-color: #f3f8ff;"/>
                                                                 </div>
                                                             </div>
                                                         </div>
@@ -139,7 +139,7 @@
                                                         <div class="upload-box">
                                                             <div class="upload-zone">
                                                                 <div class="dz-message" data-dz-message>
-                                                                    <input type="file" class="btn text-dark" ref="kycForm_selfie" accept="image/*" style="background-color: #f3f8ff;"/>
+                                                                    <input type="file" class="btn text-dark" ref="kycForm_selfiePassport" accept="image/*" style="background-color: #f3f8ff;"/>
                                                                 </div>
                                                             </div>
                                                         </div>
@@ -164,7 +164,7 @@
                                                         <div class="upload-box">
                                                             <div class="upload-zone">
                                                                 <div class="dz-message" data-dz-message>
-                                                                    <input type="file" class="btn text-dark" ref="kycForm_front" accept="image/*" style="background-color: #f3f8ff;"/>
+                                                                    <input type="file" class="btn text-dark" ref="kycForm_frontIdCard" accept="image/*" style="background-color: #f3f8ff;"/>
                                                                 </div>
                                                             </div>
                                                         </div>
@@ -182,7 +182,7 @@
                                                         <div class="upload-box">
                                                             <div class="upload-zone">
                                                                 <div class="dz-message" data-dz-message>
-                                                                    <input type="file" class="btn text-dark" ref="kycForm_back" accept="image/*" style="background-color: #f3f8ff;"/>
+                                                                    <input type="file" class="btn text-dark" ref="kycForm_backIdCard" accept="image/*" style="background-color: #f3f8ff;"/>
                                                                 </div>
                                                             </div>
                                                         </div>
@@ -200,7 +200,7 @@
                                                         <div class="upload-box">
                                                             <div class="upload-zone">
                                                                 <div class="dz-message" data-dz-message>
-                                                                    <input type="file" class="btn text-dark" ref="kycForm_selfie" accept="image/*" style="background-color: #f3f8ff;"/>
+                                                                    <input type="file" class="btn text-dark" ref="kycForm_selfieIdCard" accept="image/*" style="background-color: #f3f8ff;"/>
                                                                 </div>
                                                             </div>
                                                         </div>
@@ -225,7 +225,7 @@
                                                         <div class="upload-box">
                                                             <div class="upload-zone">
                                                                 <div class="dz-message" data-dz-message>
-                                                                    <input type="file" class="btn text-dark" ref="kycForm_front" accept="image/*" style="background-color: #f3f8ff;"/>
+                                                                    <input type="file" class="btn text-dark" ref="kycForm_frontDrivingLicense" accept="image/*" style="background-color: #f3f8ff;"/>
                                                                 </div>
                                                             </div>
                                                         </div>
@@ -243,7 +243,7 @@
                                                         <div class="upload-box">
                                                             <div class="upload-zone">
                                                                 <div class="dz-message" data-dz-message>
-                                                                    <input type="file" class="btn text-dark" ref="kycForm_back" accept="image/*" style="background-color: #f3f8ff;"/>
+                                                                    <input type="file" class="btn text-dark" ref="kycForm_backDrivingLicense" accept="image/*" style="background-color: #f3f8ff;"/>
                                                                 </div>
                                                             </div>
                                                         </div>
@@ -261,7 +261,7 @@
                                                         <div class="upload-box">
                                                             <div class="upload-zone">
                                                                 <div class="dz-message" data-dz-message>
-                                                                    <input type="file" class="btn text-dark" ref="kycForm_selfie" accept="image/*" style="background-color: #f3f8ff;"/>
+                                                                    <input type="file" class="btn text-dark" ref="kycForm_selfieDrivingLicense" accept="image/*" style="background-color: #f3f8ff;"/>
                                                                 </div>
                                                             </div>
                                                         </div>
@@ -379,7 +379,7 @@ export default {
         lastName: '',
         email: '',
         phoneNumber: '',
-        documentType: '',
+        documentType: '여권',
         nationality: '',
         documentFront: '',
         documentBack: '',
@@ -398,37 +398,55 @@ export default {
       this.kycForm.documentType = document
     },
     onSubmitKycApplication () {
-    //   this.isLoading = true
-        this.documentFront = this.$refs.kycForm_front.files[0]
-        this.documentBack = this.$refs.kycForm_back.files[0]
-        this.selfie = this.$refs.kycForm_selfie.files[0]
-
-        console.log(this.$refs.kycForm_front.files[0])
-    //   const formData = new FormData()
-    //   if (Validate.isValidEmail(this.kycForm.email)) {
-    //     this.documentFront = this.$refs.kycForm_front.files[0]
-    //     this.documentBack = this.$refs.kycForm_back.files[0]
-    //     this.selfie = this.$refs.kycForm_selfie.files[0]
-    //     formData.append('first_name', this.kycForm.firstName)
-    //     formData.append('last_name', this.kycForm.lastName)
-    //     formData.append('email', this.kycForm.email)
-    //     formData.append('contactnumber', this.kycForm.phoneNumber)
-    //     formData.append('doctype', this.kycForm.documentType)
-    //     formData.append('nationality', this.kycForm.nationality)
-    //     formData.append('docfront', this.kycForm.documentFront)
-    //     formData.append('docback', this.kycForm.documentBack)
-    //     formData.append('selfie', this.kycForm.selfie)
-    //     formData.append('iduser', this.$session.get('user').iduser)
-    //     formData.append('token', this.$session.get('token'))
-    //     this.storeKycApplication(formData).then(() => {
-    //       this.isLoading = false
-    //       console.log(this.kycResponse)
-    //     //   this.$router.push({ name: 'DashboardMain' })
-    //     })
-    //   } else {
-    //     this.isLoading = false
-    //     this.$awn.alert('Invalid email')
-    //   }
+      this.isLoading = true
+      const formData = new FormData()
+      if (Validate.isValidEmail(this.kycForm.email)) {
+        if (this.kycForm.documentType !== undefined || this.kycForm.documentType !== '') {
+            console.log(this.kycForm.documentType)
+            console.log(this.kycForm)
+            switch (this.kycForm.documentType) {
+                case '여권':
+                    this.kycForm.documentFront = this.$refs.kycForm_frontPassport.files[0]
+                    this.kycForm.documentBack = this.$refs.kycForm_frontPassport.files[0]
+                    this.kycForm.selfie = this.$refs.kycForm_selfiePassport.files[0]
+                    break;
+                case '주민등록증':
+                    this.kycForm.documentFront = this.$refs.kycForm_frontIdCard.files[0]
+                    this.kycForm.documentBack = this.$refs.kycForm_backIdCard.files[0]
+                    this.kycForm.selfie = this.$refs.kycForm_selfieIdCard.files[0]
+                    break;
+                case '운전면허증':
+                    this.kycForm.documentFront = this.$refs.kycForm_frontDrivingLicense.files[0]
+                    this.kycForm.documentBack = this.$refs.kycForm_backDrivingLicense.files[0]
+                    this.kycForm.selfie = this.$refs.kycForm_selfieDrivingLicense.files[0]
+                    break;
+            }
+            formData.append('first_name', this.kycForm.firstName)
+            formData.append('last_name', this.kycForm.lastName)
+            formData.append('email', this.kycForm.email)
+            formData.append('contactnumber', this.kycForm.phoneNumber)
+            formData.append('doctype', this.kycForm.documentType)
+            formData.append('nationality', this.kycForm.nationality)
+            formData.append('docfront', this.kycForm.documentFront)
+            formData.append('docback', this.kycForm.documentBack)
+            formData.append('selfie', this.kycForm.selfie)
+            formData.append('iduser', this.$session.get('user').iduser)
+            formData.append('token', this.$session.get('token'))
+            this.storeKycApplication(formData).then(() => {
+                this.isLoading = false
+                if (this.kycResponse.result) {
+                    this.$router.push({ name: 'DashboardAddress' })
+                } else {
+                    this.$awn.alert(this.kycResponse.message)
+                }
+            })
+        } else {
+            this.$awn.warning('Please select a document type.')
+        }
+      } else {
+        this.isLoading = false
+        this.$awn.warning('Invalid email')
+      }
     }
   }
 }

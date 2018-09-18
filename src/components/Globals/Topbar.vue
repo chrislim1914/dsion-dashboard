@@ -14,9 +14,9 @@
                     </a><!-- .toggle-nav -->
 
                     <div class="site-logo">
-                      <router-link :to="{ name: 'DashboardMain' }" class="site-brand">
+                      <a href="https://dsion.io">
                         <img src="~images/logo_dsion.png" alt="Dsion logo">
-                      </router-link>
+                      </a>
                     </div><!-- .site-logo -->
 
                     <div class="dropdown topbar-action-item topbar-action-user">
@@ -52,9 +52,9 @@
             <div class="d-lg-flex align-items-center justify-content-between">
                 <div class="topbar-lg d-none d-lg-block">
                     <div class="site-logo">
-                        <router-link :to="{ name: 'DashboardMain' }" class="site-brand">
-                          <img src="~images/logo_dsion.png" alt="Dsion logo">
-                        </router-link>
+                        <a href="https://dsion.io">
+                            <img src="~images/logo_dsion.png" alt="Dsion logo">
+                        </a>
                     </div><!-- .site-logo -->
                 </div><!-- .topbar-lg -->
 

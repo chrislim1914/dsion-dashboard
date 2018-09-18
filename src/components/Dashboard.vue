@@ -50,19 +50,15 @@
                         </div><!-- .token-card -->
                         <div class="progress-card">
                             <h4>Token Sale Progress</h4>
-                            <ul class="progress-info">
-                                <li><span>Raised -</span> 2,758 ICOX</li>
-                                <li><span>TOTAL -</span> 1,500,000 ICOX</li>
-                            </ul>
                             <div class="progress-bar">
                                 <div class="progress-hcap" style="width:90%">
-                                    <div>Hard cap <span>1,400,000</span></div>
+                                    <div>Hard cap <span>1,400,000 DSN</span></div>
                                 </div>
                                 <div class="progress-scap" style="width:34%">
-                                    <div>Soft cap <span>40,000</span></div>
+                                    <div>Soft cap <span>40,000 DSN</span></div>
                                 </div>
                                 <div class="progress-psale" style="width:12%">
-                                    <div>Pre Sale <span>10,000</span></div>
+                                    <div>Pre Sale <span>10,000 DSN</span></div>
                                 </div>
                                 <div class="progress-percent" style="width:25%"></div>
                             </div>
@@ -146,10 +142,12 @@ export default {
   },
   methods: {
     ...mapActions([
-      'fetchAllSaleStatus'
+      'fetchAllSaleStatus',
+      'fetchTotalSales'
     ])
   },
   created () {
+    this.fetchTotalSales()
     this.fetchAllSaleStatus()
   }
 }

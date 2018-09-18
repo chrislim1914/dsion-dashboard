@@ -23,12 +23,12 @@
                             </div>
                         </div>
                         <div class="row mt-5" ref="notice" v-if="displays.isApproved && displays.showNotice">
-                            <div class="col-12">
+                            <div class="col-12 d-none">
                                 <h3 class="text-left font-weight-bold">
                                     Notice
                                 </h3>
                             </div>
-                            <div class="col-10 ml-3 text-justify">
+                            <div class="col-10 ml-3 text-justify d-none">
                                 <p>
                                 Their shadows do not disappear in heaven. This will be a remarkable example of the sun, even though it is not like him
                                 </p>
@@ -40,7 +40,7 @@
                                 It is to enrich our lives by creating a seedy fruit. Look youth! How strong are their bodies, how vivid their.
                                 </p>
                             </div>
-                            <div class="col-12 text-center">
+                            <div class="col-12 text-center d-none">
                                 <div class="form-check form-check-inline">
                                 <input class="form-check-input" type="checkbox" id="agree" v-model="displays.isChecked">
                                 <label class="form-check-label font-weight-bold" for="agree">
@@ -101,6 +101,10 @@ import 'vue-loading-overlay/dist/vue-loading.min.css'
 import Topbar from './Globals/Topbar'
 import Sidebar from './Globals/Sidebar'
 import Footer from './Globals/Footer'
+import {
+  mapActions,
+  mapState
+} from 'vuex'
 export default {
   name: 'KycApplication',
   components: {
@@ -121,15 +125,19 @@ export default {
     }
   },
   computed: {
-
+    ...mapState({
+      'userResponse': ({users}) => users.responseData
+    })
   },
   methods: {
+    ...mapActions(['fetchUserInfo']),
     receive () {
-      if (this.displays.isChecked) {
         this.displays.showNotice = false
-      } else {
-        this.$awn.warning('Please agree to the notice before proceeding.')
-      }
+    //   if (this.displays.isChecked) {
+        // this.displays.showNotice = false
+    //   } else {
+    //     this.$awn.warning('Please agree to the notice before proceeding.')
+    //   }
     },
     onCopy () {
       this.$awn.info('Code copied.')
@@ -139,9 +147,13 @@ export default {
     }
   },
   created () {
-    if (this.$session.get('user').kyc_status === '') {
-        this.$router.push({ name: 'DashboardKnowYourCustomer' })
-    }
+    this.fetchUserInfo({
+        token: this.$session.get('token')
+    }).then(() => {
+        if (this.userResponse.kyc_status === '' || this.userResponse.kyc_status === undefined) {
+            this.$router.push({ name: 'DashboardKnowYourCustomer' })
+        }
+    })
   }
 }
 </script>
