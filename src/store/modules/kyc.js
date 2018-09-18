@@ -31,13 +31,23 @@ const actions = {
       console.log(payload.get('docfront'))
       console.log(payload.get('docback'))
       console.log(payload.get('selfie'))
-      // axios.defaults.headers.common['Authorization'] = 'Bearer ' + payload.get('token')
-      // var resp = await axios.post(kyc.postKycApplication, payload, {
-      //   headers: {
-      //     'Content-Type': 'multipart/form-data'
-      //   }
-      // })
-      // context.commit('updateResponseMessage', resp.data)
+
+      axios.defaults.headers.common['Authorization'] = 'Bearer ' + payload.get('token')
+      var resp = await axios.post(kyc.postKycApplication, payload, {
+        headers: {
+          'Content-Type': 'multipart/form-data'
+        }
+      })
+      context.commit('updateResponseMessage', resp.data)
+
+      var resp = await axios({
+
+
+
+      })
+
+
+
     } catch (error) {
       console.log(error)
       context.commit('updateResponseMessage', 'General Error')

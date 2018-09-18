@@ -288,7 +288,7 @@
                                     </div>
                                     <div class="from-step-content text-center">
                                         <div class="note note-md note-info note-plane">
-                                            <em class="fas fa-info-circle"></em> 
+                                            <em class="fas fa-info-circle"></em>
                                             <p>DO NOT USE your exchange wallet address such as Kraken, Bitfinex, Bithumb, Binance etc.</p>
                                         </div>
                                         <div class="gaps-2x"></div>
@@ -398,37 +398,37 @@ export default {
       this.kycForm.documentType = document
     },
     onSubmitKycApplication () {
-    //   this.isLoading = true
+       this.isLoading = true
         this.documentFront = this.$refs.kycForm_front.files[0]
         this.documentBack = this.$refs.kycForm_back.files[0]
         this.selfie = this.$refs.kycForm_selfie.files[0]
 
         console.log(this.$refs.kycForm_front.files[0])
-    //   const formData = new FormData()
-    //   if (Validate.isValidEmail(this.kycForm.email)) {
-    //     this.documentFront = this.$refs.kycForm_front.files[0]
-    //     this.documentBack = this.$refs.kycForm_back.files[0]
-    //     this.selfie = this.$refs.kycForm_selfie.files[0]
-    //     formData.append('first_name', this.kycForm.firstName)
-    //     formData.append('last_name', this.kycForm.lastName)
-    //     formData.append('email', this.kycForm.email)
-    //     formData.append('contactnumber', this.kycForm.phoneNumber)
-    //     formData.append('doctype', this.kycForm.documentType)
-    //     formData.append('nationality', this.kycForm.nationality)
-    //     formData.append('docfront', this.kycForm.documentFront)
-    //     formData.append('docback', this.kycForm.documentBack)
-    //     formData.append('selfie', this.kycForm.selfie)
-    //     formData.append('iduser', this.$session.get('user').iduser)
-    //     formData.append('token', this.$session.get('token'))
-    //     this.storeKycApplication(formData).then(() => {
-    //       this.isLoading = false
-    //       console.log(this.kycResponse)
-    //     //   this.$router.push({ name: 'DashboardMain' })
-    //     })
-    //   } else {
-    //     this.isLoading = false
-    //     this.$awn.alert('Invalid email')
-    //   }
+       const formData = new FormData()
+       if (Validate.isValidEmail(this.kycForm.email)) {
+         this.documentFront = this.$refs.kycForm_front.files[0]
+         this.documentBack = this.$refs.kycForm_back.files[0]
+         this.selfie = this.$refs.kycForm_selfie.files[0]
+         formData.append('first_name', this.kycForm.firstName)
+         formData.append('last_name', this.kycForm.lastName)
+         formData.append('email', this.kycForm.email)
+         formData.append('contactnumber', this.kycForm.phoneNumber)
+         formData.append('doctype', this.kycForm.documentType)
+         formData.append('nationality', this.kycForm.nationality)
+         formData.append('docfront', this.kycForm.documentFront)
+         formData.append('docback', this.kycForm.documentBack)
+         formData.append('selfie', this.kycForm.selfie)
+         formData.append('iduser', this.$session.get('user').iduser)
+         formData.append('token', this.$session.get('token'))
+         this.storeKycApplication(formData).then(() => {
+           this.isLoading = false
+           console.log(this.kycResponse)
+            this.$router.push({ name: 'DashboardMain' })
+         })
+       } else {
+         this.isLoading = false
+         this.$awn.alert('Invalid email')
+       }
     }
   }
 }
