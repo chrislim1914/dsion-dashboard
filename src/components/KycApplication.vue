@@ -418,8 +418,9 @@ export default {
          this.documentFront = this.$refs.kycForm_front_3.files[0]
          this.documentBack = this.$refs.kycForm_back_3.files[0]
          this.selfie = this.$refs.kycForm_selfie_3.files[0]
+
        }else{
-          this.kycForm.documentType == '여권'
+          this.kycForm.documentType ='여권'
           this.documentFront = this.$refs.kycForm_front_1.files[0]
           this.documentBack = ''
           this.selfie = this.$refs.kycForm_selfie_1.files[0]
