@@ -69,7 +69,7 @@
                             </div>
                             <div class="row mt-2">
                                 <div class="col-9">
-                                <input type="text" id="token-code" class="form-control form-control-lg" v-model="tokenCode" disabled>
+                                    <input type="text" id="token-code" class="form-control form-control-lg" v-model="tokenCode" disabled>
                                 </div>
                                 <div class="col-3">
                                 <a class="btn btn-primary text-white font-weight-bold" v-clipboard:model="tokenCode" v-clipboard:success="onCopy" v-clipboard:error="onErrorCopy">
@@ -77,7 +77,7 @@
                                 </a>
                                 </div>
                                 <div class="col-12 text-center mt-5">
-                                <qriously :value="tokenCode" :size="200" />
+                                    <qriously :value="tokenCode" :size="200" />
                                 </div>
                             </div>
                         </div>
