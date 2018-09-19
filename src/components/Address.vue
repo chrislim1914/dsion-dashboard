@@ -132,12 +132,12 @@ export default {
   methods: {
     ...mapActions(['fetchUserInfo']),
     receive () {
-        this.displays.showNotice = false
-    //   if (this.displays.isChecked) {
-        // this.displays.showNotice = false
-    //   } else {
-    //     this.$awn.warning('Please agree to the notice before proceeding.')
-    //   }
+      this.displays.showNotice = false
+    // if (this.displays.isChecked) {
+    //   this.displays.showNotice = false
+    // } else {
+    //   this.$awn.warning('Please agree to the notice before proceeding.')
+    // }
     },
     onCopy () {
       this.$awn.info('Code copied.')
@@ -148,11 +148,11 @@ export default {
   },
   created () {
     this.fetchUserInfo({
-        token: this.$session.get('token')
+      token: this.$session.get('token')
     }).then(() => {
-        if (this.userResponse.kyc_status === '' || this.userResponse.kyc_status === undefined) {
-            this.$router.push({ name: 'DashboardKnowYourCustomer' })
-        }
+      if (this.userResponse.kyc_status === '' || this.userResponse.kyc_status === undefined) {
+        this.$router.push({ name: 'DashboardKnowYourCustomer' })
+      }
     })
   }
 }
