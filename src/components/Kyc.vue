@@ -18,9 +18,11 @@
                         <p class="text-justify">
                           본인은 본인이 미합중국의 시민권자, 미합중국의 거주자 또는 ICO에 참여하는 것을 금지하는 관할권의 거주자가 아님을 확인 합니다.
                         </p>
+                        <!--
                         <p class="text-justify">
                           본인은 18세 이상임을 확인 합니다.
                         </p>
+                        -->
                         <div class="gaps-2x"></div>
                         <div class="status status-empty border-0">
                           <router-link class="btn btn-primary" :to="{ name: 'DashboardKnowYourCustomerApplication' }">
