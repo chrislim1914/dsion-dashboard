@@ -8,7 +8,7 @@
                 <global-sidebar></global-sidebar>
                 <div class="user-content">
                     <div class="user-panel">
-                        <h2 class="user-panel-title">Identity Verification - KYC</h2>
+                        <h2 class="user-panel-title">신분 확인 - KYC</h2>
                         <p class="text-justify">
                           KYC신청시 증명에 사용할 신분증을 업로드 합니다. 귀하의 이름과 사진은 신분증을 발급한 국가 이름과 함께 명확하게 보여야 하며, 최대 2페이지를 업로드 할 수 있습니다. 위에 양식에 언급된 귀하의 이름은 정부 발급 신분증의 이름과 일치 해야 합니다.
                         </p>
@@ -26,12 +26,12 @@
                         <div class="gaps-2x"></div>
                         <div class="status status-empty border-0">
                           <router-link class="btn btn-primary" :to="{ name: 'DashboardKnowYourCustomerApplication' }">
-                            CLick to proceed
+                            동의합니다
                           </router-link>
                         </div>
                         <div class="note note-md note-info note-plane">
                             <em class="fas fa-info-circle"></em>
-                            <p>Some of contries and regions will not able to pass KYC process and therefore are restricted from token sale.</p>
+                            <p>일부 국가 및 지역은 KYC 프로세스를 통과할 수 없으므로 토큰 판매가 제한됩니다.</p>
                         </div>
                     </div><!-- .user-kyc -->
                 </div><!-- .user-content -->

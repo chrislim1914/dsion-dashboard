@@ -16,44 +16,44 @@
                   <div class="from-step-heading">
                     <div class="from-step-number">01</div>
                     <div class="from-step-head">
-                      <h4>Step 1 : Personal Details</h4>
-                      <p>Simple personal information, required for identification</p>
+                      <h4>Step 1 : 개인정보 입력</h4>
+                      <p>인증에 필요한 간단한 개인정보를 입력합니다</p>
                     </div>
                   </div>
                   <div class="from-step-content">
                     <div class="note note-md note-info note-plane">
                       <em class="fas fa-info-circle"></em>
-                      <p>Please carefully fill out the form with your personal details. Your can’t edit these details once you submitted the form.</p>
+                      <p>아래 형식에 개인정보를 정확하게 입력해 주세요. 제출한 후에는 편집할 수 없습니다.</p>
                     </div>
                     <div class="gaps-2x"></div>
                     <div class="row">
                       <div class="col-md-6">
                         <div class="input-item input-with-label">
-                          <label for="first-name" class="input-item-label">First Name</label>
+                          <label for="first-name" class="input-item-label">First Name (이름)</label>
                           <input v-model="kycForm.firstName" class="input-bordered" type="text" id="first-name" name="first-name" required>
                                                 </div><!-- .input-item -->
                         </div><!-- .col -->
                         <div class="col-md-6">
                           <div class="input-item input-with-label">
-                            <label for="last-name" class="input-item-label">Last Name</label>
+                            <label for="last-name" class="input-item-label">Last Name (성)</label>
                             <input v-model="kycForm.lastName" class="input-bordered" type="text" id="last-name" name="last-name" required>
                                                 </div><!-- .input-item -->
                           </div><!-- .col -->
                           <div class="col-md-6">
                             <div class="input-item input-with-label">
-                              <label for="email-address" class="input-item-label">Email Address</label>
+                              <label for="email-address" class="input-item-label">Email Address (이메일주소)</label>
                               <input v-model="kycForm.email" class="input-bordered" type="text" id="email-address" name="email-address" required>
                                                 </div><!-- .input-item -->
                             </div><!-- .col -->
                             <div class="col-md-6">
                               <div class="input-item input-with-label">
-                                <label for="phone-number" class="input-item-label">Phone Number</label>
+                                <label for="phone-number" class="input-item-label">Phone Number (전화번호)</label>
                                 <input v-model="kycForm.phoneNumber" class="input-bordered" type="text" id="phone-number" name="phone-number" required>
                                                 </div><!-- .input-item -->
                               </div><!-- .col -->
                               <div class="col-md-6">
                                 <div class="input-item input-with-label">
-                                  <label for="nationality" class="input-item-label">Nationality</label>
+                                  <label for="nationality" class="input-item-label">Nationality (국적)</label>
                                   <select v-model="kycForm.nationality" class="input-bordered" name="nationality" id="nationality">
                                                         <option :value="nationality" :key="index" v-for="(nationality, index) in nationalities">
                                                           {{ nationality }}
@@ -68,14 +68,14 @@
                           <div class="from-step-heading">
                             <div class="from-step-number">02</div>
                             <div class="from-step-head">
-                              <h4>Step 2 : Indentity Verify</h4>
-                              <p>Upload documents to verify your indentity.</p>
+                              <h4>Step 2 : 신분 확인</h4>
+                              <p>신분 확인을 위해 아래 문서 혹은 사진을 업로드 해주세요.</p>
                             </div>
                           </div>
                           <div class="from-step-content">
                             <div class="note note-md note-info note-plane">
                               <em class="fas fa-info-circle"></em>
-                              <p>Please upload the following documents.</p>
+                              <p>다음 문서중 하나를 선택해 업로드 해주세요.</p>
                             </div>
                             <div class="gaps-2x"></div>
                             <ul class="nav nav-tabs nav-tabs-bordered" role="tablist">
@@ -109,13 +109,12 @@
                             </ul><!-- .nav-tabs-line -->
                             <div class="tab-content" id="myTabContent">
                               <div class="tab-pane fade show active" id="passport">
-                                <h5 class="kyc-upload-title">To avoid delays when verifying account, Please make sure bellow:</h5>
+                                <h5 class="kyc-upload-title">업로드에 지장이 없도록 다음 사항을 확인해주세요.</h5>
                                 <ul class="kyc-upload-list">
-                                  <li>Please upload jpg, png files only. Maximum upload file size: 6MB</li>
                                   <li>jpg, png 형식의 파일만 업로드가 가능합니다. 최대용량: 6MB</li>
                                 </ul>
                                 <div class="gaps-4x"></div>
-                                <span class="upload-title">Upload Here Your Passport Copy</span>
+                                <span class="upload-title">여권 사본을 업로드 해주세요</span>
                                 <div class="row align-items-center">
                                   <div class="col-7">
                                     <div class="upload-box">
@@ -133,7 +132,7 @@
                                       </div>
                                     </div>
                                     <div class="gaps-1x"></div>
-                                    <span class="upload-title">Upload Here Your Selfie Copy</span>
+                                    <span class="upload-title">여권을 들고 찍은 본인 사진을 업로드 해주세요</span>
                                     <div class="row align-items-center">
                                       <div class="col-7">
                                         <div class="upload-box">
@@ -152,13 +151,12 @@
                                         </div>
                                       </div>
                                       <div class="tab-pane fade" id="id-card">
-                                        <h5 class="kyc-upload-title">To avoid delays when verifying account, Please make sure bellow:</h5>
+                                        <h5 class="kyc-upload-title">업로드에 지장이 없도록 다음 사항을 확인해주세요.</h5>
                                         <ul class="kyc-upload-list">
-                                          <li>Please upload jpg, png files only. Maximum upload file size: 6MB</li>
                                           <li>jpg, png 형식의 파일만 업로드가 가능합니다. 최대용량: 6MB</li>
                                         </ul>
                                         <div class="gaps-4x"></div>
-                                        <span class="upload-title">Upload Here Your Id Card Front Side</span>
+                                        <span class="upload-title">주민등록증 앞면 사본을 업로드 해주세요</span>
                                         <div class="row align-items-center">
                                           <div class="col-7">
                                             <div class="upload-box">
@@ -176,7 +174,7 @@
                                               </div>
                                             </div>
                                             <div class="gaps-4x"></div>
-                                            <span class="upload-title">Upload Here Your Id Card Back Side</span>
+                                            <span class="upload-title">주민등록증 뒷면 사본을 업로드 해주세요</span>
                                             <div class="row align-items-center">
                                               <div class="col-7">
                                                 <div class="upload-box">
@@ -194,7 +192,7 @@
                                                   </div>
                                                 </div>
                                                 <div class="gaps-4x"></div>
-                                                <span class="upload-title">Upload Here Your Selfie.</span>
+                                                <span class="upload-title">주민등록증을 들고 찍은 본인 사진을 업로드 해주세요</span>
                                                 <div class="row align-items-center">
                                                   <div class="col-7">
                                                     <div class="upload-box">
@@ -213,13 +211,12 @@
                                                     </div>
                                                   </div>
                                                   <div class="tab-pane fade" id="drivers-license">
-                                                    <h5 class="kyc-upload-title">To avoid delays when verifying account, Please make sure bellow:</h5>
+                                                    <h5 class="kyc-upload-title">업로드에 지장이 없도록 다음 사항을 확인해주세요.</h5>
                                                     <ul class="kyc-upload-list">
-                                                      <li>Please upload jpg, png files only. Maximum upload file size: 6MB</li>
                                                       <li>jpg, png 형식의 파일만 업로드가 가능합니다. 최대용량: 6MB</li>
                                                     </ul>
                                                     <div class="gaps-4x"></div>
-                                                    <span class="upload-title">Upload Here Your Driving License Front Side</span>
+                                                    <span class="upload-title">운전면허증 앞면 사본을 업로드 해주세요</span>
                                                     <div class="row align-items-center">
                                                       <div class="col-8">
                                                         <div class="upload-box">
@@ -237,7 +234,7 @@
                                                           </div>
                                                         </div>
                                                         <div class="gaps-4x"></div>
-                                                        <span class="upload-title">Upload Here Your Driving License Back Side</span>
+                                                        <span class="upload-title">운전면허증 뒷면 사본을 업로드 해주세요</span>
                                                         <div class="row align-items-center">
                                                           <div class="col-8">
                                                             <div class="upload-box">
@@ -255,7 +252,7 @@
                                                               </div>
                                                             </div>
                                                             <div class="gaps-4x"></div>
-                                                            <span class="upload-title">Upload Here Your Selfie.</span>
+                                                            <span class="upload-title">운전면허증을 들고 찍은 본인 사진을 업로드 해주세요</span>
                                                             <div class="row align-items-center">
                                                               <div class="col-7">
                                                                 <div class="upload-box">
@@ -282,25 +279,25 @@
                                                           <div class="from-step-heading">
                                                             <div class="from-step-number">03</div>
                                                             <div class="from-step-head">
-                                                              <h4>Step 3 : Your Paying Wallet</h4>
-                                                              <p>Submit your wallet address that you are going to send funds</p>
+                                                              <h4>Step 3 : 이더리움 발송 지갑 주소</h4>
+                                                              <p>이더리움을 발송하고 토큰을 받으실 지갑 주소를 입력해주세요.</p>
                                                             </div>
                                                           </div>
-                                                          <div class="from-step-content text-center">
+                                                          <div class="from-step-content">
                                                             <div class="note note-md note-info note-plane">
                                                               <em class="fas fa-info-circle"></em>
-                                                              <p>DO NOT USE your exchange wallet address such as Kraken, Bitfinex, Bithumb, Binance etc.</p>
+                                                              <p>업비트, 빗썸, 코인원, 바이넨스 등과 같은 거래소 지갑주소는 사용이 불가능합니다.</p>
                                                             </div>
                                                             <div class="gaps-2x"></div>
                                                             <div class="row">
                                                             </div><!-- .row -->
                                                             <div class="input-item input-with-label">
-                                                              <label for="eth_address" class="input-item-label">Enter your wallet address</label>
+                                                              <label for="eth_address" class="input-item-label">본인의 이더리움 지갑 주소를 입력하세요</label>
                                                               <input class="input-bordered" type="text" v-model="kycForm.eth_address" id="eth_address" ref="eth_address" name="eth_address" value="">
-                                                              <span class="input-note">Note: Address should be ERC20-compliant. Make sure that you hold this wallet private key.</span>
+                                                              <span class="input-note">참고: 지갑 주소는 반드시 ERC20이 호환가능해야합니다. 지갑 Private key 를 반드시 보유해야합니다.</span>
                                                             </div><!-- .input-item -->
                                                             <div class="gaps-2x"></div><!-- 20px gap -->
-                                                            <a class="btn btn-primary text-white" @click="onSubmitKycApplication">Submit Details</a>
+                                                            <a class="btn btn-primary text-white" @click="onSubmitKycApplication">작성 완료</a>
                                                             <div class="gaps-2x"></div><!-- 20px gap -->
                                                           </div><!-- .from-step-content -->
                                                         </div><!-- .from-step-item -->

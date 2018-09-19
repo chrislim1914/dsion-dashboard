@@ -30,7 +30,7 @@
                             </div>
                             <div class="col-10 ml-3 text-justify d-none">
                                 <p>
-                                해당 ETH 입금주소로 입금하시면, KYC 입력시 입력한 Ethereum Wallet으로 Dsion 토큰을 받게 됩니다. 
+                                해당 ETH 주소로 입금하시면, KYC 입력시 입력한 Ethereum Wallet으로 Dsion 토큰을 받게 됩니다.
                                 </p>
                             </div>
                             <div class="col-12 text-center d-none">
@@ -64,8 +64,8 @@
                                 <div class="col-11">
                                     <input type="text" id="token-code" class="form-control form-control-lg" v-model="tokenCode" disabled>
                                 </div>
-                                <div class="col-1 text-right">
-                                <a class="btn btn-primary text-white font-weight-bold" v-clipboard:model="tokenCode" v-clipboard:success="onCopy" v-clipboard:error="onErrorCopy">
+                                <div class="col-1" style="padding-left:0;">
+                                <a class="btn btn-primary text-white font-weight-bold" v-clipboard:model="tokenCode" v-clipboard:success="onCopy" v-clipboard:error="onErrorCopy" style="padding-right:10px;padding-left:10px;">
                                     복사
                                 </a>
                                 </div>
