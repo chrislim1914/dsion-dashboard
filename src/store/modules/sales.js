@@ -37,7 +37,7 @@ const actions = {
   fetchTotalSales: async (context) => {
     try {
       var resp = await axios.get(sales.getTotalSales)
-      context.commit('updateResponseMessage', resp.data[0])
+      context.commit('updateResponseMessage', resp.data)
     } catch (error) {
       context.commit('updateResponseMessage', 'General Error')
     }

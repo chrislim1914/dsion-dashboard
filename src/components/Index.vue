@@ -21,26 +21,31 @@ export default {
   },
   created () {
     // condition to check if token is present.
-    if ((this.$route.query.tk !== '' && this.$route.query.tk !== undefined) || this.$session.exists()) {
-      this.fetchUserInfo({
-        token: 'eyJ' + this.$route.query.tk.slice(3)
-      }).then(() => {
-        // condition to check if token is valid by fetching the user info.
-        if (this.userResponse !== '' && this.userResponse !== undefined) {
-          this.$session.start()
-          this.$session.set('token', 'eyJ' + this.$route.query.tk.slice(3))
-          this.$session.set('user', this.userResponse)
-          this.isLoading = false
-          this.$router.push({ name: 'DashboardMain' })
-        } else {
-          window.location.href = 'https://dsion.io'
-          // window.location.href = 'http://localhost:8081'
-        }
-      })
+    var tk = ''
+
+    if (this.$route.query.tk) {
+      tk = 'eyJ' + this.$route.query.tk.slice(3)
+    } else if (this.$session.exists()) {
+      tk = this.$session.get('token')
     } else {
       window.location.href = 'https://dsion.io'
-      // window.location.href = 'http://localhost:8081'
     }
+
+    this.fetchUserInfo({
+      token: tk
+    }).then(() => {
+      // condition to check if token is valid by fetching the user info.
+      if (this.userResponse !== '' && this.userResponse !== undefined) {
+        this.$session.start()
+        this.$session.set('token', tk)
+        this.$session.set('user', this.userResponse)
+        this.isLoading = false
+        this.$router.push({ name: 'DashboardMain' })
+      } else {
+        window.location.href = 'https://dsion.io'
+        // window.location.href = 'http://localhost:8081'
+      }
+    })
   }
 }
 </script>

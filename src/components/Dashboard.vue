@@ -34,18 +34,18 @@
                 </div>
               </div><!-- .col -->
             </div><!-- .row -->
-            <div class="token-card">
+            <div class="token-card" v-if="active">
               <div class="token-info">
-                <span class="token-smartag">{{ activeSale[0].name }}</span>
-                <h2 class="token-bonus">{{ activeSale[0].bonus_rate }}% <span>Current Bonus</span></h2>
+                <span class="token-smartag">{{ active.name }}</span>
+                <h2 class="token-bonus">{{ active.bonusRate }}% <span>Current Bonus</span></h2>
                 <ul class="token-timeline">
-                  <li><span>START DATE</span>{{ activeSale[0].startdate }}</li>
-                  <li><span>END DATE</span>{{ activeSale[0].enddate }}</li>
+                  <li><span>START DATE</span>{{ active.startDate}}</li>
+                  <li><span>END DATE</span>{{ active.endDate}}</li>
                 </ul>
               </div>
-              <div class="token-countdown">
+              <div class="token-countdown" v-if="active.endDate">
                 <span class="token-countdown-title">THE BONUS END IN</span>
-                <Countdown :deadline="activeSale[0].enddate | readerDate"></Countdown>
+                <Countdown :deadline="active.endDate | readerDate"></Countdown>
               </div>
             </div><!-- .token-card -->
             <div class="progress-card">
@@ -58,7 +58,7 @@
                   <div>Soft cap <span>100,000,000 DSN</span></div>
                 </div>
                 <div class="progress-psale" style="width:12%">
-                  <div>{{ activeSale[0].name }}<span>{{ activeSale[0].cap_limit | digitCommafy }} DSN</span></div>
+                  <div>{{ active.name }}<span>{{ active.capLimit | digitCommafy }} DSN</span></div>
                 </div>
                 <div class="progress-percent" style="width:25%"></div>
               </div>
@@ -136,17 +136,20 @@ export default {
       tokenBalance: '0',
       contribution: '0',
       salesTableData: [],
+      active: {
+        name: '',
+        bonusRate: '',
+        capLimit: '',
+        startDate: '',
+        endDate: ''
+      },
       isLoading: false
     }
   },
   computed: {
     ...mapState({
-      'sales': ({
-        sales
-      }) => sales.sales,
-      'salesData': ({
-        sales
-      }) => sales.responseData
+      'sales': ({sales}) => sales.sales,
+      'salesData': ({sales}) => sales.responseData
     }),
     ...mapGetters([
       'activeSale'
@@ -158,18 +161,22 @@ export default {
       'fetchTotalSales'
     ])
   },
-  beforeCreate () {
-    this.isLoading = true
-  },
   created () {
-    this.fetchAllSaleStatus()
-    this.fetchTotalSales().then(() => {
+    this.isLoading = true
+    this.fetchAllSaleStatus().then(() => {
       this.salesTableData = this.sales
-      if (this.salesTableData) {
-        this.isLoading = false
-      } else {
-        this.$awn.warning('Problem in loading the sales table.')
-      }
+      this.active.name = this.activeSale[0].name
+      this.active.bonusRate = this.activeSale[0].bonus_rate
+      this.active.capLimit = this.activeSale[0].cap_limit
+      this.active.startDate = this.activeSale[0].startdate
+      this.active.endDate = this.activeSale[0].enddate
+      this.fetchTotalSales().then(() => {
+        if (this.salesData) {
+          this.isLoading = false
+        } else {
+          this.$awn.warning('Problem loading sales data.')
+        }
+      })
     })
   }
 }

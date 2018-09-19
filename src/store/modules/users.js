@@ -54,7 +54,7 @@ const actions = {
   },
   fetchUserInfo: async (context, payload) => {
     try {
-      axios.defaults.headers.common['Authorization'] = 'Bearer' + payload.token
+      axios.defaults.headers.common['Authorization'] = 'Bearer ' + payload.token
       var resp = await axios.post(user.getInfo)
       context.commit('updateResponseData', resp.data)
     } catch (error) {

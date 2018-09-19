@@ -6,6 +6,12 @@
                 <div class="col-md-7">
                     <span class="footer-copyright">Copyright 2018, <a href="#">Dsion</a>.  All Rights Reserved.</span>
                 </div><!-- .col -->
+                <div class="col-md-5 text-md-right">
+                    <ul class="footer-links">
+                        <li><a href="https://dsion.io/static/conditions_privacy.pdf" target="_blank">Privacy Policy</a></li>
+                        <li><a href="https://dsion.io/static/sale_policy.pdf" target="_blank">Terms of Sales</a></li>
+                    </ul>
+                </div><!-- .col -->
             </div><!-- .row -->
         </div><!-- .container -->
     </div>
