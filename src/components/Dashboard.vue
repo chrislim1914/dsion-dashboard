@@ -54,13 +54,13 @@
                 <div class="progress-hcap" style="width:90%">
                   <div>Hard cap <span>{{ salesData.Hard_Cap | digitCommafy }} DSN</span></div>
                 </div>
-                <div class="progress-scap" style="width:34%">
-                  <div>Soft cap <span>100,000,000 DSN</span></div>
+                <div class="progress-scap" style="width:30%">
+                  <div>Soft cap <span>45,000,000 DSN</span></div>
                 </div>
                 <div class="progress-psale" style="width:12%">
-                  <div>{{ active.name }}<span>{{ active.capLimit | digitCommafy }} DSN</span></div>
+                  <div>{{ active.name }}<span>40,000,000 DSN</span></div>
                 </div>
-                <div class="progress-percent" style="width:25%"></div>
+                <div class="progress-percent" style="width:12%"></div>
               </div>
             </div>
             <div class="gaps-3x"></div>
