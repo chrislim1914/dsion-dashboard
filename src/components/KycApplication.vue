@@ -434,9 +434,13 @@ export default {
           this.storeKycApplication(formData).then(() => {
             this.isLoading = false
             if (this.kycResponse.result) {
-              this.$router.push({
-                name: 'DashboardAddress'
-              })
+              this.$session.set('kyc_status', this.kycResponse.idkyc)
+              this.$awn.success('KYC process has been submitted.')
+              setTimeout(() => {
+                this.$router.push({
+                  name: 'DashboardAddress'
+                })
+              }, 1500)
             } else {
               this.$awn.alert(this.kycResponse.message)
             }

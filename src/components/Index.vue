@@ -38,6 +38,7 @@ export default {
       if (this.userResponse !== '' && this.userResponse !== undefined) {
         this.$session.start()
         this.$session.set('token', tk)
+        this.$session.set('kyc_status', this.userResponse.kyc_status)
         this.$session.set('user', this.userResponse)
         this.isLoading = false
         this.$router.push({ name: 'DashboardMain' })

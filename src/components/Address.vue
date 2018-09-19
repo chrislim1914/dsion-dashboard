@@ -23,17 +23,17 @@
                             </div>
                         </div>
                         <div class="row mt-5" ref="notice" v-if="displays.isApproved && displays.showNotice">
-                            <div class="col-12 d-none">
+                            <div class="col-12">
                                 <h3 class="text-left font-weight-bold">
                                     Notice
                                 </h3>
                             </div>
-                            <div class="col-10 ml-3 text-justify d-none">
+                            <div class="col-10 ml-3 text-justify">
                                 <p>
                                 해당 ETH 주소로 입금하시면, KYC 입력시 입력한 Ethereum Wallet으로 Dsion 토큰을 받게 됩니다.
                                 </p>
                             </div>
-                            <div class="col-12 text-center d-none">
+                            <div class="col-12 text-center ">
                                 <div class="form-check form-check-inline">
                                 <input class="form-check-input" type="checkbox" id="agree" v-model="displays.isChecked">
                                 <label class="form-check-label font-weight-bold" for="agree">
@@ -125,12 +125,11 @@ export default {
   methods: {
     ...mapActions(['fetchUserInfo']),
     receive () {
-      this.displays.showNotice = false
-    // if (this.displays.isChecked) {
-    //   this.displays.showNotice = false
-    // } else {
-    //   this.$awn.warning('Please agree to the notice before proceeding.')
-    // }
+      if (this.displays.isChecked) {
+        this.displays.showNotice = false
+      } else {
+        this.$awn.warning('Please agree to the notice before proceeding.')
+      }
     },
     onCopy () {
       this.$awn.info('Code copied.')
@@ -140,13 +139,9 @@ export default {
     }
   },
   created () {
-    this.fetchUserInfo({
-      token: this.$session.get('token')
-    }).then(() => {
-      if (this.userResponse.kyc_status === '' || this.userResponse.kyc_status === undefined) {
-        this.$router.push({ name: 'DashboardKnowYourCustomer' })
-      }
-    })
+    if (!this.$session.get('kyc_status')) {
+      this.$router.push({ name: 'DashboardKnowYourCustomer' })
+    }
   }
 }
 </script>
