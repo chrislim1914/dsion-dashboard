@@ -271,7 +271,7 @@
                                                                 </div>
                                                               </div>
                                                             </div>
-                                                            <div class="gaps-2x"></div>
+                                                            <div class="gaps-2x" style="color: red;font-weight: bold;">* 신분증과 본인사진 불 일치시 KYC 인증이 거절될 수 있습니다.</div>
                                                           </div><!-- .from-step-content -->
                                                         </div><!-- .from-step-item -->
 
