@@ -39,7 +39,7 @@
                                     <li><a href="account.html"><i class="ti ti-id-badge"></i>Setting</a></li>
                                 </ul>
                                 <ul class="user-dropdown-links">
-                                    <li><a href="login.html"><i class="ti ti-power-off"></i>Logout</a></li>
+                                    <li><a @click="signOutUser" style="color: #6783b8;"><i class="ti ti-power-off"></i>Logout</a></li>
                                 </ul>
                             </div>
                         </div>
@@ -96,6 +96,7 @@
             </div><!-- .d-flex -->
         </div><!-- .container -->
     </div>
+        <loading :active.sync="isLoading" :is-full-page="false"></loading>
   </div>
 </template>
 
