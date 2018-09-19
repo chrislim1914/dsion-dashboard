@@ -55,7 +55,7 @@
                   <div>Hard cap <span>{{ salesData.Hard_Cap | digitCommafy }} DSN</span></div>
                 </div>
                 <div class="progress-scap" style="width:34%">
-                  <div>Soft cap <span>100,000,000 DSN</span></div>
+                  <div>Soft cap <span>15,000 ETH </span></div>
                 </div>
                 <div class="progress-psale" style="width:12%">
                   <div>{{ active.name }}<span>{{ active.capLimit | digitCommafy }} DSN</span></div>
