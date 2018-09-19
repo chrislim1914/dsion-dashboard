@@ -39,8 +39,8 @@
                 <span class="token-smartag">{{ activeSale[0].name }}</span>
                 <h2 class="token-bonus">{{ activeSale[0].bonus_rate }}% <span>Current Bonus</span></h2>
                 <ul class="token-timeline">
-                  <li><span>START DATE</span>{{ activeSale[0].startdate | shorterDate }}</li>
-                  <li><span>END DATE</span>{{ activeSale[0].enddate | shorterDate }}</li>
+                  <li><span>START DATE</span>{{ activeSale[0].startdate }}</li>
+                  <li><span>END DATE</span>{{ activeSale[0].enddate }}</li>
                 </ul>
               </div>
               <div class="token-countdown">

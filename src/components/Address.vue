@@ -30,14 +30,7 @@
                             </div>
                             <div class="col-10 ml-3 text-justify d-none">
                                 <p>
-                                Their shadows do not disappear in heaven. This will be a remarkable example of the sun, even though it is not like him
-                                </p>
-                                <p>
-                                Like the military that blooms in the mountains, the ideal is a salt that prevents corruption of human beings, and it becomes a material that gives value to life. Because they are long, the place where they are interested is great and they are hot. They
-                                have the courage. Therefore, they are capable of treasure, and their ideals are beautiful,
-                                </p>
-                                <p>
-                                It is to enrich our lives by creating a seedy fruit. Look youth! How strong are their bodies, how vivid their.
+                                해당 ETH 입금주소로 입금하시면, KYC 입력시 입력한 Ethereum Wallet으로 Dsion 토큰을 받게 됩니다. 
                                 </p>
                             </div>
                             <div class="col-12 text-center d-none">
@@ -49,8 +42,8 @@
                                 </div>
                             </div>
                             <div class="col-6 mt-3 mx-auto">
-                                <a @click="receive" class="btn btn-primary text-white">
-                                    Receive Transfer Address
+                                <a @click="receive" class="btn btn-primary text-white" style="width:100%;">
+                                    입금 주소 확인
                                 </a>
                             </div>
                         </div>
@@ -58,22 +51,22 @@
                             <div class="row mt-5">
                                 <div class="col-12">
                                 <h5 class="text-left font-weight-bold">
-                                    Get token Address
+                                    이더리움 입금 주소
                                 </h5>
                                 </div>
-                                <div class="col-2">
+                                <!--div class="col-2">
                                 <a class="btn btn-primary text-white font-weight-bold">
                                     ETH
                                 </a>
-                                </div>
+                                </div-->
                             </div>
                             <div class="row mt-2">
-                                <div class="col-9">
+                                <div class="col-11">
                                     <input type="text" id="token-code" class="form-control form-control-lg" v-model="tokenCode" disabled>
                                 </div>
-                                <div class="col-3">
+                                <div class="col-1 text-right">
                                 <a class="btn btn-primary text-white font-weight-bold" v-clipboard:model="tokenCode" v-clipboard:success="onCopy" v-clipboard:error="onErrorCopy">
-                                    Copy
+                                    복사
                                 </a>
                                 </div>
                                 <div class="col-12 text-center mt-5">

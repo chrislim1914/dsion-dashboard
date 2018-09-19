@@ -60,9 +60,9 @@
 
                 <div class="topbar-action d-none d-lg-block">
                     <ul class="topbar-action-list">
-                        <li class="topbar-action-item topbar-action-link">
+                        <!--li class="topbar-action-item topbar-action-link">
                             <a href="https://dsion.io"><em class="ti ti-home"></em> Go to main site</a>
-                        </li><!-- .topbar-action-item -->
+                        </li--><!-- .topbar-action-item -->
 
                         <!-- <li class="dropdown topbar-action-item topbar-action-language">
                             <a href="#" data-toggle="dropdown"> EN <em class="ti ti-angle-down"></em> </a>
