@@ -29,9 +29,9 @@
                   <div class="tile-bubbles"></div>
                   <h6 class="tile-title">TOKEN RATE VALUE</h6>
                   <ul class="tile-info-list">
-                      <li><span>10</span>ETH</li>
+                      <li><span>0</span>ETH</li>
                       <li><span>=></span>&nbsp;</li>
-                      <li><span>30,000</span>DSN</li>
+                      <li><span>0</span>DSN</li>
                   </ul>
                 </div>
               </div><!-- .col -->
