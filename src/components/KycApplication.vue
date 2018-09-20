@@ -461,13 +461,13 @@ export default {
               this.$awn.warning('Please upload your document accordingly to chosen document type.')
             }
           } else {
-            this.$awn.warning('Please select a document type.')
+            this.$awn.warning('문서 종류를 확인해주세요.')
           }
         } else {
-          this.$awn.warning('문서 종류를 확인해주세요.')
+          this.$awn.warning('이메일주소를 확인해주세요.')
         }
       } else {
-        this.$awn.warning('이메일주소를 확인해주세요.')
+        this.$awn.warning('Please fill up the form completely.')
       }
     }
   }

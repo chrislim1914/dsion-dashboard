@@ -17,11 +17,11 @@
                   <div class="tile-bubbles"></div>
                   <h6 class="tile-title">ICO TOKEN BALANCE</h6>
                   <h1 class="tile-info">{{ tokenBalance }} DSN</h1>
-                  <!-- <ul class="tile-list-inline">
-                                        <li>1.240 BTC</li>
-                                        <li>19.043 ETH</li>
-                                        <li>6,500.13 USD</li>
-                                    </ul> -->
+                  <ul class="tile-list-inline">
+                      <li> </li>
+                      <li> </li>
+                      <li> </li>
+                  </ul>
                 </div>
               </div><!-- .col -->
               <div class="col-md-6">
@@ -165,7 +165,6 @@ export default {
     ])
   },
   created () {
-    this.isLoading = true
     this.fetchAllSaleStatus().then(() => {
       this.salesTableData = this.sales
       this.active.name = this.activeSale[0].name

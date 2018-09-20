@@ -55,6 +55,8 @@ export default {
       })
     } else if (!this.$session.exists()) {
       window.location.href = 'https://dsion.io'
+    } else {
+      this.isLoading = false
     }
   }
 }
