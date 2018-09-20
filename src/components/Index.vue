@@ -42,6 +42,7 @@ export default {
       }).then(() => {
         // condition to check if token is valid by fetching the user info.
         if (this.userResponse !== '' && this.userResponse !== undefined) {
+          this.isLoading = false
           this.$session.start()
           this.$session.set('token', tk)
           this.$session.set('kyc_status', this.userResponse.kyc_status)

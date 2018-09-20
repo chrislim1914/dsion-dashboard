@@ -27,9 +27,11 @@
               <div class="col-md-6">
                 <div class="tile-item tile-light">
                   <div class="tile-bubbles"></div>
-                  <h6 class="tile-title">YOUR CONTRIBUTION</h6>
+                  <h6 class="tile-title">TOKEN RATE VALUE</h6>
                   <ul class="tile-info-list">
-                    <li><span>{{ contribution }} DSN</span></li>
+                      <li><span>10</span>ETH</li>
+                      <li><span>=></span>&nbsp;</li>
+                      <li><span>30,000</span>DSN</li>
                   </ul>
                 </div>
               </div><!-- .col -->
