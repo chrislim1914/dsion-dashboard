@@ -31,25 +31,25 @@
                         <div class="input-item input-with-label">
                           <label for="first-name" class="input-item-label">First Name (이름)</label>
                           <input v-model="kycForm.firstName" class="input-bordered" type="text" id="first-name" name="first-name" required>
-                                                </div><!-- .input-item -->
+                              </div><!-- .input-item -->
                         </div><!-- .col -->
                         <div class="col-md-6">
                           <div class="input-item input-with-label">
                             <label for="last-name" class="input-item-label">Last Name (성)</label>
                             <input v-model="kycForm.lastName" class="input-bordered" type="text" id="last-name" name="last-name" required>
-                                                </div><!-- .input-item -->
+                              </div><!-- .input-item -->
                           </div><!-- .col -->
                           <div class="col-md-6">
                             <div class="input-item input-with-label">
                               <label for="email-address" class="input-item-label">Email Address (이메일주소)</label>
                               <input v-model="kycForm.email" class="input-bordered" type="text" id="email-address" name="email-address" required>
-                                                </div><!-- .input-item -->
+                             </div><!-- .input-item -->
                             </div><!-- .col -->
                             <div class="col-md-6">
                               <div class="input-item input-with-label">
                                 <label for="phone-number" class="input-item-label">Phone Number (전화번호)</label>
                                 <input v-model="kycForm.phoneNumber" class="input-bordered" type="text" id="phone-number" name="phone-number" required>
-                                                </div><!-- .input-item -->
+                              </div><!-- .input-item -->
                               </div><!-- .col -->
                               <div class="col-md-6">
                                 <div class="input-item input-with-label">
@@ -293,7 +293,7 @@
                                                             </div><!-- .row -->
                                                             <div class="input-item input-with-label">
                                                               <label for="eth_address" class="input-item-label">본인의 이더리움 지갑 주소를 입력하세요</label>
-                                                              <input class="input-bordered" type="text" v-model="kycForm.eth_address" id="eth_address" ref="eth_address" name="eth_address" value="">
+                                                              <input class="input-bordered" type="text" v-model="kycForm.eth_address" id="eth_address" ref="eth_address" name="eth_address">
                                                               <span class="input-note">참고: 지갑 주소는 반드시 ERC20이 호환가능해야합니다. 지갑 Private key 를 반드시 보유해야합니다.</span>
                                                             </div><!-- .input-item -->
                                                             <div class="gaps-2x"></div><!-- 20px gap -->
@@ -374,13 +374,14 @@ export default {
       kycForm: {
         firstName: '',
         lastName: '',
-        email: '',
+        email: this.$session.get('user').email,
         phoneNumber: '',
         documentType: '여권',
         nationality: '',
         documentFront: '',
         documentBack: '',
-        selfie: ''
+        selfie: '',
+        eth_address: ''
       }
     }
   },
@@ -397,60 +398,77 @@ export default {
       this.kycForm.documentType = document
     },
     onSubmitKycApplication () {
-      this.isLoading = true
       const formData = new FormData()
-      if (Validate.isValidEmail(this.kycForm.email)) {
-        if (this.kycForm.documentType !== undefined || this.kycForm.documentType !== '') {
-          switch (this.kycForm.documentType) {
-            case '여권':
-              this.kycForm.documentFront = this.$refs.kycForm_frontPassport.files[0]
-              this.kycForm.documentBack = this.$refs.kycForm_frontPassport.files[0]
-              this.kycForm.selfie = this.$refs.kycForm_selfiePassport.files[0]
-              break
-            case '주민등록증':
-              this.kycForm.documentFront = this.$refs.kycForm_frontIdCard.files[0]
-              this.kycForm.documentBack = this.$refs.kycForm_backIdCard.files[0]
-              this.kycForm.selfie = this.$refs.kycForm_selfieIdCard.files[0]
-              break
-            case '운전면허증':
-              this.kycForm.documentFront = this.$refs.kycForm_frontDrivingLicense.files[0]
-              this.kycForm.documentBack = this.$refs.kycForm_backDrivingLicense.files[0]
-              this.kycForm.selfie = this.$refs.kycForm_selfieDrivingLicense.files[0]
-              break
-          }
-          formData.append('first_name', this.kycForm.firstName)
-          formData.append('last_name', this.kycForm.lastName)
-          formData.append('email', this.kycForm.email)
-          formData.append('contactnumber', this.kycForm.phoneNumber)
-          formData.append('doctype', this.kycForm.documentType)
-          formData.append('nationality', this.kycForm.nationality)
-          formData.append('docfront', this.kycForm.documentFront)
-          formData.append('docback', this.kycForm.documentBack)
-          formData.append('selfie', this.kycForm.selfie)
-          formData.append('iduser', this.$session.get('user').iduser)
-          formData.append('token', this.$session.get('token'))
-          formData.append('eth_address', this.kycForm.eth_address)
-
-          this.storeKycApplication(formData).then(() => {
-            this.isLoading = false
-            if (this.kycResponse.result) {
-              this.$session.set('kyc_status', this.kycResponse.idkyc)
-              this.$awn.success('KYC process has been submitted.')
-              setTimeout(() => {
-                this.$router.push({
-                  name: 'DashboardAddress'
-                })
-              }, 1500)
-            } else {
-              this.$awn.alert(this.kycResponse.message)
+      if (this.kycForm.firstName && this.kycForm.lastName && this.kycForm.email && this.kycForm.phoneNumber && this.kycForm.documentType && this.kycForm.nationality && this.kycForm.eth_address) {
+        if (Validate.isValidEmail(this.kycForm.email)) {
+          if (this.kycForm.documentType) {
+            switch (this.kycForm.documentType) {
+              case '여권':
+                this.kycForm.documentFront = this.$refs.kycForm_frontPassport.files[0]
+                this.kycForm.documentBack = this.$refs.kycForm_frontPassport.files[0]
+                this.kycForm.selfie = this.$refs.kycForm_selfiePassport.files[0]
+                break
+              case '주민등록증':
+                this.kycForm.documentFront = this.$refs.kycForm_frontIdCard.files[0]
+                this.kycForm.documentBack = this.$refs.kycForm_backIdCard.files[0]
+                this.kycForm.selfie = this.$refs.kycForm_selfieIdCard.files[0]
+                break
+              case '운전면허증':
+                this.kycForm.documentFront = this.$refs.kycForm_frontDrivingLicense.files[0]
+                this.kycForm.documentBack = this.$refs.kycForm_backDrivingLicense.files[0]
+                this.kycForm.selfie = this.$refs.kycForm_selfieDrivingLicense.files[0]
+                break
             }
-          })
+
+            if (this.kycForm.documentFront && this.kycForm.documentBack && this.kycForm.selfie) {
+              if (Validate.isValidImageFileSize(this.kycForm.documentFront.size) && Validate.isValidImageFileSize(this.kycForm.documentBack.size) && Validate.isValidImageFileSize(this.kycForm.selfie.size)) {
+                if (Validate.isValidWalletAddress(this.kycForm.eth_address)) {
+                  this.isLoading = true
+                  formData.append('first_name', this.kycForm.firstName)
+                  formData.append('last_name', this.kycForm.lastName)
+                  formData.append('email', this.kycForm.email)
+                  formData.append('contactnumber', this.kycForm.phoneNumber)
+                  formData.append('doctype', this.kycForm.documentType)
+                  formData.append('nationality', this.kycForm.nationality)
+                  formData.append('docfront', this.kycForm.documentFront)
+                  formData.append('docback', this.kycForm.documentBack)
+                  formData.append('selfie', this.kycForm.selfie)
+                  formData.append('iduser', this.$session.get('user').iduser)
+                  formData.append('token', this.$session.get('token'))
+                  formData.append('eth_address', this.kycForm.eth_address)
+
+                  this.storeKycApplication(formData).then(() => {
+                    this.isLoading = false
+                    if (this.kycResponse.result) {
+                      this.$session.set('kyc_status', this.kycResponse.idkyc)
+                      this.$awn.success('KYC process has been submitted.')
+                      setTimeout(() => {
+                        this.$router.push({
+                          name: 'DashboardAddress'
+                        })
+                      }, 1500)
+                    } else {
+                      this.$awn.alert(this.kycResponse.message)
+                    }
+                  })
+                } else {
+                  this.$awn.warning('Wallet address is not acceptable.')
+                }
+              } else {
+                this.$awn.warning('Image uploaded must not exceed 10mb.')
+              }
+            } else {
+              this.$awn.warning('Please upload your document accordingly to chosen document type.')
+            }
+          } else {
+            this.$awn.warning('Please select a document type.')
+          }
         } else {
-          this.$awn.warning('Please select a document type.')
+          this.isLoading = false
+          this.$awn.warning('Email is not acceptable.')
         }
       } else {
-        this.isLoading = false
-        this.$awn.warning('Invalid email')
+        this.$awn.warning('Please fill up the form completely.')
       }
     }
   }

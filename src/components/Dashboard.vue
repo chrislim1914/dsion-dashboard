@@ -1,5 +1,5 @@
 <template>
-<div class="user-dashboard">
+<div class="user-dashboard" v-if="isDataLoaded">
 
   <global-topbar></global-topbar>
   <!-- TopBar End -->
@@ -143,7 +143,8 @@ export default {
         startDate: '',
         endDate: ''
       },
-      isLoading: false
+      isLoading: false,
+      isDataLoaded: false
     }
   },
   computed: {
@@ -172,6 +173,7 @@ export default {
       this.active.endDate = this.activeSale[0].enddate
       this.fetchTotalSales().then(() => {
         if (this.salesData) {
+          this.isDataLoaded = true
           this.isLoading = false
         } else {
           this.$awn.warning('Problem loading sales data.')
