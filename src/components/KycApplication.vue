@@ -464,11 +464,10 @@ export default {
             this.$awn.warning('Please select a document type.')
           }
         } else {
-          this.isLoading = false
-          this.$awn.warning('Email is not acceptable.')
+          this.$awn.warning('문서 종류를 확인해주세요.')
         }
       } else {
-        this.$awn.warning('Please fill up the form completely.')
+        this.$awn.warning('이메일주소를 확인해주세요.')
       }
     }
   }
