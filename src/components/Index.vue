@@ -31,6 +31,7 @@ export default {
     ...mapActions(['fetchUserInfo'])
   },
   created () {
+    this.isLoading = true
     // condition to check if token is present.
     var tk = ''
 
