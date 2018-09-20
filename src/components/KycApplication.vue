@@ -435,7 +435,7 @@ export default {
             this.isLoading = false
             if (this.kycResponse.result) {
               this.$session.set('kyc_status', this.kycResponse.idkyc)
-              this.$awn.success('KYC process has been submitted.')
+              this.$awn.success('KYC 신청이 완료되었습니다.')
               setTimeout(() => {
                 this.$router.push({
                   name: 'DashboardAddress'
@@ -446,11 +446,11 @@ export default {
             }
           })
         } else {
-          this.$awn.warning('Please select a document type.')
+          this.$awn.warning('문서 종류를 확인해주세요.')
         }
       } else {
         this.isLoading = false
-        this.$awn.warning('Invalid email')
+        this.$awn.warning('이메일주소를 확인해주세요.')
       }
     }
   }

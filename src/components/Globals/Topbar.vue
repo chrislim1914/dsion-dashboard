@@ -30,14 +30,14 @@
                                     <h6>ICO TOKEN BALANCE</h6>
                                     <h3>{{ tokenBalance }} DSN</h3>
                                 </div>
-                                <ul class="user-dropdown-btns btn-grp guttar-10px">
+                                <!--ul class="user-dropdown-btns btn-grp guttar-10px">
                                     <li><a href="#" class="btn btn-xs btn-warning">Confirm Email</a></li>
                                     <li><a href="kyc.html" class="btn btn-xs btn-warning">KYC Pending</a></li>
-                                </ul>
+                                </ul-->
                                 <div class="gaps-1x"></div>
-                                <ul class="user-dropdown-links">
+                                <!--ul class="user-dropdown-links">
                                     <li><a href="account.html"><i class="ti ti-id-badge"></i>Setting</a></li>
-                                </ul>
+                                </ul-->
                                 <ul class="user-dropdown-links">
                                     <li><a @click="signOutUser" style="color: #6783b8;"><i class="ti ti-power-off"></i>Logout</a></li>
                                 </ul>

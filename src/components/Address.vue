@@ -33,11 +33,11 @@
                                 해당 ETH 주소로 입금하시면, KYC 입력시 입력한 Ethereum Wallet으로 Dsion 토큰을 받게 됩니다.
                                 </p>
                             </div>
-                            <div class="col-12 text-center ">
+                            <div class="col-10 ml-3 text-justify">
                                 <div class="form-check form-check-inline">
                                 <input class="form-check-input" type="checkbox" id="agree" v-model="displays.isChecked">
                                 <label class="form-check-label font-weight-bold" for="agree">
-                                    I agree with the above
+                                    위 사항에 동의합니다.
                                 </label>
                                 </div>
                             </div>
