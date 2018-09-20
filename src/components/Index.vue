@@ -46,7 +46,6 @@ export default {
           this.$session.set('token', tk)
           this.$session.set('kyc_status', this.userResponse.kyc_status)
           this.$session.set('user', this.userResponse)
-          this.isLoading = false
           this.$router.push({ name: 'DashboardMain' })
         } else {
           window.location.href = 'https://dsion.io'
