@@ -1,8 +1,8 @@
 /* Template: UserCenter v1.0.0 @ICO Crypto */
-(function($){
+function initial(){
 	'use strict';
 	var $win = $(window), $body_m = $('body'), $navbar = $('.navbar');
-	
+	console.log('function');
 	// Touch Class
 	if (!("ontouchstart" in document.documentElement)) {
 		$body_m.addClass("no-touch");
@@ -288,4 +288,6 @@
 			$self.addClass('dropzone').dropzone({ url: "/file/post" });
 		});
 	}
-})(jQuery);
+};
+
+setTimeout(initial,1000);

@@ -4,7 +4,7 @@
         <div class="topbar-md d-lg-none">
             <div class="container">
                 <div class="d-flex align-items-center justify-content-between">
-                    <a href="#" class="toggle-nav">
+                    <a @click="toggleMenu" class="toggle-nav">
                         <div class="toggle-icon">
                             <span class="toggle-line"></span>
                             <span class="toggle-line"></span>

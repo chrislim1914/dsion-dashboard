@@ -62,7 +62,6 @@ export default {
   name: 'UnknownComponent',
   data () {
     return {
-
     }
   }
 }
