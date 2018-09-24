@@ -130,7 +130,7 @@ export default {
       this.logoutUser({ token: this.$session.get('token') }).then(() => {
         if (this.userResponse.result) {
           this.isLoading = false
-          this.$cookie.delete('__dsnuid')
+          this.$cookie.delete('__dsnuid', {domain: '.dsion.io'})
           this.$session.destroy()
           // window.location.href = 'http://localhost:8081'
           window.location.href = 'https://dsion.io'
