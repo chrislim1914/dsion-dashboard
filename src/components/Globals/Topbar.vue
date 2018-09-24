@@ -4,7 +4,7 @@
         <div class="topbar-md d-lg-none">
             <div class="container">
                 <div class="d-flex align-items-center justify-content-between">
-                    <a @click="toggleMenu" class="toggle-nav">
+                    <a class="toggle-nav">
                         <div class="toggle-icon">
                             <span class="toggle-line"></span>
                             <span class="toggle-line"></span>
@@ -131,6 +131,7 @@ export default {
         if (this.userResponse.result) {
           this.isLoading = false
           this.$session.destroy()
+          this.$cookie.delete('__dsnuid')
           // window.location.href = 'http://localhost:8081'
           window.location.href = 'https://dsion.io'
         }

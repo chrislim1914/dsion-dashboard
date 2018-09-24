@@ -8,6 +8,7 @@
 <script>
 import Loading from 'vue-loading-overlay'
 import 'vue-loading-overlay/dist/vue-loading.min.css'
+import { jwtHeader } from '@/config.js'
 import {
   mapActions,
   mapState
@@ -38,13 +39,13 @@ export default {
     if (this.$route.query.tk) {
       tk = 'eyJ' + this.$route.query.tk.slice(3)
       this.fetchUserInfo({
-        token: tk
+        token: jwtHeader + tk
       }).then(() => {
         // condition to check if token is valid by fetching the user info.
         if (this.userResponse !== '' && this.userResponse !== undefined) {
           this.isLoading = false
           this.$session.start()
-          this.$session.set('token', tk)
+          this.$session.set('token', jwtHeader + tk)
           this.$session.set('kyc_status', this.userResponse.kyc_status)
           this.$session.set('user', this.userResponse)
           this.$router.push({ name: 'DashboardMain' })

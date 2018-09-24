@@ -9,13 +9,15 @@ import VueClipboard from 'vue-clipboard2'
 import VueQriously from 'vue-qriously'
 import router from './router'
 import store from './store'
-
 import './filters'
+
+var VueCookie = require('vue-cookie')
 
 require('vue-awesome-notifications/dist/styles/style.css')
 
 Vue.config.productionTip = false
 
+Vue.use(VueCookie)
 Vue.use(VueSession)
 Vue.use(VueAWN)
 Vue.use(VueClipboard)
