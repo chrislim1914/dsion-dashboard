@@ -42,7 +42,7 @@ export default {
         token: jwtHeader + tk
       }).then(() => {
         // condition to check if token is valid by fetching the user info.
-        if (this.userResponse !== '' && this.userResponse !== undefined) {
+        if (this.userResponse) {
           this.isLoading = false
           this.$session.start()
           this.$session.set('token', jwtHeader + tk)
@@ -54,7 +54,7 @@ export default {
           // window.location.href = 'http://localhost:8081'
         }
       })
-    } else if (!this.$session.exists()) {
+    } else if (!this.$session.exists() || !this.$cookie.get('__dsnuid')) {
       window.location.href = 'https://dsion.io'
     } else {
       this.isLoading = false
