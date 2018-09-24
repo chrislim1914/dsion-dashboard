@@ -41,7 +41,6 @@ export default {
       this.fetchUserInfo({
         token: jwtHeader + tk
       }).then(() => {
-
         // condition to check if token is valid by fetching the user info.
         if (this.userResponse.iduser) {
           this.isLoading = false
