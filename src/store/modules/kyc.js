@@ -36,7 +36,6 @@ const actions = {
       })
       context.commit('updateResponseMessage', resp.data)
     } catch (error) {
-      console.log(error)
       context.commit('updateResponseMessage', 'General Error')
     }
   }

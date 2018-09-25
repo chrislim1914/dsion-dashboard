@@ -139,7 +139,7 @@ export default {
     }
   },
   created () {
-    if (!this.$session.get('kyc_status')) {
+    if (!this.$session.get('user').kyc_status) {
       this.$router.push({ name: 'DashboardKnowYourCustomer' })
     }
   }

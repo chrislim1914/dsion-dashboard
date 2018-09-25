@@ -119,9 +119,7 @@
                                   <div class="col-7">
                                     <div class="upload-box">
                                       <div class="upload-zone">
-                                        <div class="dz-message" data-dz-message>
-                                          <input type="file" class="btn text-dark" ref="kycForm_frontPassport" accept="image/*" style="background-color: #f3f8ff;"/>
-                                                                </div>
+                                        <input type="file" class="btn text-dark" ref="kycForm_frontPassport" accept="image/*" style="background-color: #f3f8ff;"/>
                                         </div>
                                       </div>
                                     </div>
@@ -440,7 +438,7 @@ export default {
                   this.storeKycApplication(formData).then(() => {
                     this.isLoading = false
                     if (this.kycResponse.result) {
-                      this.$session.set('kyc_status', this.kycResponse.idkyc)
+                      this.injectKycToSession()
                       this.$awn.success('KYC process has been submitted.')
                       setTimeout(() => {
                         this.$router.push({
@@ -469,6 +467,12 @@ export default {
       } else {
         this.$awn.warning('Please fill up the form completely.')
       }
+    },
+    injectKycToSession () {
+      var user = this.$session.get('user')
+      user.eth_address = this.kycForm.eth_address
+      user.kyc_status = this.kycResponse.idkyc
+      this.$session.set('user', user)
     }
   }
 }

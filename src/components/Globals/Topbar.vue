@@ -24,11 +24,11 @@
                         <div class="dropdown-menu dropdown-menu-right">
                             <div class="user-dropdown">
                                 <div class="user-dropdown-head">
-                                    <span class="user-dropdown-email">{{ $session.get('user').email }}</span>
+                                    <span class="user-dropdown-email">{{ user.email }}</span>
                                 </div>
                                 <div class="user-dropdown-balance">
                                     <h6>ICO TOKEN BALANCE</h6>
-                                    <h3>{{ tokenBalance }} DSN</h3>
+                                    <h3>{{ user.tokenBalance }} DSN</h3>
                                 </div>
                                 <!--ul class="user-dropdown-btns btn-grp guttar-10px">
                                     <li><a href="#" class="btn btn-xs btn-warning">Confirm Email</a></li>
@@ -79,13 +79,14 @@
                             <div class="dropdown-menu dropdown-menu-right">
                                 <div class="user-dropdown">
                                     <div class="user-dropdown-head">
-                                        <span class="user-dropdown-email">{{ $session.get('user').email }}</span>
+                                        <span class="user-dropdown-email">{{ user.email }}</span>
                                     </div>
                                     <div class="user-dropdown-balance">
                                         <h6>ICO TOKEN BALANCE</h6>
-                                        <h3>{{ tokenBalance }} DSN</h3>
+                                        <h3>{{ user.tokenBalance }} DSN</h3>
                                     </div>
                                     <ul class="user-dropdown-links">
+                                        <li><a href="https://dsion.io" style="color: #6783b8;"><i class="fa fa-home mr-2"></i>Go to homepage</a></li>
                                         <li><a @click="signOutUser" style="color: #6783b8;"><i class="ti ti-power-off"></i>Logout</a></li>
                                     </ul>
                                 </div>
@@ -114,7 +115,10 @@ export default {
   },
   data () {
     return {
-      tokenBalance: '0',
+      user: {
+        email: '',
+        tokenBalance: 0
+      },
       isLoading: false
     }
   },
@@ -130,13 +134,21 @@ export default {
       this.logoutUser({ token: this.$session.get('token') }).then(() => {
         if (this.userResponse.result) {
           this.isLoading = false
+          // this.$cookie.delete('__dsnuid')
           this.$cookie.delete('__dsnuid', {domain: '.dsion.io'})
           this.$session.destroy()
+          localStorage.removeItem('vue-session-key')
           // window.location.href = 'http://localhost:8081'
           window.location.href = 'https://dsion.io'
+        } else {
+          this.isLoading = false
+          this.$awn.alert('Failed to logout.')
         }
       })
     }
+  },
+  created () {
+    this.user.email = this.$session.get('user').email
   }
 }
 </script>

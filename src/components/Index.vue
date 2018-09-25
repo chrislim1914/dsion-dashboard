@@ -46,7 +46,6 @@ export default {
           this.isLoading = false
           this.$session.start()
           this.$session.set('token', jwtHeader + tk)
-          this.$session.set('kyc_status', this.userResponse.kyc_status)
           this.$session.set('user', this.userResponse)
           this.$router.push({ name: 'DashboardMain' })
         } else {

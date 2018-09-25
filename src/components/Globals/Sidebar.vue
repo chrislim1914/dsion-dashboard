@@ -27,7 +27,7 @@
             <li class="d-none">
               <router-link :to="{ name: 'DashboardPromotion' }"><em class="ti ti-star"></em>Promotion</router-link>
             </li>
-            <li class="d-none">
+            <li>
               <router-link :to="{ name: 'DashboardSetting' }"><em class="ti ti-settings"></em>Setting</router-link>
             </li>
         </ul><!-- .user-icon-nav -->
