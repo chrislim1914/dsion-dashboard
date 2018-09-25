@@ -17,8 +17,12 @@ require('vue-awesome-notifications/dist/styles/style.css')
 
 Vue.config.productionTip = false
 
+var options = {
+  persist: true
+}
+
 Vue.use(VueCookie)
-Vue.use(VueSession)
+Vue.use(VueSession, options)
 Vue.use(VueAWN)
 Vue.use(VueClipboard)
 Vue.use(VueQriously)
