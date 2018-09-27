@@ -1,5 +1,6 @@
 <template>
-  <div class="user-ath d-none">
+  <div class="user-ath">
+    <h1>LOGIN</h1>
     <loading :active.sync="isLoading" :is-full-page="true"></loading>
   </div>
 </template>
@@ -14,11 +15,8 @@ export default {
   },
   data () {
     return {
-      isLoading: true
+      isLoading: false
     }
-  },
-  created () {
-    this.$router.push({ name: 'DashboardMain' })
   }
 }
 </script>

@@ -6,7 +6,7 @@
             <div class="user-image">
                 <img src="/static/images/user-thumb-lg.png" alt="thumb">
             </div>
-            <h6 class="user-name">{{ $session.get('user').email }}</h6>
+            <h6 class="user-name">{{ user.email }}</h6>
         </div><!-- .user-box -->
         <ul class="user-icon-nav">
             <li>
@@ -58,11 +58,25 @@
 </template>
 
 <script>
+import {
+  mapState
+} from 'vuex'
 export default {
   name: 'UnknownComponent',
   data () {
     return {
+      user: {
+        email: ''
+      }
     }
+  },
+  computed: {
+    ...mapState({
+      'userData': ({users}) => users.user
+    })
+  },
+  created () {
+    this.user.email = this.userData.email
   }
 }
 </script>

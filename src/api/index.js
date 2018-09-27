@@ -10,6 +10,7 @@ export const user = {
   signin: apiURL + '/login',
   logout: apiURL + '/auth/logout',
   getInfo: apiURL + '/auth/User',
+  getContribution: apiURL + '/user/deposit/',
   changePassword: apiURL + '/User/changePassword',
   changeWalletAddress: apiURL + '/User/addAddress',
   googleLogin: 'https://api.dsion.io/googleLogin'

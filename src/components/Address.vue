@@ -137,11 +137,6 @@ export default {
     onErrorCopy () {
       this.$awn.alert('Failed to copy the code.')
     }
-  },
-  created () {
-    if (!this.$session.get('user').kyc_status) {
-      this.$router.push({ name: 'DashboardKnowYourCustomer' })
-    }
   }
 }
 </script>

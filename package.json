@@ -26,11 +26,9 @@
     "vue": "^2.5.2",
     "vue-awesome-notifications": "^2.2.9",
     "vue-clipboard2": "^0.2.1",
-    "vue-cookie": "^1.1.4",
     "vue-loading-overlay": "^2.2.1",
     "vue-qriously": "^1.1.1",
     "vue-router": "^3.0.1",
-    "vue-session": "^1.0.0",
     "vuejs-countdown": "^0.2.1",
     "vuex": "^3.0.1"
   },

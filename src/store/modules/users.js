@@ -56,7 +56,7 @@ const actions = {
     try {
       axios.defaults.headers.common['Authorization'] = 'Bearer ' + payload.token
       var resp = await axios.post(user.getInfo)
-      context.commit('updateResponseData', resp.data)
+      context.commit('setUser', resp.data)
     } catch (error) {
       context.commit('updateResponseData', 'General Error')
     }
@@ -82,6 +82,14 @@ const actions = {
     try {
       axios.defaults.headers.common['Authorization'] = 'Bearer ' + payload.token
       var resp = await axios.post(user.changeWalletAddress, payload)
+      context.commit('updateResponseData', resp.data)
+    } catch (error) {
+      context.commit('updateResponseData', 'General Error')
+    }
+  },
+  getUserContribution: async (context, payload) => {
+    try {
+      var resp = await axios.get(user.getContribution + payload.iduser)
       context.commit('updateResponseData', resp.data)
     } catch (error) {
       context.commit('updateResponseData', 'General Error')

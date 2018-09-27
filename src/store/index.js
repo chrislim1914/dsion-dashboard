@@ -7,6 +7,7 @@ import Vuex from 'vuex'
 import users from './modules/users'
 import sales from './modules/sales'
 import kyc from './modules/kyc'
+import tokens from './modules/token'
 
 Vue.use(Vuex)
 
@@ -15,6 +16,7 @@ export default new Vuex.Store({
   modules: {
     users,
     sales,
-    kyc
+    kyc,
+    tokens
   }
 })

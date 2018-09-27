@@ -124,6 +124,8 @@ export default {
   },
   computed: {
     ...mapState({
+      'token': ({tokens}) => tokens.token,
+      'userData': ({users}) => users.user,
       'userResponse': ({users}) => users.responseData
     })
   },
@@ -131,14 +133,14 @@ export default {
     ...mapActions(['logoutUser']),
     signOutUser () {
       this.isLoading = true
-      this.logoutUser({ token: this.$session.get('token') }).then(() => {
+      this.logoutUser({ token: this.token }).then(() => {
         if (this.userResponse.result) {
           this.isLoading = false
-          // this.$cookie.delete('__dsnuid')
-          this.$cookie.delete('__dsnuid', {domain: '.dsion.io'})
-          this.$session.destroy()
-          localStorage.removeItem('vue-session-key')
+
+          // Development variables
           // window.location.href = 'http://localhost:8081'
+
+          // Production variables
           window.location.href = 'https://dsion.io'
         } else {
           this.isLoading = false
@@ -148,7 +150,8 @@ export default {
     }
   },
   created () {
-    this.user.email = this.$session.get('user').email
+    // Assigning to local reactive data
+    this.user.email = this.userData.email
   }
 }
 </script>

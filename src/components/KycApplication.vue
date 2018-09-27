@@ -117,11 +117,7 @@
                                 <span class="upload-title">여권 사본을 업로드 해주세요</span>
                                 <div class="row align-items-center">
                                   <div class="col-7">
-                                    <div class="upload-box">
-                                      <div class="upload-zone">
-                                        <input type="file" class="btn text-dark" ref="kycForm_frontPassport" accept="image/*" style="background-color: #f3f8ff;"/>
-                                        </div>
-                                      </div>
+                                    <input type="file" class="btn text-dark" ref="kycForm_frontPassport" accept="image/*" style="background-color: #f3f8ff;"/>
                                     </div>
                                     <div class="col-4 ml-3">
                                       <div class="kyc-upload-img">
@@ -133,13 +129,7 @@
                                     <span class="upload-title">여권을 들고 찍은 본인 사진을 업로드 해주세요</span>
                                     <div class="row align-items-center">
                                       <div class="col-7">
-                                        <div class="upload-box">
-                                          <div class="upload-zone">
-                                            <div class="dz-message" data-dz-message>
-                                              <input type="file" class="btn text-dark" ref="kycForm_selfiePassport" accept="image/*" style="background-color: #f3f8ff;"/>
-                                                                </div>
-                                            </div>
-                                          </div>
+                                        <input type="file" class="btn text-dark" ref="kycForm_selfiePassport" accept="image/*" style="background-color: #f3f8ff;"/>
                                         </div>
                                         <div class="col-5">
                                           <div class="kyc-upload-img">
@@ -157,13 +147,7 @@
                                         <span class="upload-title">주민등록증 앞면 사본을 업로드 해주세요</span>
                                         <div class="row align-items-center">
                                           <div class="col-7">
-                                            <div class="upload-box">
-                                              <div class="upload-zone">
-                                                <div class="dz-message" data-dz-message>
-                                                  <input type="file" class="btn text-dark" ref="kycForm_frontIdCard" accept="image/*" style="background-color: #f3f8ff;"/>
-                                                                </div>
-                                                </div>
-                                              </div>
+                                            <input type="file" class="btn text-dark" ref="kycForm_frontIdCard" accept="image/*" style="background-color: #f3f8ff;"/>
                                             </div>
                                             <div class="col-4 ml-3">
                                               <div class="kyc-upload-img">
@@ -175,13 +159,7 @@
                                             <span class="upload-title">주민등록증 뒷면 사본을 업로드 해주세요</span>
                                             <div class="row align-items-center">
                                               <div class="col-7">
-                                                <div class="upload-box">
-                                                  <div class="upload-zone">
-                                                    <div class="dz-message" data-dz-message>
-                                                      <input type="file" class="btn text-dark" ref="kycForm_backIdCard" accept="image/*" style="background-color: #f3f8ff;"/>
-                                                                </div>
-                                                    </div>
-                                                  </div>
+                                                <input type="file" class="btn text-dark" ref="kycForm_backIdCard" accept="image/*" style="background-color: #f3f8ff;"/>
                                                 </div>
                                                 <div class="col-4 ml-3">
                                                   <div class="kyc-upload-img">
@@ -193,14 +171,8 @@
                                                 <span class="upload-title">주민등록증을 들고 찍은 본인 사진을 업로드 해주세요</span>
                                                 <div class="row align-items-center">
                                                   <div class="col-7">
-                                                    <div class="upload-box">
-                                                      <div class="upload-zone">
-                                                        <div class="dz-message" data-dz-message>
-                                                          <input type="file" class="btn text-dark" ref="kycForm_selfieIdCard" accept="image/*" style="background-color: #f3f8ff;"/>
-                                                                </div>
-                                                        </div>
-                                                      </div>
-                                                    </div>
+                                                    <input type="file" class="btn text-dark" ref="kycForm_selfieIdCard" accept="image/*" style="background-color: #f3f8ff;"/>
+                                                  </div>
                                                     <div class="col-5">
                                                       <div class="kyc-upload-img">
                                                         <img src="/static/images/selfie_example.png" alt="vector">
@@ -217,13 +189,7 @@
                                                     <span class="upload-title">운전면허증 앞면 사본을 업로드 해주세요</span>
                                                     <div class="row align-items-center">
                                                       <div class="col-8">
-                                                        <div class="upload-box">
-                                                          <div class="upload-zone">
-                                                            <div class="dz-message" data-dz-message>
-                                                              <input type="file" class="btn text-dark" ref="kycForm_frontDrivingLicense" accept="image/*" style="background-color: #f3f8ff;"/>
-                                                                </div>
-                                                            </div>
-                                                          </div>
+                                                        <input type="file" class="btn text-dark" ref="kycForm_frontDrivingLicense" accept="image/*" style="background-color: #f3f8ff;"/>
                                                         </div>
                                                         <div class="col-4">
                                                           <div class="kyc-upload-img">
@@ -235,13 +201,7 @@
                                                         <span class="upload-title">운전면허증 뒷면 사본을 업로드 해주세요</span>
                                                         <div class="row align-items-center">
                                                           <div class="col-8">
-                                                            <div class="upload-box">
-                                                              <div class="upload-zone">
-                                                                <div class="dz-message" data-dz-message>
-                                                                  <input type="file" class="btn text-dark" ref="kycForm_backDrivingLicense" accept="image/*" style="background-color: #f3f8ff;"/>
-                                                                </div>
-                                                                </div>
-                                                              </div>
+                                                            <input type="file" class="btn text-dark" ref="kycForm_backDrivingLicense" accept="image/*" style="background-color: #f3f8ff;"/>
                                                             </div>
                                                             <div class="col-4">
                                                               <div class="kyc-upload-img">
@@ -253,13 +213,7 @@
                                                             <span class="upload-title">운전면허증을 들고 찍은 본인 사진을 업로드 해주세요</span>
                                                             <div class="row align-items-center">
                                                               <div class="col-7">
-                                                                <div class="upload-box">
-                                                                  <div class="upload-zone">
-                                                                    <div class="dz-message" data-dz-message>
-                                                                      <input type="file" class="btn text-dark" ref="kycForm_selfieDrivingLicense" accept="image/*" style="background-color: #f3f8ff;"/>
-                                                                </div>
-                                                                    </div>
-                                                                  </div>
+                                                                <input type="file" class="btn text-dark" ref="kycForm_selfieDrivingLicense" accept="image/*" style="background-color: #f3f8ff;"/>
                                                                 </div>
                                                                 <div class="col-5">
                                                                   <div class="kyc-upload-img">
@@ -372,7 +326,7 @@ export default {
       kycForm: {
         firstName: '',
         lastName: '',
-        email: this.$session.get('user').email,
+        email: '',
         phoneNumber: '',
         documentType: '여권',
         nationality: '',
@@ -380,14 +334,18 @@ export default {
         documentBack: '',
         selfie: '',
         eth_address: ''
+      },
+      user: {
+        iduser: '',
+        token: ''
       }
     }
   },
   computed: {
     ...mapState({
-      'kycResponse': ({
-        kyc
-      }) => kyc.responseData
+      'token': ({tokens}) => tokens.token,
+      'userData': ({users}) => users.user,
+      'kycResponse': ({kyc}) => kyc.responseData
     })
   },
   methods: {
@@ -396,21 +354,29 @@ export default {
       this.kycForm.documentType = document
     },
     onSubmitKycApplication () {
+      // Create form data for multipart
       const formData = new FormData()
+      // Check if all data is filled
       if (this.kycForm.firstName && this.kycForm.lastName && this.kycForm.email && this.kycForm.phoneNumber && this.kycForm.documentType && this.kycForm.nationality && this.kycForm.eth_address) {
+        // Validates if the email is valid
         if (Validate.isValidEmail(this.kycForm.email)) {
+          // Identify document type
           if (this.kycForm.documentType) {
+            // Switch thru different cases using document type
             switch (this.kycForm.documentType) {
+              // Falls when passport is used
               case '여권':
                 this.kycForm.documentFront = this.$refs.kycForm_frontPassport.files[0]
                 this.kycForm.documentBack = this.$refs.kycForm_frontPassport.files[0]
                 this.kycForm.selfie = this.$refs.kycForm_selfiePassport.files[0]
                 break
+              // Falls when id card is used
               case '주민등록증':
                 this.kycForm.documentFront = this.$refs.kycForm_frontIdCard.files[0]
                 this.kycForm.documentBack = this.$refs.kycForm_backIdCard.files[0]
                 this.kycForm.selfie = this.$refs.kycForm_selfieIdCard.files[0]
                 break
+              // Falls when drivers license is used
               case '운전면허증':
                 this.kycForm.documentFront = this.$refs.kycForm_frontDrivingLicense.files[0]
                 this.kycForm.documentBack = this.$refs.kycForm_backDrivingLicense.files[0]
@@ -418,62 +384,92 @@ export default {
                 break
             }
 
+            // Check if document file upload is all given.
             if (this.kycForm.documentFront && this.kycForm.documentBack && this.kycForm.selfie) {
+              // Validate image size uploaded
               if (Validate.isValidImageFileSize(this.kycForm.documentFront.size) && Validate.isValidImageFileSize(this.kycForm.documentBack.size) && Validate.isValidImageFileSize(this.kycForm.selfie.size)) {
+                // Validate if wallet given is valid
                 if (Validate.isValidWalletAddress(this.kycForm.eth_address)) {
+                  // Enable loading overlay
                   this.isLoading = true
-                  formData.append('first_name', this.kycForm.firstName)
-                  formData.append('last_name', this.kycForm.lastName)
-                  formData.append('email', this.kycForm.email)
-                  formData.append('contactnumber', this.kycForm.phoneNumber)
-                  formData.append('doctype', this.kycForm.documentType)
-                  formData.append('nationality', this.kycForm.nationality)
-                  formData.append('docfront', this.kycForm.documentFront)
-                  formData.append('docback', this.kycForm.documentBack)
-                  formData.append('selfie', this.kycForm.selfie)
-                  formData.append('iduser', this.$session.get('user').iduser)
-                  formData.append('token', this.$session.get('token'))
-                  formData.append('eth_address', this.kycForm.eth_address)
+                  // Appends data to the form data
+                  formData.append('first_name', this.kycForm.firstName) // firstName
+                  formData.append('last_name', this.kycForm.lastName) // last_name
+                  formData.append('email', this.kycForm.email) // email
+                  formData.append('contactnumber', this.kycForm.phoneNumber) // contactnumber
+                  formData.append('doctype', this.kycForm.documentType) // doctype
+                  formData.append('nationality', this.kycForm.nationality) // nationality
+                  formData.append('docfront', this.kycForm.documentFront) // docfront
+                  formData.append('docback', this.kycForm.documentBack) // docback
+                  formData.append('selfie', this.kycForm.selfie) // selfie
+                  formData.append('iduser', this.user.iduser) // iduser
+                  formData.append('token', this.user.token) // token
+                  formData.append('eth_address', this.kycForm.eth_address) // eth_address
 
+                  // Process for applying kyc application
                   this.storeKycApplication(formData).then(() => {
+                    // Disable loading overlay
                     this.isLoading = false
+                    // Checks if the application submitted
                     if (this.kycResponse.result) {
-                      this.injectKycToSession()
+                      // Clear form
+                      this.clearFields()
+                      // Notify user kyc is submitted
                       this.$awn.success('KYC process has been submitted.')
+                      // Push the page to the address w/ 800ms delay
                       setTimeout(() => {
-                        this.$router.push({
-                          name: 'DashboardAddress'
-                        })
-                      }, 1500)
+                        this.$router.push({ name: 'DashboardAddress' })
+                      }, 800)
                     } else {
+                      // Notify user kyc is not submitted
                       this.$awn.alert(this.kycResponse.message)
                     }
                   })
                 } else {
+                  // Falls if wallet not valid
                   this.$awn.warning('Wallet address is not acceptable.')
                 }
               } else {
+                // Falls if image is too big
                 this.$awn.warning('Image uploaded must not exceed 10mb.')
               }
             } else {
+              // Falls if document is missing
               this.$awn.warning('Please upload your document accordingly to chosen document type.')
             }
           } else {
+            // Falls if no document type
             this.$awn.warning('문서 종류를 확인해주세요.')
           }
         } else {
+          // Falls if email is not valid
           this.$awn.warning('이메일주소를 확인해주세요.')
         }
       } else {
+        // Falls if form is incomplete
         this.$awn.warning('Please fill up the form completely.')
       }
     },
-    injectKycToSession () {
-      var user = this.$session.get('user')
-      user.eth_address = this.kycForm.eth_address
-      user.kyc_status = this.kycResponse.idkyc
-      this.$session.set('user', user)
+    clearFields () {
+      this.kycForm.firstName = ''
+      this.kycForm.lastName = ''
+      this.kycForm.email = this.userData.email
+      this.kycForm.phoneNumber = ''
+      this.kycForm.documentType = '여권'
+      this.kycForm.nationality = ''
+      this.kycForm.documentFront = ''
+      this.kycForm.documentBack = ''
+      this.kycForm.selfie = ''
+      this.kycForm.eth_address = ''
     }
+  },
+  created () {
+    // Apply fetched user info to the kycform reactive data
+    this.kycForm.email = this.userData.email
+    // Apply fetched id user to user reactive data
+    this.user.iduser = this.userData.iduser
+    // Apply fetched user token to user reactive data
+    this.user.token = this.token
   }
 }
 </script>

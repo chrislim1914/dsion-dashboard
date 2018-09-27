@@ -1,5 +1,15 @@
+/**
+ * Import needed modules
+ * @type {String}
+ */
 import Vue from 'vue'
 import Router from 'vue-router'
+import store from '@/store'
+import { cookieNameCutter } from '@/libs'
+/**
+ * Import components
+ * @type {String}
+ */
 import Dashboard from '@/components/Index'
 import DashboardLogin from '@/components/Login'
 import DashboardMain from '@/components/Dashboard'
@@ -19,51 +29,126 @@ export default new Router({
     {
       path: '',
       component: Dashboard,
+      beforeEnter: (to, from, next) => {
+        // Applying middleware before going inside the sink hole.
+        if (cookieNameCutter('b') && cookieNameCutter('tka') && cookieNameCutter('tkp') && cookieNameCutter('tks')) {
+          next()
+        }
+      },
       children: [
         {
-          path: '/dashboard',
-          name: 'DashboardMain',
-          component: DashboardMain
+          path: 'login',
+          name: 'DashboardLogin',
+          component: DashboardLogin,
+          beforeEnter: (to, from, next) => {
+            next()
+          }
         },
         {
           path: '',
-          name: 'DashboardLogin',
-          component: DashboardLogin
+          name: 'DashboardMain',
+          component: DashboardMain,
+          beforeEnter: (to, from, next) => {
+            // Applying middleware before going inside the sink hole.
+            if (cookieNameCutter('b') && cookieNameCutter('tka') && cookieNameCutter('tkp') && cookieNameCutter('tks')) {
+              next()
+            } else {
+              next({ name: 'DashboardLogin' })
+            }
+          }
         },
         {
           path: 'address',
           name: 'DashboardAddress',
-          component: DashboardAddress
+          component: DashboardAddress,
+          beforeEnter: (to, from, next) => {
+            // Check if user is kyc applied
+            if (store.state.users.user.kyc_status) {
+              // Proceed to next
+              next()
+            } else {
+              // Proceed to kyc
+              next({ name: 'DashboardKnowYourCustomer' })
+            }
+          }
         },
         {
           path: 'know-your-customer',
           name: 'DashboardKnowYourCustomer',
-          component: DashboardKnowYourCustomer
+          component: DashboardKnowYourCustomer,
+          beforeEnter: (to, from, next) => {
+            // Applying middleware before going inside the sink hole.
+            if (cookieNameCutter('b') && cookieNameCutter('tka') && cookieNameCutter('tkp') && cookieNameCutter('tks')) {
+              next()
+            } else {
+              next({ name: 'DashboardLogin' })
+            }
+          }
         },
         {
           path: 'know-your-customer/application',
           name: 'DashboardKnowYourCustomerApplication',
-          component: DashboardKnowYourCustomerApplication
+          component: DashboardKnowYourCustomerApplication,
+          beforeEnter: (to, from, next) => {
+            // Applying middleware before going inside the sink hole.
+            if (cookieNameCutter('b') && cookieNameCutter('tka') && cookieNameCutter('tkp') && cookieNameCutter('tks')) {
+              next()
+            } else {
+              next({ name: 'DashboardLogin' })
+            }
+          }
         },
         {
           path: 'contribution',
           name: 'DashboardContribution',
-          component: DashboardContribution
+          component: DashboardContribution,
+          beforeEnter: (to, from, next) => {
+            // Applying middleware before going inside the sink hole.
+            if (cookieNameCutter('b') && cookieNameCutter('tka') && cookieNameCutter('tkp') && cookieNameCutter('tks')) {
+              next()
+            } else {
+              next({ name: 'DashboardLogin' })
+            }
+          }
         },
         {
           path: 'referral-program',
           name: 'DashboardReferral',
-          component: DashboardReferral
+          component: DashboardReferral,
+          beforeEnter: (to, from, next) => {
+            // Applying middleware before going inside the sink hole.
+            if (cookieNameCutter('b') && cookieNameCutter('tka') && cookieNameCutter('tkp') && cookieNameCutter('tks')) {
+              next()
+            } else {
+              next({ name: 'DashboardLogin' })
+            }
+          }
         },
         {
           path: 'promotion',
           name: 'DashboardPromotion',
-          component: DashboardPromotion
+          component: DashboardPromotion,
+          beforeEnter: (to, from, next) => {
+            // Applying middleware before going inside the sink hole.
+            if (cookieNameCutter('b') && cookieNameCutter('tka') && cookieNameCutter('tkp') && cookieNameCutter('tks')) {
+              next()
+            } else {
+              next({ name: 'DashboardLogin' })
+            }
+          }
         },
         {
           path: 'setting',
           name: 'DashboardSetting',
-          component: DashboardSetting
+          component: DashboardSetting,
+          beforeEnter: (to, from, next) => {
+            // Applying middleware before going inside the sink hole.
+            if (cookieNameCutter('b') && cookieNameCutter('tka') && cookieNameCutter('tkp') && cookieNameCutter('tks')) {
+              next()
+            } else {
+              next({ name: 'DashboardLogin' })
+            }
+          }
         }
       ]
     }

@@ -16,7 +16,7 @@
                 <div class="tile-item tile-primary">
                   <div class="tile-bubbles"></div>
                   <h6 class="tile-title">ICO TOKEN BALANCE</h6>
-                  <h1 class="tile-info">{{ tokenBalance }} DSN</h1>
+                  <h1 class="tile-info">{{ user.contribution.dsn }} DSN</h1>
                   <ul class="tile-list-inline">
                       <li> </li>
                       <li> </li>
@@ -27,11 +27,11 @@
               <div class="col-md-6">
                 <div class="tile-item tile-light">
                   <div class="tile-bubbles"></div>
-                  <h6 class="tile-title">TOKEN RATE VALUE</h6>
+                  <h6 class="tile-title">YOUR CONTRIBUTION</h6>
                   <ul class="tile-info-list">
-                      <li><span>0</span>ETH</li>
+                      <li><span>{{ user.contribution.eth }}</span>ETH</li>
                       <li><span>=></span>&nbsp;</li>
-                      <li><span>0</span>DSN</li>
+                      <li><span>{{ user.contribution.dsn }}</span>DSN</li>
                   </ul>
                 </div>
               </div><!-- .col -->
@@ -135,9 +135,13 @@ export default {
   },
   data () {
     return {
-      tokenBalance: '0',
-      contribution: '0',
       salesTableData: [],
+      user: {
+        contribution: {
+          eth: 0,
+          dsn: 0
+        }
+      },
       active: {
         name: '',
         bonusRate: '',
@@ -151,7 +155,10 @@ export default {
   },
   computed: {
     ...mapState({
+      'token': ({tokens}) => tokens.token,
       'sales': ({sales}) => sales.sales,
+      'userData': ({users}) => users.responseData,
+      'userResponse': ({users}) => users.responseData,
       'salesData': ({sales}) => sales.responseData
     }),
     ...mapGetters([
@@ -161,10 +168,22 @@ export default {
   methods: {
     ...mapActions([
       'fetchAllSaleStatus',
-      'fetchTotalSales'
+      'fetchTotalSales',
+      'getUserContribution'
     ])
   },
   created () {
+    // Fetch user contribution
+    this.getUserContribution({
+      iduser: this.userData.iduser
+    }).then(() => {
+      if (this.userResponse.result) {
+        this.user.contribution.eth = this.userResponse.eth_count
+        this.user.contribution.dsn = this.userResponse.total
+      }
+    })
+
+    // Fetch all sale status
     this.fetchAllSaleStatus().then(() => {
       this.salesTableData = this.sales
       this.active.name = this.activeSale[0].name
