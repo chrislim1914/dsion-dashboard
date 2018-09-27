@@ -144,8 +144,6 @@ export default {
           var cookieMonster = shifters(cookieNameCutter('tka'), metaController) + '.' +
                               shifters(cookieNameCutter('tkp'), metaController) + '.' +
                               shifters(cookieNameCutter('tks'), metaController)
-          var shifted = cookieMonster.split('.')
-
           document.cookie = 'tka=;expires=Thu, 01 Jan 1970 00:00:01 GMT;domain=.dsion.io'
           document.cookie = 'tkp=;expires=Thu, 01 Jan 1970 00:00:01 GMT;domain=.dsion.io'
           document.cookie = 'tks=;expires=Thu, 01 Jan 1970 00:00:01 GMT;domain=.dsion.io'

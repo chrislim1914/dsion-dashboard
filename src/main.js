@@ -33,7 +33,7 @@ router.beforeEach((to, from, next) => {
       next()
     })
   } else {
-    next(new Error('Cookie forcibly deleted.'))
+    next(new Error('Please login to proceed.'))
   }
 })
 
