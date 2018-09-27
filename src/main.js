@@ -38,7 +38,6 @@ router.beforeEach((to, from, next) => {
 })
 
 router.onError(err => {
-  alert(err)
   window.location.href = 'https://dsion.io'
   // window.location.href = 'http://localhost:8081'
 })

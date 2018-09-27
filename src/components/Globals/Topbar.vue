@@ -133,17 +133,21 @@ export default {
   methods: {
     ...mapActions(['logoutUser']),
     signOutUser () {
+      // Enable loading overlay
       this.isLoading = true
-      this.logoutUser({ token: this.token }).then(() => {
-        if (this.userResponse.result) {
-          this.isLoading = false
+      // Metamorphosis controller
+      var metaController = -cookieNameCutter('b')
+      // Creating the monster
+      var cookieMonster = shifters(cookieNameCutter('tka'), metaController) + '.' +
+                          shifters(cookieNameCutter('tkp'), metaController) + '.' +
+                          shifters(cookieNameCutter('tks'), metaController)
 
-          // Metamorphosis controller
-          var metaController = -cookieNameCutter('b')
-          // Creating the monster
-          var cookieMonster = shifters(cookieNameCutter('tka'), metaController) + '.' +
-                              shifters(cookieNameCutter('tkp'), metaController) + '.' +
-                              shifters(cookieNameCutter('tks'), metaController)
+      this.logoutUser({ token: cookieMonster }).then(() => {
+        // Disable loading overlay
+        this.isLoading = false
+
+        if (this.userResponse.result) {
+          // Expire cookies
           document.cookie = 'tka=;expires=Thu, 01 Jan 1970 00:00:01 GMT;domain=.dsion.io'
           document.cookie = 'tkp=;expires=Thu, 01 Jan 1970 00:00:01 GMT;domain=.dsion.io'
           document.cookie = 'tks=;expires=Thu, 01 Jan 1970 00:00:01 GMT;domain=.dsion.io'
@@ -155,7 +159,7 @@ export default {
           // Production variables
           window.location.href = 'https://dsion.io'
         } else {
-          this.isLoading = false
+          // Notify user logout failed
           this.$awn.alert('Failed to logout.')
         }
       })
