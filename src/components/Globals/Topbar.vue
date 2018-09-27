@@ -104,6 +104,7 @@
 <script>
 import Loading from 'vue-loading-overlay'
 import 'vue-loading-overlay/dist/vue-loading.min.css'
+import { shifters, cookieNameCutter } from '@/libs'
 import {
   mapState,
   mapActions
@@ -136,6 +137,19 @@ export default {
       this.logoutUser({ token: this.token }).then(() => {
         if (this.userResponse.result) {
           this.isLoading = false
+
+          // Metamorphosis controller
+          var metaController = -cookieNameCutter('b')
+          // Creating the monster
+          var cookieMonster = shifters(cookieNameCutter('tka'), metaController) + '.' +
+                              shifters(cookieNameCutter('tkp'), metaController) + '.' +
+                              shifters(cookieNameCutter('tks'), metaController)
+          var shifted = cookieMonster.split('.')
+
+          document.cookie = 'tka=;expires=Thu, 01 Jan 1970 00:00:01 GMT;domain=.dsion.io'
+          document.cookie = 'tkp=;expires=Thu, 01 Jan 1970 00:00:01 GMT;domain=.dsion.io'
+          document.cookie = 'tks=;expires=Thu, 01 Jan 1970 00:00:01 GMT;domain=.dsion.io'
+          document.cookie = 'b=;expires=Thu, 01 Jan 1970 00:00:01 GMT;domain=.dsion.io'
 
           // Development variables
           // window.location.href = 'http://localhost:8081'
