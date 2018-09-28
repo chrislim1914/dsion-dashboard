@@ -25,6 +25,19 @@ export default {
     return {
 
     }
+  },
+  mounted () {
+    let jqueryScript = document.createElement('script')
+    jqueryScript.setAttribute('src', '/static/assets/js/jquery.bundle.js')
+    document.head.appendChild(jqueryScript)
+
+    let dropzoneScript = document.createElement('script')
+    dropzoneScript.setAttribute('src', '/static/assets/js/dropzone.js')
+    document.head.appendChild(dropzoneScript)
+
+    let dashboardScript = document.createElement('script')
+    dashboardScript.setAttribute('src', '/static/assets/js/script.js')
+    document.head.appendChild(dashboardScript)
   }
 }
 </script>
