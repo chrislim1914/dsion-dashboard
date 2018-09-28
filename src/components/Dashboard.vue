@@ -16,7 +16,7 @@
                 <div class="tile-item tile-primary">
                   <div class="tile-bubbles"></div>
                   <h6 class="tile-title">ICO TOKEN BALANCE</h6>
-                  <h1 class="tile-info">{{ user.contribution.dsn | digitCommafy }} DSN</h1>
+                  <h1 class="tile-info">{{ tokenBalance | digitCommafy }} DSN</h1>
                   <ul class="tile-list-inline">
                       <li> </li>
                       <li> </li>
@@ -136,6 +136,7 @@ export default {
   data () {
     return {
       salesTableData: [],
+      tokenBalance: 0,
       user: {
         contribution: {
           eth: 0,
