@@ -2,7 +2,7 @@
 function initial(){
 	'use strict';
 	var $win = $(window), $body_m = $('body'), $navbar = $('.navbar');
-	
+
 	// Touch Class
 	if (!("ontouchstart" in document.documentElement)) {
 		$body_m.addClass("no-touch");
@@ -46,13 +46,13 @@ function initial(){
 	}
 
 	// Select
-	var $selectbox = $('.input-select, select');
-	if ($selectbox.length > 0) {
-        $selectbox.each(function() {
-			var $this = $(this);
-            $this.select2();
-		});
-	}
+	// var $selectbox = $('.input-select, select');
+	// if ($selectbox.length > 0) {
+  //       $selectbox.each(function() {
+	// 		var $this = $(this);
+  //           $this.select2();
+	// 	});
+	// }
 
 
     // Function For Toggle Class On click

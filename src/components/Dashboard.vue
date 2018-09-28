@@ -16,7 +16,7 @@
                 <div class="tile-item tile-primary">
                   <div class="tile-bubbles"></div>
                   <h6 class="tile-title">ICO TOKEN BALANCE</h6>
-                  <h1 class="tile-info">{{ user.contribution.dsn }} DSN</h1>
+                  <h1 class="tile-info">{{ user.contribution.dsn | digitCommafy }} DSN</h1>
                   <ul class="tile-list-inline">
                       <li> </li>
                       <li> </li>
@@ -29,9 +29,9 @@
                   <div class="tile-bubbles"></div>
                   <h6 class="tile-title">YOUR CONTRIBUTION</h6>
                   <ul class="tile-info-list">
-                      <li><span>{{ user.contribution.eth }}</span>ETH</li>
+                      <li><span>{{ user.contribution.eth | digitCommafy }}</span>ETH</li>
                       <li><span>=></span>&nbsp;</li>
-                      <li><span>{{ user.contribution.dsn }}</span>DSN</li>
+                      <li><span>{{ user.contribution.dsn | digitCommafy }}</span>DSN</li>
                   </ul>
                 </div>
               </div><!-- .col -->
@@ -157,7 +157,7 @@ export default {
     ...mapState({
       'token': ({tokens}) => tokens.token,
       'sales': ({sales}) => sales.sales,
-      'userData': ({users}) => users.responseData,
+      'userData': ({users}) => users.user,
       'userResponse': ({users}) => users.responseData,
       'salesData': ({sales}) => sales.responseData
     }),

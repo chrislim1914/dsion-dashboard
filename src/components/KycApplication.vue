@@ -55,10 +55,10 @@
                                 <div class="input-item input-with-label">
                                   <label for="nationality" class="input-item-label">Nationality (국적)</label>
                                   <select v-model="kycForm.nationality" class="input-bordered" name="nationality" id="nationality">
-                                                        <option :value="nationality" :key="index" v-for="(nationality, index) in nationalities">
-                                                          {{ nationality }}
-                                                        </option>
-                                                    </select>
+                                    <option :value="nationality" :key="index" v-for="(nationality, index) in nationalities">
+                                      {{ nationality }}
+                                    </option>
+                                  </select>
                                 </div><!-- .input-item -->
                               </div><!-- .col -->
                             </div><!-- .row -->
@@ -419,7 +419,7 @@ export default {
                       // Push the page to the address w/ 800ms delay
                       setTimeout(() => {
                         this.$router.push({ name: 'DashboardAddress' })
-                      }, 800)
+                      }, 500)
                     } else {
                       // Notify user kyc is not submitted
                       this.$awn.alert(this.kycResponse.message)
@@ -468,6 +468,8 @@ export default {
     this.kycForm.email = this.userData.email
     // Apply fetched id user to user reactive data
     this.user.iduser = this.userData.iduser
+    // Apply fetched user wallet to user reactive data
+    this.kycForm.eth_address = this.userData.eth_address
     // Apply fetched user token to user reactive data
     this.user.token = this.token
   }
