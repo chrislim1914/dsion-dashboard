@@ -142,6 +142,8 @@ export default {
           if (this.userResponse.result) {
             // Clear form
             this.clearFields()
+            // Disable change wallet address
+            this.isDisabled = true
             // Notify user success
             this.$awn.success('Change wallet success.')
           } else {
