@@ -58,7 +58,13 @@ const actions = {
       var resp = await axios.post(user.getInfo)
       context.commit('setUser', resp.data)
     } catch (error) {
-      context.commit('updateResponseData', 'General Error')
+      if (error.response.status === 401 || error.response.data.message === 'Token has expired') {
+        context.commit('updateResponseData', error.response.data)
+      } else if (error.response.data.message === 'token_invalid') {
+        context.commit('updateResponseData', error.response.data)
+      } else {
+        context.commit('updateResponseData', 'General Error')
+      }
     }
   },
   authenticateGoogle: async (context, payload) => {
@@ -89,7 +95,15 @@ const actions = {
   },
   getUserContribution: async (context, payload) => {
     try {
-      var resp = await axios.get(user.getContribution + payload.iduser)
+      var resp = await axios.post(user.getContribution + payload.iduser, payload)
+      context.commit('updateResponseData', resp.data)
+    } catch (error) {
+      context.commit('updateResponseData', 'General Error')
+    }
+  },
+  getUserNewToken: async (context, payload) => {
+    try {
+      var resp = await axios.post(user.refreshToken, payload)
       context.commit('updateResponseData', resp.data)
     } catch (error) {
       context.commit('updateResponseData', 'General Error')

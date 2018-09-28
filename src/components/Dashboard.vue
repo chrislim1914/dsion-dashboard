@@ -16,7 +16,7 @@
                 <div class="tile-item tile-primary">
                   <div class="tile-bubbles"></div>
                   <h6 class="tile-title">ICO TOKEN BALANCE</h6>
-                  <h1 class="tile-info">{{ tokenBalance | digitCommafy }} DSN</h1>
+                  <h1 class="tile-info">{{ user.tokenBalance | digitCommafy }} DSN</h1>
                   <ul class="tile-list-inline">
                       <li> </li>
                       <li> </li>
@@ -136,8 +136,8 @@ export default {
   data () {
     return {
       salesTableData: [],
-      tokenBalance: 0,
       user: {
+        tokenBalance: 0,
         contribution: {
           eth: 0,
           dsn: 0
@@ -176,9 +176,11 @@ export default {
   created () {
     // Fetch user contribution
     this.getUserContribution({
-      iduser: this.userData.iduser
+      iduser: this.userData.iduser,
+      eth_address: this.userData.eth_address
     }).then(() => {
       if (this.userResponse.result) {
+        this.user.tokenBalance = this.userResponse.eth_balance
         this.user.contribution.eth = this.userResponse.eth_count
         this.user.contribution.dsn = this.userResponse.total
       }

@@ -1,81 +1,103 @@
 <template>
-<div class="user-dashboard">
-  <!-- topbar -->
-  <global-topbar></global-topbar>
-  <!-- topbar -->
-  <!-- content -->
-  <div class="user-wraper">
-    <div class="container">
-      <div class="d-flex">
-        <!-- sidebar -->
-        <global-sidebar></global-sidebar>
-        <!-- sidebar -->
+  <div class="user-dashboard">
+    <!-- topbar -->
+    <global-topbar></global-topbar>
+    <!-- topbar -->
+    <!-- content -->
+    <div class="user-wraper">
+      <div class="container">
+        <div class="d-flex">
+          <!-- sidebar -->
+          <global-sidebar></global-sidebar>
+          <!-- sidebar -->
           <div class="user-content">
             <div class="user-panel">
-                <h2 class="user-panel-title">Security Settings</h2>
-                <p>You can control your password and account-access setting and toos that let you safe, protect your account.</p>
-                <div class="tab-content" id="security-opt-tab">
-                  <div class="tab-pane fade active show" id="password-opt">
-                      <form action="#">
-                          <div class="row">
-                              <div class="col-lg">
-                                  <div class="input-item input-with-label">
-                                      <label for="swalllet" class="input-item-label">Change ETH Wallet Address</label>
-                                      <input class="input-bordered" type="text" name="eth-address" v-model="settings.ethAddress" :disabled="isDisabled">
-                                  </div><!-- .input-item -->
-                              </div><!-- .col -->
-                          </div><!-- .row -->
-                          <div class="gaps-1x"></div><!-- 10px gap -->
-                          <div class="d-sm-flex justify-content-between align-items-center">
-                              <a class="btn btn-primary text-white" :class="{'disabled': isDisabled}" ref="btnChangeWallet" @click="changeWalletAddress">Update Wallet Address</a>
-                          </div>
-                      </form><!-- form -->
-                      <form action="#" class="mt-5">
-                          <div class="row">
-                              <div class="col-lg">
-                                  <div class="input-item input-with-label">
-                                      <label for="swalllet" class="input-item-label">Old Password</label>
-                                      <input class="input-bordered" type="password" name="old-password" v-model="settings.oldPassword">
-                                  </div><!-- .input-item -->
-                              </div><!-- .col -->
-                          </div><!-- .row -->
-                          <div class="row">
-                              <div class="col-lg-6">
-                                  <div class="input-item input-with-label">
-                                      <label for="date-of-birth" class="input-item-label">New Password</label>
-                                      <input class="input-bordered" type="password" name="new-password" v-model="settings.newPassword">
-                                  </div><!-- .input-item -->
-                              </div><!-- .col -->
-                              <div class="col-lg-6">
-                                  <div class="input-item input-with-label">
-                                      <label for="date-of-birth" class="input-item-label">Confirm New Password</label>
-                                      <input class="input-bordered" type="password" name="re-password" v-model="settings.reTypePassword">
-                                  </div><!-- .input-item -->
-                              </div><!-- .col -->
-                          </div><!-- .row -->
-                          <div class="note note-plane note-info">
-                              <em class="fas fa-info-circle"></em>
-                              <p>Passwords must be at least 8 characters in combination of two or more of uppercase and lowercase letters, numbers, and symbols.</p>
-                          </div>
-                          <div class="gaps-3x"></div>
-                          <div class="gaps-1x"></div><!-- 10px gap -->
-                          <div class="d-sm-flex justify-content-between align-items-center">
-                              <a class="btn btn-primary text-white" @click="changePassword">Update Password</a>
-                              <div class="gaps-2x d-sm-none"></div>
-                          </div>
-                      </form><!-- form -->
-                  </div><!-- .tab-pane -->
-              </div><!-- .tab-content -->
-            </div><!-- .user-panel -->
-          </div><!-- .user-content -->
-      </div><!-- .d-flex -->
-    </div><!-- .container -->
-  </div> <!-- content -->
+              <h2 class="user-panel-title">Security Settings</h2>
+              <p>You can control your password and account-access setting and toos that let you safe, protect your account.</p>
+              <div class="tab-content" id="security-opt-tab">
+                <div class="tab-pane fade active show" id="password-opt">
+                  <form action="#">
+                    <div class="row">
+                      <div class="col-lg">
+                        <div class="input-item input-with-label">
+                          <label for="swalllet" class="input-item-label">Change ETH Wallet Address</label>
+                          <input class="input-bordered" type="text" name="eth-address" v-model="settings.ethAddress" :disabled="isDisabled">
+                        </div>
+                        <!-- .input-item -->
+                      </div>
+                      <!-- .col -->
+                    </div>
+                    <!-- .row -->
+                    <div class="gaps-1x"></div>
+                    <!-- 10px gap -->
+                    <div class="text-center justify-content-center">
+                      <a class="btn btn-primary text-white" :class="{'disabled': isDisabled}" ref="btnChangeWallet" @click="changeWalletAddress">Update Wallet Address</a>
+                    </div>
+                  </form>
+                  <!-- form -->
+                  <form action="#" class="mt-5">
+                    <div class="row">
+                      <div class="col-lg">
+                        <div class="input-item input-with-label">
+                          <label for="swalllet" class="input-item-label">Old Password</label>
+                          <input class="input-bordered" type="password" name="old-password" v-model="settings.oldPassword">
+                        </div>
+                        <!-- .input-item -->
+                      </div>
+                      <!-- .col -->
+                    </div>
+                    <!-- .row -->
+                    <div class="row">
+                      <div class="col-lg-6">
+                        <div class="input-item input-with-label">
+                          <label for="date-of-birth" class="input-item-label">New Password</label>
+                          <input class="input-bordered" type="password" name="new-password" v-model="settings.newPassword">
+                        </div>
+                        <!-- .input-item -->
+                      </div>
+                      <!-- .col -->
+                      <div class="col-lg-6">
+                        <div class="input-item input-with-label">
+                          <label for="date-of-birth" class="input-item-label">Confirm New Password</label>
+                          <input class="input-bordered" type="password" name="re-password" v-model="settings.reTypePassword">
+                        </div>
+                        <!-- .input-item -->
+                      </div>
+                      <!-- .col -->
+                    </div>
+                    <!-- .row -->
+                    <div class="note note-plane note-info">
+                      <em class="fas fa-info-circle"></em>
+                      <p>Passwords must be at least 8 characters in combination of two or more of uppercase and lowercase letters, numbers, and symbols.</p>
+                    </div>
+                    <div class="gaps-3x"></div>
+                    <div class="gaps-1x"></div>
+                    <!-- 10px gap -->
+                    <div class="text-center justify-content-center">
+                      <a class="btn btn-primary text-white" @click="changePassword">Update Password</a>
+                      <div class="gaps-2x d-sm-none"></div>
+                    </div>
+                  </form>
+                  <!-- form -->
+                </div>
+                <!-- .tab-pane -->
+              </div>
+              <!-- .tab-content -->
+            </div>
+            <!-- .user-panel -->
+          </div>
+          <!-- .user-content -->
+        </div>
+        <!-- .d-flex -->
+      </div>
+      <!-- .container -->
+    </div>
+    <!-- content -->
 
-  <global-footer></global-footer>
+    <global-footer></global-footer>
 
-  <loading :active.sync="isLoading" :is-full-page="true"></loading>
-</div>
+    <loading :active.sync="isLoading" :is-full-page="true"></loading>
+  </div>
 </template>
 
 <script>
@@ -119,8 +141,12 @@ export default {
   },
   computed: {
     ...mapState({
-      'userData': ({users}) => users.user,
-      'userResponse': ({users}) => users.responseData
+      'userData': ({
+        users
+      }) => users.user,
+      'userResponse': ({
+        users
+      }) => users.responseData
     })
   },
   methods: {
@@ -220,3 +246,7 @@ export default {
   }
 }
 </script>
+
+<style media="screen">
+
+</style>

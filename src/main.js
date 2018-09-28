@@ -9,7 +9,8 @@ import VueQriously from 'vue-qriously'
 import router from './router'
 import store from './store'
 import './filters'
-import { shifters, cookieNameCutter } from './libs'
+import { shifters, pickANumber, cookieNameCutter } from './libs'
+import { jwtHeader } from './config'
 
 require('vue-awesome-notifications/dist/styles/style.css')
 
@@ -30,6 +31,41 @@ router.beforeEach((to, from, next) => {
                         shifters(cookieNameCutter('tks'), metaController)
     store.dispatch('saveToken', { token: cookieMonster })
     store.dispatch('fetchUserInfo', { token: cookieMonster }).then(() => {
+      if (store.state.users.responseData.message === 'Token has expired') {
+        store.dispatch('getUserNewToken', { token: cookieMonster }).then(() => {
+          // The boooody
+          var tk = jwtHeader + 'eyJ' + store.state.users.responseData.token.slice(3)
+          // Surprise them all
+          var surprise = pickANumber()
+          // Shifting shifters to shifted
+          var shifted = shifters(tk, surprise).split('.')
+          // Secret date
+          var date = new Date()
+          // Setup a date
+          date.setDate(date.getDate() + 1)
+
+          document.cookie = 'tka=' + shifted[0] + ';expires=' + date + ';domain=.dsion.io;path=/;secure;'
+          document.cookie = 'tkp=' + shifted[1] + ';expires=' + date + ';domain=.dsion.io;path=/;secure;'
+          document.cookie = 'tks=' + shifted[2] + ';expires=' + date + ';domain=.dsion.io;path=/;secure;'
+          document.cookie = 'b=' + surprise + ';expires=' + date + ';domain=.dsion.io;path=/;secure;'
+        })
+      } else if (store.state.users.responseData.message === 'token_invalid') {
+        alert('Please login again.')
+
+        // document.cookie = 'tka=;expires=Thu, 01 Jan 1970 00:00:01 GMT;'
+        // document.cookie = 'tkp=;expires=Thu, 01 Jan 1970 00:00:01 GMT;'
+        // document.cookie = 'tks=;expires=Thu, 01 Jan 1970 00:00:01 GMT;'
+        // document.cookie = 'b=;expires=Thu, 01 Jan 1970 00:00:01 GMT;'
+
+        document.cookie = 'tka=;expires=Thu, 01 Jan 1970 00:00:01 GMT;domain=.dsion.io'
+        document.cookie = 'tkp=;expires=Thu, 01 Jan 1970 00:00:01 GMT;domain=.dsion.io'
+        document.cookie = 'tks=;expires=Thu, 01 Jan 1970 00:00:01 GMT;domain=.dsion.io'
+        document.cookie = 'b=;expires=Thu, 01 Jan 1970 00:00:01 GMT;domain=.dsion.io'
+
+        // window.location.href = 'http://localhost:8081'
+        window.location.href = 'https://dsion.io'
+      }
+
       next()
     })
   } else {
