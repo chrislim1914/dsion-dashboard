@@ -39,6 +39,7 @@
                                     <li><a href="account.html"><i class="ti ti-id-badge"></i>Setting</a></li>
                                 </ul-->
                                 <ul class="user-dropdown-links">
+                                    <li><a href="https://dsion.io" style="color: #6783b8;"><i class="fa fa-home mr-2"></i>Go to homepage</a></li>
                                     <li><a @click="signOutUser" style="color: #6783b8;"><i class="ti ti-power-off"></i>Logout</a></li>
                                 </ul>
                             </div>
