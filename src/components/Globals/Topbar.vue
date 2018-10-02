@@ -146,23 +146,17 @@ export default {
       this.logoutUser({ token: cookieMonster }).then(() => {
         // Disable loading overlay
         this.isLoading = false
+        // Expire cookies
+        this.$cookie.delete('tka', {domain: '.dsion.io'})
+        this.$cookie.delete('tkp', {domain: '.dsion.io'})
+        this.$cookie.delete('tks', {domain: '.dsion.io'})
+        this.$cookie.delete('b', {domain: '.dsion.io'})
 
-        if (this.userResponse.result) {
-          // Expire cookies
-          document.cookie = 'tka=;expires=Thu, 01 Jan 1970 00:00:01 GMT;domain=.dsion.io'
-          document.cookie = 'tkp=;expires=Thu, 01 Jan 1970 00:00:01 GMT;domain=.dsion.io'
-          document.cookie = 'tks=;expires=Thu, 01 Jan 1970 00:00:01 GMT;domain=.dsion.io'
-          document.cookie = 'b=;expires=Thu, 01 Jan 1970 00:00:01 GMT;domain=.dsion.io'
+        // Development variables
+        // window.location.href = 'http://localhost:8081'
 
-          // Development variables
-          // window.location.href = 'http://localhost:8081'
-
-          // Production variables
-          window.location.href = 'https://dsion.io'
-        } else {
-          // Notify user logout failed
-          this.$awn.alert('Failed to logout.')
-        }
+        // Production variables
+        window.location.href = 'https://dsion.io'
       })
     }
   },

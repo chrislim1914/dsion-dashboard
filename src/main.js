@@ -13,12 +13,14 @@ import { shifters, pickANumber, cookieNameCutter } from './libs'
 import { jwtHeader } from './config'
 
 require('vue-awesome-notifications/dist/styles/style.css')
+var VueCookie = require('vue-cookie')
 
 Vue.config.productionTip = false
 
 Vue.use(VueAWN)
 Vue.use(VueClipboard)
 Vue.use(VueQriously)
+Vue.use(VueCookie)
 
 router.beforeEach((to, from, next) => {
   // Applying middleware before going inside the sink hole.
@@ -39,29 +41,18 @@ router.beforeEach((to, from, next) => {
           var surprise = pickANumber()
           // Shifting shifters to shifted
           var shifted = shifters(tk, surprise).split('.')
-          // Secret date
-          var date = new Date()
-          // Setup a date
-          date.setDate(date.getDate() + 1)
-
-          document.cookie = 'tka=' + shifted[0] + ';expires=' + date + ';domain=.dsion.io;path=/;secure;'
-          document.cookie = 'tkp=' + shifted[1] + ';expires=' + date + ';domain=.dsion.io;path=/;secure;'
-          document.cookie = 'tks=' + shifted[2] + ';expires=' + date + ';domain=.dsion.io;path=/;secure;'
-          document.cookie = 'b=' + surprise + ';expires=' + date + ';domain=.dsion.io;path=/;secure;'
+          this.$cookie.set('tka', shifted[0], {expires: 1, domain: '.dsion.io'})
+          this.$cookie.set('tkp', shifted[1], {expires: 1, domain: '.dsion.io'})
+          this.$cookie.set('tks', shifted[2], {expires: 1, domain: '.dsion.io'})
+          this.$cookie.set('b', surprise, {expires: 1, domain: '.dsion.io'})
         })
       } else if (store.state.users.responseData.message === 'token_invalid') {
         alert('Please login again.')
-
-        // document.cookie = 'tka=;expires=Thu, 01 Jan 1970 00:00:01 GMT;'
-        // document.cookie = 'tkp=;expires=Thu, 01 Jan 1970 00:00:01 GMT;'
-        // document.cookie = 'tks=;expires=Thu, 01 Jan 1970 00:00:01 GMT;'
-        // document.cookie = 'b=;expires=Thu, 01 Jan 1970 00:00:01 GMT;'
-
-        document.cookie = 'tka=;expires=Thu, 01 Jan 1970 00:00:01 GMT;domain=.dsion.io'
-        document.cookie = 'tkp=;expires=Thu, 01 Jan 1970 00:00:01 GMT;domain=.dsion.io'
-        document.cookie = 'tks=;expires=Thu, 01 Jan 1970 00:00:01 GMT;domain=.dsion.io'
-        document.cookie = 'b=;expires=Thu, 01 Jan 1970 00:00:01 GMT;domain=.dsion.io'
-
+        // Expire cookies
+        this.$cookie.delete('tka', {domain: '.dsion.io'})
+        this.$cookie.delete('tkp', {domain: '.dsion.io'})
+        this.$cookie.delete('tks', {domain: '.dsion.io'})
+        this.$cookie.delete('b', {domain: '.dsion.io'})
         // window.location.href = 'http://localhost:8081'
         window.location.href = 'https://dsion.io'
       }
