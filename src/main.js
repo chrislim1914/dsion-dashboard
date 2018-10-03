@@ -35,7 +35,7 @@ router.beforeEach((to, from, next) => {
     store.dispatch('fetchUserInfo', { token: cookieMonster }).then(() => {
       console.log(store.state.users)
       console.log('1')
-      if (store.state.users.responseData.message === 'Token has expired') {
+      if (store.state.users.responseData === 'Token has expired') {
         console.log(store.state.users)
         store.dispatch('getUserNewToken', { token: cookieMonster }).then(() => {
           console.log(store.state.users)
@@ -51,7 +51,7 @@ router.beforeEach((to, from, next) => {
           this.$cookie.set('tks', shifted[2], {expires: 1, domain: '.dsion.io'})
           this.$cookie.set('b', surprise, {expires: 1, domain: '.dsion.io'})
         })
-      } else if (store.state.users.responseData.message === 'token_invalid') {
+      } else if (store.state.users.responseData === 'token_invalid') {
         alert('Please login again.')
         // Expire cookies
         this.$cookie.delete('tka', {domain: '.dsion.io'})
