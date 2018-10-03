@@ -35,7 +35,9 @@ router.beforeEach((to, from, next) => {
     store.dispatch('fetchUserInfo', { token: cookieMonster }).then(() => {
       if (store.state.users.responseData === 'Token has expired') {
         store.dispatch('getUserNewToken', { token: cookieMonster }).then(() => {
+          console.log('1')
           if (store.state.users.responseData === 'token_invalid' && store.state.users.responseData.result === false) {
+            console.log(store.state.users.responseData)
             alert('Please login again.')
             // Expire cookies
             this.$cookie.delete('tka', {domain: '.dsion.io'})
