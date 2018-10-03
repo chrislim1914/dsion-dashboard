@@ -104,9 +104,10 @@ const actions = {
       var resp = await axios.post(user.refreshToken, payload)
       context.commit('updateResponseData', resp.data)
     } catch (error) {
-      if (error.response.status === 401 || error.response.data.message === 'Token has expired') {
+      console.log(error.response)
+      if (error.response.status === 401 && error.response.data.message === 'Token has expired') {
         context.commit('updateResponseData', error.response.data.message)
-      } else if (error.response.data.message === 'token_invalid') {
+      } else if (error.response.status === 401 && error.response.data.message === 'token_invalid') {
         context.commit('updateResponseData', error.response.data.message)
       }
     }
