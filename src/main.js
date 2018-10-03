@@ -35,6 +35,7 @@ router.beforeEach((to, from, next) => {
     store.dispatch('fetchUserInfo', { token: cookieMonster }).then(() => {
       if (store.state.users.responseData === 'Token has expired') {
         store.dispatch('getUserNewToken', { token: cookieMonster }).then(() => {
+
           if (store.state.users.responseData !== 'token_invalid') {
             // The boooody
             var tk = jwtHeader + 'eyJ' + store.state.users.responseData.token.slice(3)
@@ -47,14 +48,15 @@ router.beforeEach((to, from, next) => {
             this.$cookie.set('tks', shifted[2], {expires: 1, domain: '.dsion.io'})
             this.$cookie.set('b', surprise, {expires: 1, domain: '.dsion.io'})
           } else {
-            alert('Please login again.')
-            // Expire cookies
-            this.$cookie.delete('tka', {domain: '.dsion.io'})
-            this.$cookie.delete('tkp', {domain: '.dsion.io'})
-            this.$cookie.delete('tks', {domain: '.dsion.io'})
-            this.$cookie.delete('b', {domain: '.dsion.io'})
-            // window.location.href = 'http://localhost:8081'
-            window.location.href = 'https://dsion.io'
+            console.log(store.state.users)
+            // alert('Please login again.')
+            // // Expire cookies
+            // this.$cookie.delete('tka', {domain: '.dsion.io'})
+            // this.$cookie.delete('tkp', {domain: '.dsion.io'})
+            // this.$cookie.delete('tks', {domain: '.dsion.io'})
+            // this.$cookie.delete('b', {domain: '.dsion.io'})
+            // // window.location.href = 'http://localhost:8081'
+            // window.location.href = 'https://dsion.io'
           }
         })
       } else if (store.state.users.responseData === 'token_invalid') {
