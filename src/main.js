@@ -35,9 +35,10 @@ router.beforeEach((to, from, next) => {
     store.dispatch('fetchUserInfo', { token: cookieMonster }).then(() => {
       console.log('1')
       if (store.state.users.responseData === 'Token has expired') {
-        console.log(store.state)
+        console.log('2')
         store.dispatch('getUserNewToken', { token: cookieMonster }).then(() => {
-          console.log(cookieMonster)
+          console.log('3')
+          console.log(store.state.users)
           // The boooody
           var tk = jwtHeader + 'eyJ' + store.state.users.responseData.token.slice(3)
           // Surprise them all
