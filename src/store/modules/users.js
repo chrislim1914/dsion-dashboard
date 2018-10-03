@@ -104,11 +104,9 @@ const actions = {
   },
   getUserNewToken: async (context, payload) => {
     try {
-      console.log(payload)
       var resp = await axios.post(user.refreshToken, payload)
       context.commit('updateResponseData', resp.data)
     } catch (error) {
-      console.log(error)
       context.commit('updateResponseData', 'General Error')
     }
   }
