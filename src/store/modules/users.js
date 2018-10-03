@@ -107,7 +107,6 @@ const actions = {
       if (error.response.status === 401 && error.response.data.message === 'Token has expired') {
         context.commit('updateResponseData', error.response.data.message)
       } else if (error.response.status === 401 && error.response.data.message === 'token_invalid') {
-        console.log(error.response.data.message)
         context.commit('updateResponseData', error.response.data.message)
       }
     }
