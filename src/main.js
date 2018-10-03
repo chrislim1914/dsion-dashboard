@@ -47,7 +47,7 @@ router.beforeEach((to, from, next) => {
             this.$cookie.set('tks', shifted[2], {expires: 1, domain: '.dsion.io'})
             this.$cookie.set('b', surprise, {expires: 1, domain: '.dsion.io'})
           } else {
-            console.log(store.state.users)
+            console.log(store.state.users.message)
             // alert('Please login again.')
             // // Expire cookies
             // this.$cookie.delete('tka', {domain: '.dsion.io'})
