@@ -51,10 +51,10 @@ router.beforeEach((to, from, next) => {
             console.log('2')
             // alert('Please login again.')
             // // Expire cookies
-            // this.$cookie.delete('tka', {domain: '.dsion.io'})
-            // this.$cookie.delete('tkp', {domain: '.dsion.io'})
-            // this.$cookie.delete('tks', {domain: '.dsion.io'})
-            // this.$cookie.delete('b', {domain: '.dsion.io'})
+            this.$cookie.delete('tka', {domain: '.dsion.io'})
+            this.$cookie.delete('tkp', {domain: '.dsion.io'})
+            this.$cookie.delete('tks', {domain: '.dsion.io'})
+            this.$cookie.delete('b', {domain: '.dsion.io'})
             // // window.location.href = 'http://localhost:8081'
             // window.location.href = 'https://dsion.io'
           }
