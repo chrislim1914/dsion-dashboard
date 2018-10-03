@@ -59,10 +59,9 @@ const actions = {
       context.commit('setUser', resp.data)
     } catch (error) {
       if (error.response.status === 401 || error.response.data.message === 'Token has expired') {
-        console.log(error.response.data.message)
-        context.commit('updateResponseData', error.response.data)
+        context.commit('updateResponseData', error.response.data.message)
       } else if (error.response.data.message === 'token_invalid') {
-        context.commit('updateResponseData', error.response.data)
+        context.commit('updateResponseData', error.response.data.message)
       } else {
         context.commit('updateResponseData', 'General Error')
       }
