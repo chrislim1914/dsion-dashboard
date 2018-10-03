@@ -64,8 +64,6 @@ const actions = {
         context.commit('updateResponseData', error.response.data.message)
       } else if (error.response.data.message === 'token_invalid') {
         context.commit('updateResponseData', error.response.data.message)
-      } else if (error.response.data.message !== 'Token has expired' && error.response.data.message !== 'token_invalid') {
-        context.commit('updateResponseData', 'General Error')
       }
     }
   },
