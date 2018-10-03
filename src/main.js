@@ -33,27 +33,29 @@ router.beforeEach((to, from, next) => {
                         shifters(cookieNameCutter('tks'), metaController)
     store.dispatch('saveToken', { token: cookieMonster })
     store.dispatch('fetchUserInfo', { token: cookieMonster }).then(() => {
-      console.log('1')
       if (store.state.users.responseData === 'Token has expired') {
-        console.log('2')
         store.dispatch('getUserNewToken', { token: cookieMonster }).then(() => {
-          console.log('3')
-          console.log(store.state.users)
-
-          if (store.state.users.responseData === 'token_invalid') {
-            console.log('x00ff')
+          if (store.state.users.responseData !== 'token_invalid') {
+            // The boooody
+            var tk = jwtHeader + 'eyJ' + store.state.users.responseData.token.slice(3)
+            // Surprise them all
+            var surprise = pickANumber()
+            // Shifting shifters to shifted
+            var shifted = shifters(tk, surprise).split('.')
+            this.$cookie.set('tka', shifted[0], {expires: 1, domain: '.dsion.io'})
+            this.$cookie.set('tkp', shifted[1], {expires: 1, domain: '.dsion.io'})
+            this.$cookie.set('tks', shifted[2], {expires: 1, domain: '.dsion.io'})
+            this.$cookie.set('b', surprise, {expires: 1, domain: '.dsion.io'})
+          } else {
+            alert('Please login again.')
+            // Expire cookies
+            this.$cookie.delete('tka', {domain: '.dsion.io'})
+            this.$cookie.delete('tkp', {domain: '.dsion.io'})
+            this.$cookie.delete('tks', {domain: '.dsion.io'})
+            this.$cookie.delete('b', {domain: '.dsion.io'})
+            // window.location.href = 'http://localhost:8081'
+            window.location.href = 'https://dsion.io'
           }
-
-          // The boooody
-          var tk = jwtHeader + 'eyJ' + store.state.users.responseData.token.slice(3)
-          // Surprise them all
-          var surprise = pickANumber()
-          // Shifting shifters to shifted
-          var shifted = shifters(tk, surprise).split('.')
-          this.$cookie.set('tka', shifted[0], {expires: 1, domain: '.dsion.io'})
-          this.$cookie.set('tkp', shifted[1], {expires: 1, domain: '.dsion.io'})
-          this.$cookie.set('tks', shifted[2], {expires: 1, domain: '.dsion.io'})
-          this.$cookie.set('b', surprise, {expires: 1, domain: '.dsion.io'})
         })
       } else if (store.state.users.responseData === 'token_invalid') {
         alert('Please login again.')
