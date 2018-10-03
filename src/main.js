@@ -33,6 +33,8 @@ router.beforeEach((to, from, next) => {
                         shifters(cookieNameCutter('tks'), metaController)
     store.dispatch('saveToken', { token: cookieMonster })
     store.dispatch('fetchUserInfo', { token: cookieMonster }).then(() => {
+      console.log(store.state.users)
+      console.log('1')
       if (store.state.users.responseData.message === 'Token has expired') {
         console.log(store.state.users)
         store.dispatch('getUserNewToken', { token: cookieMonster }).then(() => {
