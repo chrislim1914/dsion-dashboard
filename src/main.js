@@ -39,6 +39,11 @@ router.beforeEach((to, from, next) => {
         store.dispatch('getUserNewToken', { token: cookieMonster }).then(() => {
           console.log('3')
           console.log(store.state.users)
+
+          if (store.state.users.responseData === 'token_invalid') {
+            console.log('x00ff')
+          }
+
           // The boooody
           var tk = jwtHeader + 'eyJ' + store.state.users.responseData.token.slice(3)
           // Surprise them all
