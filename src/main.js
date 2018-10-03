@@ -33,12 +33,11 @@ router.beforeEach((to, from, next) => {
                         shifters(cookieNameCutter('tks'), metaController)
     store.dispatch('saveToken', { token: cookieMonster })
     store.dispatch('fetchUserInfo', { token: cookieMonster }).then(() => {
-      console.log(store.state.users)
       console.log('1')
       if (store.state.users.responseData === 'Token has expired') {
-        console.log(store.state.users)
+        console.log(store.state)
         store.dispatch('getUserNewToken', { token: cookieMonster }).then(() => {
-          console.log(store.state.users)
+          console.log(store.state)
           console.log('flag')
           // The boooody
           var tk = jwtHeader + 'eyJ' + store.state.users.responseData.token.slice(3)
