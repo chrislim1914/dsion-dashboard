@@ -913,7 +913,7 @@ select:focus { outline: none; border: none; }
 .topbar-action-list { display: inline-flex; align-items: center; margin: 0 -15px; justify-content: center; }
 .topbar-action-list .topbar-action-item { padding: 0 15px; }
 .topbar-action-item { flex-shrink: 0; }
-.topbar-action-item > a { padding: 15px 0; display: inline-block; color: #5e698c; }
+.topbar-action-item > a { padding: 22px 0; display: inline-block; color: #5e698c; }
 .topbar-action-item > a:hover { color: #2b56f5; }
 .topbar-action-item .dropdown-menu { min-width: auto; margin: 0; padding: 0; }
 .topbar-action-item .user-box { padding: 10px 20px; }
