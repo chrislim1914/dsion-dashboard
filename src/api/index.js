@@ -19,6 +19,7 @@ export const user = {
 
 export const sales = {
   getAllSalesStatus: apiURL + '/Sale/all',
+  getActiveSale: apiURL + '/SaleActive',
   getSpecificSalesStatus: apiURL + '/Sale/:id',
   getTotalSales: apiURL + '/sliderData'
 }

@@ -121,7 +121,6 @@ import Sidebar from './Globals/Sidebar'
 import Footer from './Globals/Footer'
 import {
   mapActions,
-  mapGetters,
   mapState
 } from 'vuex'
 export default {
@@ -160,17 +159,15 @@ export default {
       'sales': ({sales}) => sales.sales,
       'userData': ({users}) => users.user,
       'userResponse': ({users}) => users.responseData,
-      'salesData': ({sales}) => sales.responseData
-    }),
-    ...mapGetters([
-      'activeSale'
-    ])
+      'salesData': ({sales}) => sales.responseData,
+      activeSale: ({sales}) => sales.activeSale
+    })
   },
   methods: {
     ...mapActions([
-      'fetchAllSaleStatus',
       'fetchTotalSales',
-      'getUserContribution'
+      'getUserContribution',
+      'fetchActiveSale'
     ])
   },
   created () {
@@ -186,14 +183,14 @@ export default {
       }
     })
 
-    // Fetch all sale status
-    this.fetchAllSaleStatus().then(() => {
+    // Fetch active sale
+    this.fetchActiveSale().then(() => {
       this.salesTableData = this.sales
-      this.active.name = this.activeSale[0].name
-      this.active.bonusRate = this.activeSale[0].bonus_rate
-      this.active.capLimit = this.activeSale[0].cap_limit
-      this.active.startDate = this.activeSale[0].startdate
-      this.active.endDate = this.activeSale[0].enddate
+      this.active.name = this.activeSale.name
+      this.active.bonusRate = this.activeSale.bonus_rate
+      this.active.capLimit = this.activeSale.cap_limit
+      this.active.startDate = this.activeSale.startdate
+      this.active.endDate = this.activeSale.enddate
       this.fetchTotalSales().then(() => {
         if (this.salesData) {
           this.isDataLoaded = true

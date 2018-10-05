@@ -12,6 +12,7 @@ import {
  */
 const state = {
   sales: [],
+  activeSale: [],
   responseData: {}
 }
 
@@ -23,7 +24,6 @@ const actions = {
   /**
       * Fetch all sale status
       * @param  context
-      * @param  payload
       * @return {Promise}
       */
   fetchAllSaleStatus: async (context) => {
@@ -34,6 +34,26 @@ const actions = {
       context.commit('updateResponseMessage', 'General Error')
     }
   },
+  /**
+      * Fetch active sale
+      * @param  context
+      * @param  payload
+      * @return {Promise}
+      */
+  fetchActiveSale: async (context) => {
+    try {
+      var resp = await axios.get(sales.getActiveSale)
+      context.commit('setActiveSale', resp.data)
+      context.commit('updateResponseMessage', resp.data)
+    } catch (error) {
+      context.commit('updateResponseMessage', 'General Error')
+    }
+  },
+  /**
+    * Fetch total sales
+    * @param  context
+    * @return {Promise}
+    */
   fetchTotalSales: async (context) => {
     try {
       var resp = await axios.get(sales.getTotalSales)
@@ -41,17 +61,6 @@ const actions = {
     } catch (error) {
       context.commit('updateResponseMessage', 'General Error')
     }
-  }
-}
-
-/**
- * @const getters
- * @type {Object}
- */
-
-const getters = {
-  activeSale: state => {
-    return state.sales.filter(sale => sale.status === 1)
   }
 }
 
@@ -70,6 +79,15 @@ const mutations = {
   },
 
   /**
+   * Set active sale state
+   * @param state
+   * @param data
+   */
+  setActiveSale: (state, data) => {
+    state.activeSale = data
+  },
+
+  /**
      * Update response message state
      * @param state
      * @param status
@@ -79,4 +97,4 @@ const mutations = {
   }
 }
 
-export default {state, actions, getters, mutations}
+export default {state, actions, mutations}
