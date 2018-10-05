@@ -167,7 +167,9 @@ export default {
     ...mapActions([
       'fetchTotalSales',
       'getUserContribution',
+      'fetchAllSaleStatus',
       'fetchActiveSale'
+
     ])
   },
   created () {
@@ -183,9 +185,13 @@ export default {
       }
     })
 
+    // Fetch all sale status
+    this.fetchAllSaleStatus().then(() => {
+      this.salesTableData = this.sales
+    })
+
     // Fetch active sale
     this.fetchActiveSale().then(() => {
-      this.salesTableData = this.sales
       this.active.name = this.activeSale.name
       this.active.bonusRate = this.activeSale.bonus_rate
       this.active.capLimit = this.activeSale.cap_limit
