@@ -6,6 +6,7 @@ import App from './App'
 import VueAWN from 'vue-awesome-notifications'
 import VueClipboard from 'vue-clipboard2'
 import VueQriously from 'vue-qriously'
+import i18n from './localization'
 import router from './router'
 import store from './store'
 import './filters'
@@ -86,6 +87,7 @@ new Vue({
   el: '#app',
   store,
   router,
+  i18n,
   components: { App },
   template: '<App/>'
 })

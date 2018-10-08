@@ -61,20 +61,14 @@
 
                 <div class="topbar-action d-none d-lg-block">
                     <ul class="topbar-action-list">
-                        <!--li class="topbar-action-item topbar-action-link">
-                            <a href="https://dsion.io"><em class="ti ti-home"></em> Go to main site</a>
-                        </li--><!-- .topbar-action-item -->
-
-                        <!-- <li class="dropdown topbar-action-item topbar-action-language">
+                        <li class="dropdown topbar-action-item topbar-action-language">
                             <a href="#" data-toggle="dropdown"> EN <em class="ti ti-angle-down"></em> </a>
                             <ul class="dropdown-menu">
                                 <li><a href="#">FR</a></li>
                                 <li><a href="#">JY</a></li>
                                 <li><a href="#">CH</a></li>
                             </ul>
-                        </li> -->
-                        <!-- .topbar-action-item -->
-
+                        </li>
                         <li class="dropdown topbar-action-item topbar-action-user">
                             <a href="#" data-toggle="dropdown"> <img class="icon" src="/static/images/user-thumb-sm.png" alt="thumb"> </a>
                             <div class="dropdown-menu dropdown-menu-right">
