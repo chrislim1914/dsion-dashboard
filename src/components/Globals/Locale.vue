@@ -13,7 +13,7 @@ export default {
   methods: {
     changeLocale (lang) {
       this.$i18n.locale = lang
-      this.$cookie.set('locale', lang, 1)
+      this.$cookie.set('locale', lang, {expires: 1, domain: '.dsion.io'})
     }
   },
   computed: {
@@ -23,8 +23,8 @@ export default {
   },
   created () {
     // Set locale
-    if (this.$cookie.get('locale')) {
-      this.changeLocale(this.$cookie.get('locale'))
+    if (this.$cookie.get('locale'), {expires: 1, domain: '.dsion.io'}) {
+      this.changeLocale(this.$cookie.get('locale', {expires: 1, domain: '.dsion.io'}))
     } else {
       this.changeLocale(this.$i18n.locale)
     }
