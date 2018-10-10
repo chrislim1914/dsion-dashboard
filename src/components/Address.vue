@@ -51,7 +51,7 @@
                 <div class="row">
                   <div class="col-12">
                     <h5 class="text-left font-weight-bold">
-                        이더리움 입금 주소
+                        {{ $t('address.walletHeading') }}
                     </h5>
                   </div>
                 </div>
@@ -61,7 +61,7 @@
                   </div>
                   <div class="col-6 mt-4 pl-lg-0">
                     <a class="btn btn-primary text-white font-weight-bold col-6" v-clipboard:model="tokenCode" v-clipboard:success="onCopy" v-clipboard:error="onErrorCopy" style="padding-right:10px;padding-left:10px;">
-                        복사
+                        {{ $t('address.walletCopy') }}
                     </a>
                   </div>
                   <div class="col-12 text-center mt-5">

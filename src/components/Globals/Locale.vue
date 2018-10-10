@@ -23,7 +23,7 @@ export default {
   },
   created () {
     // Set locale
-    if (this.$cookie.get('locale'), {expires: 1, domain: '.dsion.io'}) {
+    if (this.$cookie.get('locale', {expires: 1, domain: '.dsion.io'})) {
       this.changeLocale(this.$cookie.get('locale', {expires: 1, domain: '.dsion.io'}))
     } else {
       this.changeLocale(this.$i18n.locale)

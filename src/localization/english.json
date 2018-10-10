@@ -30,6 +30,8 @@
    "address":{
       "notice":"If you deposit to the Ethereum address , you will receive a Dsion token in the Ethereum wallet when you enter KYC.",
       "agreeCheckbox":"I agree to the above",
-      "confirmButton":"Confirm deposit address"
+      "confirmButton":"Confirm deposit address",
+      "walletHeading": "Ethereum deposit address",
+      "walletCopy": "Copy"
    }
 }

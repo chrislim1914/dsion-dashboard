@@ -30,6 +30,8 @@
    "address":{
       "notice":"해당 ETH 주소로 입금하시면, KYC 입력시 입력한 Ethereum Wallet으로 Dsion 토큰을 받게 됩니다.",
       "agreeCheckbox":"위 사항에 동의합니다.",
-      "confirmButton":"입금 주소 확인"
+      "confirmButton":"입금 주소 확인",
+      "walletHeading": "이더리움 입금 주소",
+      "walletCopy": "복사"
    }
 }
