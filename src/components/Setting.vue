@@ -40,7 +40,7 @@
                       <div class="col-lg">
                         <div class="input-item input-with-label">
                           <label for="swalllet" class="input-item-label">Old Password</label>
-                          <input class="input-bordered" type="password" name="old-password" v-model="settings.oldPassword">
+                          <input class="input-bordered" type="password" name="old-password" autocomplete="old-password" v-model="settings.oldPassword">
                         </div>
                         <!-- .input-item -->
                       </div>
@@ -51,7 +51,7 @@
                       <div class="col-lg-6">
                         <div class="input-item input-with-label">
                           <label for="date-of-birth" class="input-item-label">New Password</label>
-                          <input class="input-bordered" type="password" name="new-password" v-model="settings.newPassword">
+                          <input class="input-bordered" type="password" name="new-password" autocomplete="new-password" v-model="settings.newPassword">
                         </div>
                         <!-- .input-item -->
                       </div>
@@ -59,7 +59,7 @@
                       <div class="col-lg-6">
                         <div class="input-item input-with-label">
                           <label for="date-of-birth" class="input-item-label">Confirm New Password</label>
-                          <input class="input-bordered" type="password" name="re-password" v-model="settings.reTypePassword">
+                          <input class="input-bordered" type="password" name="re-password" autocomplete="re-password" v-model="settings.reTypePassword">
                         </div>
                         <!-- .input-item -->
                       </div>

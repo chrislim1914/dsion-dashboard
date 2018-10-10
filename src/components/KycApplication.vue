@@ -16,14 +16,14 @@
                     <div class="from-step-heading">
                       <div class="from-step-number">01</div>
                       <div class="from-step-head">
-                        <h4>Step 1 : 개인정보 입력</h4>
-                        <p>인증에 필요한 간단한 개인정보를 입력합니다</p>
+                        <h4>Step 1 : {{ $t('kycApplication.stepOneHeading') }}</h4>
+                        <p>{{ $t('kycApplication.stepOneParagraph') }}</p>
                       </div>
                     </div>
                     <div class="from-step-content">
                       <div class="note note-md note-info note-plane">
                         <em class="fas fa-info-circle"></em>
-                        <p>아래 형식에 개인정보를 정확하게 입력해 주세요. 제출한 후에는 편집할 수 없습니다.</p>
+                        <p>{{ $t('kycApplication.stepOneNote') }}</p>
                       </div>
                       <div class="gaps-2x"></div>
                       <div class="row">
@@ -81,14 +81,14 @@
                     <div class="from-step-heading">
                       <div class="from-step-number">02</div>
                       <div class="from-step-head">
-                        <h4>Step 2 : 신분 확인</h4>
-                        <p>신분 확인을 위해 아래 문서 혹은 사진을 업로드 해주세요.</p>
+                        <h4>Step 2 : {{ $t('kycApplication.stepTwoHeading') }}</h4>
+                        <p>{{ $t('kycApplication.stepTwoParagraph') }}</p>
                       </div>
                     </div>
                     <div class="from-step-content">
                       <div class="note note-md note-info note-plane">
                         <em class="fas fa-info-circle"></em>
-                        <p>다음 문서중 하나를 선택해 업로드 해주세요.</p>
+                        <p>{{ $t('kycApplication.stepTwoNote') }}</p>
                       </div>
                       <div class="gaps-2x"></div>
                       <ul class="nav nav-tabs nav-tabs-bordered" role="tablist">
@@ -124,15 +124,17 @@
                       <div class="tab-content" id="myTabContent">
 
                         <div class="tab-pane fade show active" id="passport">
-                          <h5 class="kyc-upload-title">업로드에 지장이 없도록 다음 사항을 확인해주세요.</h5>
+                          <h5 class="kyc-upload-title">{{ $t('kycApplication.uploadTitle') }}</h5>
                           <ul class="kyc-upload-list">
-                            <li>jpg, png 형식의 파일만 업로드가 가능합니다. 최대용량: 6MB</li>
+                            <li>{{ $t('kycApplication.uploadFormat') }}</li>
                           </ul>
                           <div class="gaps-4x"></div>
-                          <span class="upload-title">여권 사본을 업로드 해주세요</span>
+                          <span class="upload-title">{{ $t('kycApplication.uploadPassportNoteOne') }}</span>
                           <div class="row align-items-center">
                             <div class="col-8 col-lg-7">
-                              <input type="file" class="btn text-dark col" ref="kycForm_frontPassport" accept="image/*" style="background-color: #f3f8ff;" />
+                              <button class="px-3" type="button" @click="clickInput('kycForm_frontPassport')" style="position: absolute;top: 11px; left: 46px; z-index: 1;">{{ $t('kycApplication.inputFileButton') }}</button>
+                              <label style="position: absolute;z-index: 1;top: 11px;left: 170px;color: #000000;">{{ $t('kycApplication.inputFileLabel') }}</label>
+                              <input type="file" class="btn col" ref="kycForm_frontPassport" accept="image/*" style="background-color: #f3f8ff; color:transparent"/>
                             </div>
                             <div class="col-4 ml-lg-3">
                               <div class="kyc-upload-img">
@@ -141,10 +143,12 @@
                             </div>
                           </div>
                           <div class="gaps-1x"></div>
-                          <span class="upload-title">여권을 들고 찍은 본인 사진을 업로드 해주세요</span>
+                          <span class="upload-title">{{ $t('kycApplication.uploadPassportNoteTwo') }}</span>
                           <div class="row align-items-center">
                             <div class="col-8 col-lg-7">
-                              <input type="file" class="btn text-dark col" ref="kycForm_selfiePassport" accept="image/*" style="background-color: #f3f8ff;" />
+                              <button class="px-3" type="button" @click="clickInput('kycForm_selfiePassport')" style="position: absolute; top: 11px;left: 46px; z-index: 1;">{{ $t('kycApplication.inputFileButton') }}</button>
+                              <label for="" style="position: absolute;z-index: 1;top: 11px;left: 170px;color: #000000;">{{ $t('kycApplication.inputFileLabel') }}</label>
+                              <input type="file" class="btn col" ref="kycForm_selfiePassport" accept="image/*" style="background-color: #f3f8ff; color: transparent" />
                             </div>
                             <div class="col-4 col-lg-5">
                               <div class="kyc-upload-img">
@@ -155,15 +159,17 @@
                         </div>
 
                         <div class="tab-pane fade" id="id-card">
-                          <h5 class="kyc-upload-title">업로드에 지장이 없도록 다음 사항을 확인해주세요.</h5>
+                          <h5 class="kyc-upload-title">{{ $t('kycApplication.uploadTitle') }}</h5>
                           <ul class="kyc-upload-list">
-                            <li>jpg, png 형식의 파일만 업로드가 가능합니다. 최대용량: 6MB</li>
+                            <li>{{ $t('kycApplication.uploadFormat') }}</li>
                           </ul>
                           <div class="gaps-4x"></div>
                           <span class="upload-title">주민등록증 앞면 사본을 업로드 해주세요</span>
                           <div class="row align-items-center">
                             <div class="col-8 col-lg-7">
-                              <input type="file" class="btn text-dark col" ref="kycForm_frontIdCard" accept="image/*" style="background-color: #f3f8ff;" />
+                              <button class="px-3" type="button" @click="clickInput('kycForm_frontIdCard')" style="position: absolute; top: 11px;left: 46px; z-index: 1;">{{ $t('kycApplication.inputFileButton') }}</button>
+                              <label for="" style="position: absolute;z-index: 1;top: 11px;left: 170px;color: #000000;">{{ $t('kycApplication.inputFileLabel') }}</label>
+                              <input type="file" class="btn col" ref="kycForm_frontIdCard" accept="image/*" style="background-color: #f3f8ff; color: transparent" />
                             </div>
                             <div class="col-4 ml-lg-3">
                               <div class="kyc-upload-img">
@@ -175,7 +181,9 @@
                           <span class="upload-title">주민등록증 뒷면 사본을 업로드 해주세요</span>
                           <div class="row align-items-center">
                             <div class="col-8 col-lg-7">
-                              <input type="file" class="btn text-dark col" ref="kycForm_backIdCard" accept="image/*" style="background-color: #f3f8ff;" />
+                              <button class="px-3" type="button" @click="clickInput('kycForm_backIdCard')" style="position: absolute; top: 11px;left: 46px; z-index: 1;">{{ $t('kycApplication.inputFileButton') }}</button>
+                              <label for="" style="position: absolute;z-index: 1;top: 11px;left: 170px;color: #000000;">{{ $t('kycApplication.inputFileLabel') }}</label>
+                              <input type="file" class="btn col" ref="kycForm_backIdCard" accept="image/*" style="background-color: #f3f8ff; color: transparent" />
                             </div>
                             <div class="col-4 ml-lg-3">
                               <div class="kyc-upload-img">
@@ -187,7 +195,9 @@
                           <span class="upload-title">주민등록증을 들고 찍은 본인 사진을 업로드 해주세요</span>
                           <div class="row align-items-center">
                             <div class="col-8 col-lg-7">
-                              <input type="file" class="btn text-dark col" ref="kycForm_selfieIdCard" accept="image/*" style="background-color: #f3f8ff;" />
+                              <button class="px-3" type="button" @click="clickInput('kycForm_selfieIdCard')" style="position: absolute; top: 11px;left: 46px; z-index: 1;">{{ $t('kycApplication.inputFileButton') }}</button>
+                              <label for="" style="position: absolute;z-index: 1;top: 11px;left: 170px;color: #000000;">{{ $t('kycApplication.inputFileLabel') }}</label>
+                              <input type="file" class="btn col" ref="kycForm_selfieIdCard" accept="image/*" style="background-color: #f3f8ff; color: transparent" />
                             </div>
                             <div class="col-4 col-lg-5">
                               <div class="kyc-upload-img">
@@ -198,15 +208,17 @@
                         </div>
 
                         <div class="tab-pane fade" id="drivers-license">
-                          <h5 class="kyc-upload-title">업로드에 지장이 없도록 다음 사항을 확인해주세요.</h5>
+                          <h5 class="kyc-upload-title">{{ $t('kycApplication.uploadTitle') }}</h5>
                           <ul class="kyc-upload-list">
-                            <li>jpg, png 형식의 파일만 업로드가 가능합니다. 최대용량: 6MB</li>
+                            <li>{{ $t('kycApplication.uploadFormat') }}</li>
                           </ul>
                           <div class="gaps-4x"></div>
                           <span class="upload-title">운전면허증 앞면 사본을 업로드 해주세요</span>
                           <div class="row align-items-center">
                             <div class="col-8">
-                              <input type="file" class="btn text-dark col" ref="kycForm_frontDrivingLicense" accept="image/*" style="background-color: #f3f8ff;" />
+                              <button class="px-3" type="button" @click="clickInput('kycForm_frontDrivingLicense')" style="position: absolute; top: 11px;left: 46px; z-index: 1;">{{ $t('kycApplication.inputFileButton') }}</button>
+                              <label for="" style="position: absolute;z-index: 1;top: 11px;left: 170px;color: #000000;">{{ $t('kycApplication.inputFileLabel') }}</label>
+                              <input type="file" class="btn col" ref="kycForm_frontDrivingLicense" accept="image/*" style="background-color: #f3f8ff; color: transparent" />
                             </div>
                             <div class="col-4">
                               <div class="kyc-upload-img">
@@ -218,7 +230,9 @@
                           <span class="upload-title">운전면허증 뒷면 사본을 업로드 해주세요</span>
                           <div class="row align-items-center">
                             <div class="col-8">
-                              <input type="file" class="btn text-dark col" ref="kycForm_backDrivingLicense" accept="image/*" style="background-color: #f3f8ff;" />
+                              <button class="px-3" type="button" @click="clickInput('kycForm_backDrivingLicense')" style="position: absolute; top: 11px;left: 46px; z-index: 1;">{{ $t('kycApplication.inputFileButton') }}</button>
+                              <label for="" style="position: absolute;z-index: 1;top: 11px;left: 170px;color: #000000;">{{ $t('kycApplication.inputFileLabel') }}</label>
+                              <input type="file" class="btn col" ref="kycForm_backDrivingLicense" accept="image/*" style="background-color: #f3f8ff; color: transparent" />
                             </div>
                             <div class="col-4">
                               <div class="kyc-upload-img">
@@ -230,7 +244,9 @@
                           <span class="upload-title">운전면허증을 들고 찍은 본인 사진을 업로드 해주세요</span>
                           <div class="row align-items-center">
                             <div class="col-8 col-lg-7">
-                              <input type="file" class="btn text-dark col" ref="kycForm_selfieDrivingLicense" accept="image/*" style="background-color: #f3f8ff;" />
+                              <button class="px-3" type="button" @click="clickInput('kycForm_selfieDrivingLicense')" style="position: absolute; top: 11px;left: 46px; z-index: 1;">{{ $t('kycApplication.inputFileButton') }}</button>
+                              <label for="" style="position: absolute;z-index: 1;top: 11px;left: 170px;color: #000000;">{{ $t('kycApplication.inputFileLabel') }}</label>
+                              <input type="file" class="btn col" ref="kycForm_selfieDrivingLicense" accept="image/*" style="background-color: #f3f8ff; color: transparent" />
                             </div>
                             <div class="col-4 col-lg-5">
                               <div class="kyc-upload-img">
@@ -240,7 +256,7 @@
                           </div>
                         </div>
                       </div>
-                      <div class="gaps-2x" id="img-upload-note" style="color: red;font-weight: bold;">* 신분증과 본인사진 불 일치시 KYC 인증이 거절될 수 있습니다.</div>
+                      <div class="gaps-2x" id="img-upload-note" style="color: red;font-weight: bold;">* {{ $t('kycApplication.uploadWarning') }}</div>
                     </div>
                     <!-- .from-step-content -->
                   </div>
@@ -250,8 +266,8 @@
                     <div class="from-step-heading">
                       <div class="from-step-number">03</div>
                       <div class="from-step-head">
-                        <h4>Step 3 : 이더리움 발송 지갑 주소</h4>
-                        <p>이더리움을 발송하고 토큰을 받으실 지갑 주소를 입력해주세요.</p>
+                        <h4>Step 3 : {{ $t('kycApplication.stepThreeHeading') }}</h4>
+                        <p>{{ $t('kycApplication.stepThreeNote') }}</p>
                       </div>
                     </div>
                     <div class="from-step-content">
@@ -264,14 +280,14 @@
                       </div>
                       <!-- .row -->
                       <div class="input-item input-with-label">
-                        <label for="eth_address" class="input-item-label">본인의 이더리움 지갑 주소를 입력하세요</label>
+                        <label for="eth_address" class="input-item-label">{{ $t('kycApplication.walletAddressNote') }}</label>
                         <input class="input-bordered" type="text" v-model="kycForm.eth_address" id="eth_address" ref="eth_address" name="eth_address">
-                        <span class="input-note">참고: 지갑 주소는 반드시 ERC20이 호환가능해야합니다. 지갑 Private key 를 반드시 보유해야합니다.</span>
+                        <span class="input-note">{{ $t('kycApplication.walletAddressWarning') }}</span>
                       </div>
                       <!-- .input-item -->
                       <div class="gaps-2x"></div>
                       <!-- 20px gap -->
-                      <a class="btn btn-primary text-white" @click="onSubmitKycApplication">작성 완료</a>
+                      <a class="btn btn-primary text-white" @click="onSubmitKycApplication">{{ $t('kycApplication.completedButton') }}</a>
                       <div class="gaps-2x"></div>
                       <!-- 20px gap -->
                     </div>
@@ -356,6 +372,9 @@ export default {
   },
   methods: {
     ...mapActions(['storeKycApplication']),
+    clickInput (ref) {
+      this.$refs[ref].click()
+    },
     changeDocumentType (document) {
       this.kycForm.documentType = document
     },

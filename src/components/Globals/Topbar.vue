@@ -62,12 +62,7 @@
                 <div class="topbar-action d-none d-lg-block">
                     <ul class="topbar-action-list">
                         <li class="dropdown topbar-action-item topbar-action-language">
-                            <a href="#" data-toggle="dropdown"> EN <em class="ti ti-angle-down"></em> </a>
-                            <ul class="dropdown-menu">
-                                <li><a href="#">FR</a></li>
-                                <li><a href="#">JY</a></li>
-                                <li><a href="#">CH</a></li>
-                            </ul>
+                          <locale />
                         </li>
                         <li class="dropdown topbar-action-item topbar-action-user">
                             <a href="#" data-toggle="dropdown"> <img class="icon" src="/static/images/user-thumb-sm.png" alt="thumb"> </a>
@@ -98,6 +93,7 @@
 
 <script>
 import Loading from 'vue-loading-overlay'
+import Locale from './Locale'
 import 'vue-loading-overlay/dist/vue-loading.min.css'
 import { shifters, cookieNameCutter } from '@/libs'
 import {
@@ -107,7 +103,8 @@ import {
 export default {
   name: 'Topbar',
   components: {
-    Loading
+    Loading,
+    locale: Locale
   },
   data () {
     return {

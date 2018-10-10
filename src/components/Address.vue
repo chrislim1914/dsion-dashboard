@@ -30,20 +30,20 @@
                 </div>
                 <div class="col-10 ml-3 text-justify">
                   <p>
-                    해당 ETH 주소로 입금하시면, KYC 입력시 입력한 Ethereum Wallet으로 Dsion 토큰을 받게 됩니다.
+                    {{ $t('address.notice') }}
                   </p>
                 </div>
                 <div class="col-10 ml-3 text-justify">
                   <div class="form-check form-check-inline">
                     <input class="form-check-input" type="checkbox" id="agree" v-model="displays.isChecked">
                     <label class="form-check-label font-weight-bold" for="agree">
-                      위 사항에 동의합니다.
+                      {{ $t('address.agreeCheckbox') }}
                     </label>
                   </div>
                 </div>
                 <div class="col-12 col-lg-6 mt-3 mx-auto">
                   <a @click="receive" class="btn btn-primary text-white" style="width:100%;">
-                      입금 주소 확인
+                      {{ $t('address.confirmButton') }}
                   </a>
                 </div>
               </div>

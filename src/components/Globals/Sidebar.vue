@@ -44,12 +44,7 @@
                     <a href="#"><em class="ti ti-home"></em> Go to main site</a>
                 </li><!-- .topbar-action-item -->
                 <li class="dropup topbar-action-item topbar-action-language">
-                    <a href="#" data-toggle="dropdown" aria-haspopup="true"> EN <em class="ti ti-angle-up"></em> </a>
-                    <ul class="dropdown-menu">
-                        <li><a href="#">FR</a></li>
-                        <li><a href="#">JY</a></li>
-                        <li><a href="#">CH</a></li>
-                    </ul>
+                  <locale />
                 </li><!-- .topbar-action-item -->
             </ul><!-- .topbar-action-list -->
         </div>
@@ -58,6 +53,7 @@
 </template>
 
 <script>
+import Locale from './Locale'
 import {
   mapState
 } from 'vuex'
@@ -69,6 +65,9 @@ export default {
         email: ''
       }
     }
+  },
+  components: {
+    locale: Locale
   },
   computed: {
     ...mapState({
