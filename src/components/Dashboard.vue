@@ -47,7 +47,7 @@
               </div>
               <div class="token-countdown" v-if="active.endDate">
                 <span class="token-countdown-title">THE BONUS END IN</span>
-                <Countdown :deadline="active.endDate | readerDate"></Countdown>
+                <Countdown :deadline="active.endDate | readerDate" @callback="saleEnded"></Countdown>
               </div>
             </div><!-- .token-card -->
             <div class="progress-card">
@@ -115,7 +115,7 @@
 <script>
 import Loading from 'vue-loading-overlay'
 import 'vue-loading-overlay/dist/vue-loading.min.css'
-import Countdown from 'vuejs-countdown'
+import Countdown from './Globals/DsionCountdown'
 import Topbar from './Globals/Topbar'
 import Sidebar from './Globals/Sidebar'
 import Footer from './Globals/Footer'
@@ -150,7 +150,8 @@ export default {
         endDate: ''
       },
       isLoading: false,
-      isDataLoaded: false
+      isDataLoaded: false,
+      isSaleEnded: false
     }
   },
   computed: {
@@ -169,8 +170,12 @@ export default {
       'getUserContribution',
       'fetchAllSaleStatus',
       'fetchActiveSale'
-
-    ])
+    ]),
+    saleEnded (value) {
+      if (value) {
+        this.isSaleEnded = true
+      }
+    }
   },
   created () {
     // Fetch user contribution
