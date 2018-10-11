@@ -22,7 +22,7 @@ export default {
   methods: {
     changeLocale (lang) {
       this.$i18n.locale = lang
-      this.locale = this.$cookie.get('locale', {domain: '.dsion.io'})
+      this.locale = lang
       this.$cookie.set('locale', lang, {expires: 1, domain: '.dsion.io'})
     }
   },
