@@ -23,7 +23,6 @@ export default {
       this.$cookie.set('locale', lang, {expires: 1, domain: '.dsion.io'})
       if (lang !== this.$i18n.locale) {
         this.$i18n.locale = lang
-        window.location.href = "https://dashboard.dsion.io"
       } else {
         this.$i18n.locale = lang
       }
