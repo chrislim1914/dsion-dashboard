@@ -40,7 +40,10 @@
                         <!-- .col -->
                         <div class="col-md-6">
                           <div class="input-item input-with-label">
-                            <label for="last-name" class="input-item-label">Last Name <span  :class="{'d-none': locale !== 'kr'}">(성)</span></label>
+                            <label for="last-name" class="input-item-label">
+                              Last Name
+                              <span :class="{'d-none': locale !== 'kr'}">(성)</span>
+                            </label>
                             <input v-model="kycForm.lastName" class="input-bordered" type="text" id="last-name" name="last-name" required>
                           </div>
                           <!-- .input-item -->
@@ -48,7 +51,10 @@
                         <!-- .col -->
                         <div class="col-md-6">
                           <div class="input-item input-with-label">
-                            <label for="email-address" class="input-item-label">Email Address <span  :class="{'d-none': locale !== 'kr'}">(이메일주소)</span></label>
+                            <label for="email-address" class="input-item-label">
+                              Email Address
+                              <span :class="{'d-none': locale !== 'kr'}">(이메일주소)</span>
+                            </label>
                             <input v-model="kycForm.email" class="input-bordered" type="text" id="email-address" name="email-address" required>
                           </div>
                           <!-- .input-item -->
@@ -56,7 +62,10 @@
                         <!-- .col -->
                         <div class="col-md-6">
                           <div class="input-item input-with-label">
-                            <label for="phone-number" class="input-item-label">Phone Number <span  :class="{'d-none': locale !== 'kr'}">(전화번호)</span></label>
+                            <label for="phone-number" class="input-item-label">
+                              Phone Number
+                              <span :class="{'d-none': locale !== 'kr'}">(전화번호)</span>
+                            </label>
                             <input v-model="kycForm.phoneNumber" class="input-bordered" type="text" id="phone-number" name="phone-number" required>
                           </div>
                           <!-- .input-item -->
@@ -64,7 +73,10 @@
                         <!-- .col -->
                         <div class="col-md-6">
                           <div class="input-item input-with-label">
-                            <label for="nationality" class="input-item-label">Nationality <span :class="{'d-none': locale !== 'kr'}">(국적)</span></label>
+                            <label for="nationality" class="input-item-label">
+                              Nationality
+                              <span :class="{'d-none': locale !== 'kr'}">(국적)</span>
+                            </label>
                             <select v-model="kycForm.nationality" class="input-bordered" name="nationality" id="nationality">
                               <option :value="nationality" :key="index" v-for="(nationality, index) in nationalities">
                                 {{ nationality }}
@@ -504,7 +516,11 @@ export default {
     // Apply fetched user token to user reactive data
     this.user.token = this.token
     // Locale to reactive data
-    this.locale = this.$i18n.locale
+    if (this.$cookie.get('locale', {domain: '.dsion.io'})) {
+      this.locale = this.$cookie.get('locale', {domain: '.dsion.io'})
+    } else {
+      this.locale = this.$i18n.locale
+    }
   }
 }
 </script>
