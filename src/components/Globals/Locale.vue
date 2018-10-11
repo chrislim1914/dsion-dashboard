@@ -2,7 +2,7 @@
   <div>
     <a href="#" data-toggle="dropdown" aria-haspopup="true" class="text-uppercase"> {{ locale }} <em class="ti ti-angle-up"></em> </a>
     <div class="dropdown-menu">
-      <a href="#" class="dropdown-item text-uppercase" v-for="(locale, key) in locales" :key="key" @click.prevent="changeLocale(locale); window.location.reload()">
+      <a href="#" class="dropdown-item text-uppercase" v-for="(locale, key) in locales" :key="key" @click.prevent="changeLocaleReload(locale);">
         {{ locale }}
       </a>
     </div>
@@ -22,6 +22,10 @@ export default {
       this.locale = lang
       this.$i18n.locale = lang
       this.$cookie.set('locale', lang, {expires: 1, domain: '.dsion.io'})
+    },
+    changeLocaleReload (lang) {
+      this.changeLocale(lang)
+      window.location.reload()
     }
   },
   computed: {
