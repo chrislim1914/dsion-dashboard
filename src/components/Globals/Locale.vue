@@ -23,7 +23,7 @@ export default {
       this.$cookie.set('locale', lang, {expires: 1, domain: '.dsion.io'})
       if (lang !== this.$i18n.locale) {
         this.$i18n.locale = lang
-        this.$router.go()
+        window.location.href = "https://dashboard.dsion.io"
       } else {
         this.$i18n.locale = lang
       }
@@ -36,8 +36,8 @@ export default {
   },
   created () {
     // Set locale
-    if (this.$cookie.get('locale', {domain: '.dsion.io'})) {
-      this.changeLocale(this.$cookie.get('locale', {domain: '.dsion.io'}))
+    if (this.$cookie.get('locale', {expires: 1, domain: '.dsion.io'})) {
+      this.changeLocale(this.$cookie.get('locale', {expires: 1, domain: '.dsion.io'}))
     } else {
       this.changeLocale(this.$i18n.locale)
     }
