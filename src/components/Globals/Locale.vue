@@ -19,9 +19,14 @@ export default {
   },
   methods: {
     changeLocale (lang) {
-      this.$i18n.locale = lang
       this.locale = lang
       this.$cookie.set('locale', lang, {expires: 1, domain: '.dsion.io'})
+      if (lang !== this.$i18n.locale) {
+        this.$i18n.locale = lang
+        this.$router.go()
+      } else {
+        this.$i18n.locale = lang
+      }
     }
   },
   computed: {
