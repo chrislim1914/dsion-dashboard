@@ -300,7 +300,7 @@
                     <div class="from-step-content">
                       <div class="note note-md note-info note-plane">
                         <em class="fas fa-info-circle"></em>
-                        <p>{{ $t('kycApplication.stepThreeNote') }}</p>
+                        <p>{{ $t('kycApplication.stepThreeNoteTwo') }}</p>
                       </div>
                       <div class="gaps-2x"></div>
                       <div class="row">
