@@ -38,7 +38,6 @@ export default {
     // Set locale
     if (this.$cookie.get('locale', {domain: '.dsion.io'})) {
       this.changeLocale(this.$cookie.get('locale', {domain: '.dsion.io'}))
-      this.$router.go()
     } else {
       this.changeLocale(this.$i18n.locale)
     }
