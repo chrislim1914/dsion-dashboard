@@ -33,7 +33,16 @@
         </ul><!-- .user-icon-nav -->
         <div class="user-sidebar-sap"></div><!-- .user-sidebar-sap -->
         <ul class="user-nav">
-            <li><a href="https://api.dsion.io/whitepaper/Dsion_whitepaperKorean.pdf" target="_blank">Whitepaper</a></li>
+            <li v-if="locale === 'kr'">
+              <a href="https://api.dsion.io/whitepaper/Dsion_whitepaperKorean.pdf" target="_blank">
+                Whitepaper
+              </a>
+            </li>
+            <li v-if="locale === 'en'">
+              <a href="https://api.dsion.io/whitepaper/Dsion_whitepaperEnglish.pdf" target="_blank">
+                Whitepaper
+              </a>
+            </li>
             <li>Contact Support<a href="mailto:contact@dsion.io" style="font-weight: 300 !important; text-transform: none;color: #6783b8;">contact@dsion.io</a></li>
         </ul><!-- .user-nav -->
         <div class="d-lg-none">
@@ -61,6 +70,7 @@ export default {
   name: 'UnknownComponent',
   data () {
     return {
+      locale: '',
       user: {
         email: ''
       }
@@ -76,6 +86,7 @@ export default {
   },
   created () {
     this.user.email = this.userData.email
+    this.locale = this.$i18n.locale
   }
 }
 </script>

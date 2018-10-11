@@ -147,7 +147,7 @@
                           <span class="upload-title">{{ $t('kycApplication.uploadPassportNoteOne') }}</span>
                           <div class="row align-items-center">
                             <div class="col-8 col-lg-7">
-                              <input type="file" class="btn col" ref="kycForm_frontPassport" accept="image/*" style="background-color: #f3f8ff;"/>
+                              <input type="file" class="btn col text-dark" ref="kycForm_frontPassport" accept="image/*" style="background-color: #f3f8ff;"/>
                             </div>
                             <div class="col-4 ml-lg-3">
                               <div class="kyc-upload-img">
@@ -159,7 +159,7 @@
                           <span class="upload-title">{{ $t('kycApplication.uploadPassportNoteTwo') }}</span>
                           <div class="row align-items-center">
                             <div class="col-8 col-lg-7">
-                              <input type="file" class="btn col" ref="kycForm_selfiePassport" accept="image/*" style="background-color: #f3f8ff;" />
+                              <input type="file" class="btn col text-dark" ref="kycForm_selfiePassport" accept="image/*" style="background-color: #f3f8ff;" />
                             </div>
                             <div class="col-4 col-lg-5">
                               <div class="kyc-upload-img">
@@ -180,7 +180,7 @@
                           </span>
                           <div class="row align-items-center">
                             <div class="col-8 col-lg-7">
-                              <input type="file" class="btn col" ref="kycForm_frontIdCard" accept="image/*" style="background-color: #f3f8ff;" />
+                              <input type="file" class="btn col text-dark" ref="kycForm_frontIdCard" accept="image/*" style="background-color: #f3f8ff;" />
                             </div>
                             <div class="col-4 ml-lg-3">
                               <div class="kyc-upload-img">
@@ -194,7 +194,7 @@
                           </span>
                           <div class="row align-items-center">
                             <div class="col-8 col-lg-7">
-                              <input type="file" class="btn col" ref="kycForm_backIdCard" accept="image/*" style="background-color: #f3f8ff;" />
+                              <input type="file" class="btn col text-dark" ref="kycForm_backIdCard" accept="image/*" style="background-color: #f3f8ff;" />
                             </div>
                             <div class="col-4 ml-lg-3">
                               <div class="kyc-upload-img">
@@ -208,7 +208,7 @@
                           </span>
                           <div class="row align-items-center">
                             <div class="col-8 col-lg-7">
-                              <input type="file" class="btn col" ref="kycForm_selfieIdCard" accept="image/*" style="background-color: #f3f8ff;" />
+                              <input type="file" class="btn col text-dark" ref="kycForm_selfieIdCard" accept="image/*" style="background-color: #f3f8ff;" />
                             </div>
                             <div class="col-4 col-lg-5">
                               <div class="kyc-upload-img">
@@ -229,7 +229,7 @@
                           </span>
                           <div class="row align-items-center">
                             <div class="col-8 col-lg-7">
-                              <input type="file" class="btn col" ref="kycForm_frontDrivingLicense" accept="image/*" style="background-color: #f3f8ff;" />
+                              <input type="file" class="btn col text-dark" ref="kycForm_frontDrivingLicense" accept="image/*" style="background-color: #f3f8ff;" />
                             </div>
                             <div class="col-4">
                               <div class="kyc-upload-img">
@@ -243,7 +243,7 @@
                           </span>
                           <div class="row align-items-center">
                             <div class="col-8 col-lg-7">
-                              <input type="file" class="btn col" ref="kycForm_backDrivingLicense" accept="image/*" style="background-color: #f3f8ff;" />
+                              <input type="file" class="btn col text-dark" ref="kycForm_backDrivingLicense" accept="image/*" style="background-color: #f3f8ff;" />
                             </div>
                             <div class="col-4">
                               <div class="kyc-upload-img">
@@ -257,7 +257,7 @@
                           </span>
                           <div class="row align-items-center">
                             <div class="col-8 col-lg-7">
-                              <input type="file" class="btn col" ref="kycForm_selfieDrivingLicense" accept="image/*" style="background-color: #f3f8ff;" />
+                              <input type="file" class="btn col text-dark" ref="kycForm_selfieDrivingLicense" accept="image/*" style="background-color: #f3f8ff;" />
                             </div>
                             <div class="col-4 col-lg-5">
                               <div class="kyc-upload-img">
