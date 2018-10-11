@@ -147,9 +147,7 @@
                           <span class="upload-title">{{ $t('kycApplication.uploadPassportNoteOne') }}</span>
                           <div class="row align-items-center">
                             <div class="col-8 col-lg-7">
-                              <button class="px-3" type="button" @click="clickInput('kycForm_frontPassport')" style="position: absolute;top: 11px; left: 46px; z-index: 1;">{{ $t('kycApplication.inputFileButton') }}</button>
-                              <label style="position: absolute;z-index: 1;top: 11px;left: 170px;color: #000000;">{{ $t('kycApplication.inputFileLabel') }}</label>
-                              <input type="file" class="btn col" ref="kycForm_frontPassport" accept="image/*" style="background-color: #f3f8ff; color:transparent"/>
+                              <input type="file" class="btn col" ref="kycForm_frontPassport" accept="image/*" style="background-color: #f3f8ff;"/>
                             </div>
                             <div class="col-4 ml-lg-3">
                               <div class="kyc-upload-img">
@@ -161,9 +159,7 @@
                           <span class="upload-title">{{ $t('kycApplication.uploadPassportNoteTwo') }}</span>
                           <div class="row align-items-center">
                             <div class="col-8 col-lg-7">
-                              <button class="px-3" type="button" @click="clickInput('kycForm_selfiePassport')" style="position: absolute; top: 11px;left: 46px; z-index: 1;">{{ $t('kycApplication.inputFileButton') }}</button>
-                              <label for="" style="position: absolute;z-index: 1;top: 11px;left: 170px;color: #000000;">{{ $t('kycApplication.inputFileLabel') }}</label>
-                              <input type="file" class="btn col" ref="kycForm_selfiePassport" accept="image/*" style="background-color: #f3f8ff; color: transparent" />
+                              <input type="file" class="btn col" ref="kycForm_selfiePassport" accept="image/*" style="background-color: #f3f8ff;" />
                             </div>
                             <div class="col-4 col-lg-5">
                               <div class="kyc-upload-img">
@@ -184,9 +180,7 @@
                           </span>
                           <div class="row align-items-center">
                             <div class="col-8 col-lg-7">
-                              <button class="px-3" type="button" @click="clickInput('kycForm_frontIdCard')" style="position: absolute; top: 11px;left: 46px; z-index: 1;">{{ $t('kycApplication.inputFileButton') }}</button>
-                              <label for="" style="position: absolute;z-index: 1;top: 11px;left: 170px;color: #000000;">{{ $t('kycApplication.inputFileLabel') }}</label>
-                              <input type="file" class="btn col" ref="kycForm_frontIdCard" accept="image/*" style="background-color: #f3f8ff; color: transparent" />
+                              <input type="file" class="btn col" ref="kycForm_frontIdCard" accept="image/*" style="background-color: #f3f8ff;" />
                             </div>
                             <div class="col-4 ml-lg-3">
                               <div class="kyc-upload-img">
@@ -200,9 +194,7 @@
                           </span>
                           <div class="row align-items-center">
                             <div class="col-8 col-lg-7">
-                              <button class="px-3" type="button" @click="clickInput('kycForm_backIdCard')" style="position: absolute; top: 11px;left: 46px; z-index: 1;">{{ $t('kycApplication.inputFileButton') }}</button>
-                              <label for="" style="position: absolute;z-index: 1;top: 11px;left: 170px;color: #000000;">{{ $t('kycApplication.inputFileLabel') }}</label>
-                              <input type="file" class="btn col" ref="kycForm_backIdCard" accept="image/*" style="background-color: #f3f8ff; color: transparent" />
+                              <input type="file" class="btn col" ref="kycForm_backIdCard" accept="image/*" style="background-color: #f3f8ff;" />
                             </div>
                             <div class="col-4 ml-lg-3">
                               <div class="kyc-upload-img">
@@ -216,9 +208,7 @@
                           </span>
                           <div class="row align-items-center">
                             <div class="col-8 col-lg-7">
-                              <button class="px-3" type="button" @click="clickInput('kycForm_selfieIdCard')" style="position: absolute; top: 11px;left: 46px; z-index: 1;">{{ $t('kycApplication.inputFileButton') }}</button>
-                              <label for="" style="position: absolute;z-index: 1;top: 11px;left: 170px;color: #000000;">{{ $t('kycApplication.inputFileLabel') }}</label>
-                              <input type="file" class="btn col" ref="kycForm_selfieIdCard" accept="image/*" style="background-color: #f3f8ff; color: transparent" />
+                              <input type="file" class="btn col" ref="kycForm_selfieIdCard" accept="image/*" style="background-color: #f3f8ff;" />
                             </div>
                             <div class="col-4 col-lg-5">
                               <div class="kyc-upload-img">
@@ -239,9 +229,7 @@
                           </span>
                           <div class="row align-items-center">
                             <div class="col-8 col-lg-7">
-                              <button class="px-3" type="button" @click="clickInput('kycForm_frontDrivingLicense')" style="position: absolute; top: 11px;left: 46px; z-index: 1;">{{ $t('kycApplication.inputFileButton') }}</button>
-                              <label for="" style="position: absolute;z-index: 1;top: 11px;left: 170px;color: #000000;">{{ $t('kycApplication.inputFileLabel') }}</label>
-                              <input type="file" class="btn col" ref="kycForm_frontDrivingLicense" accept="image/*" style="background-color: #f3f8ff; color: transparent" />
+                              <input type="file" class="btn col" ref="kycForm_frontDrivingLicense" accept="image/*" style="background-color: #f3f8ff;" />
                             </div>
                             <div class="col-4">
                               <div class="kyc-upload-img">
@@ -255,9 +243,7 @@
                           </span>
                           <div class="row align-items-center">
                             <div class="col-8 col-lg-7">
-                              <button class="px-3" type="button" @click="clickInput('kycForm_backDrivingLicense')" style="position: absolute; top: 11px;left: 46px; z-index: 1;">{{ $t('kycApplication.inputFileButton') }}</button>
-                              <label for="" style="position: absolute;z-index: 1;top: 11px;left: 170px;color: #000000;">{{ $t('kycApplication.inputFileLabel') }}</label>
-                              <input type="file" class="btn col" ref="kycForm_backDrivingLicense" accept="image/*" style="background-color: #f3f8ff; color: transparent" />
+                              <input type="file" class="btn col" ref="kycForm_backDrivingLicense" accept="image/*" style="background-color: #f3f8ff;" />
                             </div>
                             <div class="col-4">
                               <div class="kyc-upload-img">
@@ -271,9 +257,7 @@
                           </span>
                           <div class="row align-items-center">
                             <div class="col-8 col-lg-7">
-                              <button class="px-3" type="button" @click="clickInput('kycForm_selfieDrivingLicense')" style="position: absolute; top: 11px;left: 46px; z-index: 1;">{{ $t('kycApplication.inputFileButton') }}</button>
-                              <label for="" style="position: absolute;z-index: 1;top: 11px;left: 170px;color: #000000;">{{ $t('kycApplication.inputFileLabel') }}</label>
-                              <input type="file" class="btn col" ref="kycForm_selfieDrivingLicense" accept="image/*" style="background-color: #f3f8ff; color: transparent" />
+                              <input type="file" class="btn col" ref="kycForm_selfieDrivingLicense" accept="image/*" style="background-color: #f3f8ff;" />
                             </div>
                             <div class="col-4 col-lg-5">
                               <div class="kyc-upload-img">
@@ -400,9 +384,6 @@ export default {
   },
   methods: {
     ...mapActions(['storeKycApplication']),
-    clickInput (ref) {
-      this.$refs[ref].click()
-    },
     changeDocumentType (document) {
       this.kycForm.documentType = document
     },
