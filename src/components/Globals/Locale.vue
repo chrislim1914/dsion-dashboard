@@ -22,8 +22,6 @@ export default {
       this.$i18n.locale = lang
       this.locale = lang
       this.$cookie.set('locale', lang, {expires: 1, domain: '.dsion.io'})
-      this.$router.go()
-    }
   },
   computed: {
     locales () {
