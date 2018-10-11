@@ -179,7 +179,9 @@
                             <li>{{ $t('kycApplication.uploadFormat') }}</li>
                           </ul>
                           <div class="gaps-4x"></div>
-                          <span class="upload-title">주민등록증 앞면 사본을 업로드 해주세요</span>
+                          <span class="upload-title">
+                            {{ $t('kycApplication.uploadIdCardOne') }}
+                          </span>
                           <div class="row align-items-center">
                             <div class="col-8 col-lg-7">
                               <button class="px-3" type="button" @click="clickInput('kycForm_frontIdCard')" style="position: absolute; top: 11px;left: 46px; z-index: 1;">{{ $t('kycApplication.inputFileButton') }}</button>
@@ -193,7 +195,9 @@
                             </div>
                           </div>
                           <div class="gaps-4x"></div>
-                          <span class="upload-title">주민등록증 뒷면 사본을 업로드 해주세요</span>
+                          <span class="upload-title">
+                            {{ $t('kycApplication.uploadIdCardTwo') }}
+                          </span>
                           <div class="row align-items-center">
                             <div class="col-8 col-lg-7">
                               <button class="px-3" type="button" @click="clickInput('kycForm_backIdCard')" style="position: absolute; top: 11px;left: 46px; z-index: 1;">{{ $t('kycApplication.inputFileButton') }}</button>
@@ -207,7 +211,9 @@
                             </div>
                           </div>
                           <div class="gaps-4x"></div>
-                          <span class="upload-title">주민등록증을 들고 찍은 본인 사진을 업로드 해주세요</span>
+                          <span class="upload-title">
+                            {{ $t('kycApplication.uploadIdCardThree') }}
+                          </span>
                           <div class="row align-items-center">
                             <div class="col-8 col-lg-7">
                               <button class="px-3" type="button" @click="clickInput('kycForm_selfieIdCard')" style="position: absolute; top: 11px;left: 46px; z-index: 1;">{{ $t('kycApplication.inputFileButton') }}</button>
@@ -228,7 +234,9 @@
                             <li>{{ $t('kycApplication.uploadFormat') }}</li>
                           </ul>
                           <div class="gaps-4x"></div>
-                          <span class="upload-title">운전면허증 앞면 사본을 업로드 해주세요</span>
+                          <span class="upload-title">
+                            {{ $t('kycApplication.uploadDriverLicenseOne') }}
+                          </span>
                           <div class="row align-items-center">
                             <div class="col-8 col-lg-7">
                               <button class="px-3" type="button" @click="clickInput('kycForm_frontDrivingLicense')" style="position: absolute; top: 11px;left: 46px; z-index: 1;">{{ $t('kycApplication.inputFileButton') }}</button>
@@ -242,7 +250,9 @@
                             </div>
                           </div>
                           <div class="gaps-4x"></div>
-                          <span class="upload-title">운전면허증 뒷면 사본을 업로드 해주세요</span>
+                          <span class="upload-title">
+                            {{ $t('kycApplication.uploadDriverLicenseTwo') }}
+                          </span>
                           <div class="row align-items-center">
                             <div class="col-8 col-lg-7">
                               <button class="px-3" type="button" @click="clickInput('kycForm_backDrivingLicense')" style="position: absolute; top: 11px;left: 46px; z-index: 1;">{{ $t('kycApplication.inputFileButton') }}</button>
@@ -256,7 +266,9 @@
                             </div>
                           </div>
                           <div class="gaps-4x"></div>
-                          <span class="upload-title">운전면허증을 들고 찍은 본인 사진을 업로드 해주세요</span>
+                          <span class="upload-title">
+                            {{ $t('kycApplication.uploadDriverLicenseThree') }}
+                          </span>
                           <div class="row align-items-center">
                             <div class="col-8 col-lg-7">
                               <button class="px-3" type="button" @click="clickInput('kycForm_selfieDrivingLicense')" style="position: absolute; top: 11px;left: 46px; z-index: 1;">{{ $t('kycApplication.inputFileButton') }}</button>
