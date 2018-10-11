@@ -29,7 +29,7 @@
                       <div class="row">
                         <div class="col-md-6">
                           <div class="input-item input-with-label">
-                            <label for="first-name" class="input-item-label">First Name (이름)</label>
+                            <label for="first-name" class="input-item-label">First Name <span  v-if="locale === 'kr'">(이름)</span></label>
                             <input v-model="kycForm.firstName" class="input-bordered" type="text" id="first-name" name="first-name" required>
                           </div>
                           <!-- .input-item -->
@@ -37,7 +37,7 @@
                         <!-- .col -->
                         <div class="col-md-6">
                           <div class="input-item input-with-label">
-                            <label for="last-name" class="input-item-label">Last Name (성)</label>
+                            <label for="last-name" class="input-item-label">Last Name <span  v-if="locale === 'kr'">(성)</span></label>
                             <input v-model="kycForm.lastName" class="input-bordered" type="text" id="last-name" name="last-name" required>
                           </div>
                           <!-- .input-item -->
@@ -45,7 +45,7 @@
                         <!-- .col -->
                         <div class="col-md-6">
                           <div class="input-item input-with-label">
-                            <label for="email-address" class="input-item-label">Email Address (이메일주소)</label>
+                            <label for="email-address" class="input-item-label">Email Address <span  v-if="locale === 'kr'">(이메일주소)</span></label>
                             <input v-model="kycForm.email" class="input-bordered" type="text" id="email-address" name="email-address" required>
                           </div>
                           <!-- .input-item -->
@@ -53,7 +53,7 @@
                         <!-- .col -->
                         <div class="col-md-6">
                           <div class="input-item input-with-label">
-                            <label for="phone-number" class="input-item-label">Phone Number (전화번호)</label>
+                            <label for="phone-number" class="input-item-label">Phone Number <span  v-if="locale === 'kr'">(전화번호)</span></label>
                             <input v-model="kycForm.phoneNumber" class="input-bordered" type="text" id="phone-number" name="phone-number" required>
                           </div>
                           <!-- .input-item -->
@@ -61,7 +61,7 @@
                         <!-- .col -->
                         <div class="col-md-6">
                           <div class="input-item input-with-label">
-                            <label for="nationality" class="input-item-label">Nationality (국적)</label>
+                            <label for="nationality" class="input-item-label">Nationality <span v-if="locale === 'kr'">(국적)</span></label>
                             <select v-model="kycForm.nationality" class="input-bordered" name="nationality" id="nationality">
                               <option :value="nationality" :key="index" v-for="(nationality, index) in nationalities">
                                 {{ nationality }}
@@ -98,7 +98,7 @@
                               <img src="/static/images/icon-passport.png" alt="icon">
                               <img src="/static/images/icon-passport-color.png" alt="icon">
                             </div>
-                            <span>여권</span>
+                            <span>{{ $t('kycApplication.uploadTypeOne') }}</span>
                           </a>
                         </li>
                         <li class="nav-item">
@@ -107,7 +107,7 @@
                               <img src="/static/images/icon-national-id.png" alt="icon">
                               <img src="/static/images/icon-national-id-color.png" alt="icon">
                             </div>
-                            <span>주민등록증</span>
+                            <span>{{ $t('kycApplication.uploadTypeTwo') }}</span>
                           </a>
                         </li>
                         <li class="nav-item">
@@ -116,7 +116,7 @@
                               <img src="/static/images/icon-licence.png" alt="icon">
                               <img src="/static/images/icon-licence-color.png" alt="icon">
                             </div>
-                            <span>운전면허증</span>
+                            <span>{{ $t('kycApplication.uploadTypeThree') }}</span>
                           </a>
                         </li>
                       </ul>
@@ -166,7 +166,7 @@
                           <div class="gaps-4x"></div>
                           <span class="upload-title">주민등록증 앞면 사본을 업로드 해주세요</span>
                           <div class="row align-items-center">
-                            <div class="col-8 col-lg-7">
+                            <div class="col-8">
                               <button class="px-3" type="button" @click="clickInput('kycForm_frontIdCard')" style="position: absolute; top: 11px;left: 46px; z-index: 1;">{{ $t('kycApplication.inputFileButton') }}</button>
                               <label for="" style="position: absolute;z-index: 1;top: 11px;left: 170px;color: #000000;">{{ $t('kycApplication.inputFileLabel') }}</label>
                               <input type="file" class="btn col" ref="kycForm_frontIdCard" accept="image/*" style="background-color: #f3f8ff; color: transparent" />
@@ -180,7 +180,7 @@
                           <div class="gaps-4x"></div>
                           <span class="upload-title">주민등록증 뒷면 사본을 업로드 해주세요</span>
                           <div class="row align-items-center">
-                            <div class="col-8 col-lg-7">
+                            <div class="col-8">
                               <button class="px-3" type="button" @click="clickInput('kycForm_backIdCard')" style="position: absolute; top: 11px;left: 46px; z-index: 1;">{{ $t('kycApplication.inputFileButton') }}</button>
                               <label for="" style="position: absolute;z-index: 1;top: 11px;left: 170px;color: #000000;">{{ $t('kycApplication.inputFileLabel') }}</label>
                               <input type="file" class="btn col" ref="kycForm_backIdCard" accept="image/*" style="background-color: #f3f8ff; color: transparent" />
@@ -194,7 +194,7 @@
                           <div class="gaps-4x"></div>
                           <span class="upload-title">주민등록증을 들고 찍은 본인 사진을 업로드 해주세요</span>
                           <div class="row align-items-center">
-                            <div class="col-8 col-lg-7">
+                            <div class="col-8">
                               <button class="px-3" type="button" @click="clickInput('kycForm_selfieIdCard')" style="position: absolute; top: 11px;left: 46px; z-index: 1;">{{ $t('kycApplication.inputFileButton') }}</button>
                               <label for="" style="position: absolute;z-index: 1;top: 11px;left: 170px;color: #000000;">{{ $t('kycApplication.inputFileLabel') }}</label>
                               <input type="file" class="btn col" ref="kycForm_selfieIdCard" accept="image/*" style="background-color: #f3f8ff; color: transparent" />
@@ -273,7 +273,7 @@
                     <div class="from-step-content">
                       <div class="note note-md note-info note-plane">
                         <em class="fas fa-info-circle"></em>
-                        <p>업비트, 빗썸, 코인원, 바이넨스 등과 같은 거래소 지갑주소는 사용이 불가능합니다.</p>
+                        <p>{{ $t('kycApplication.stepThreeNote') }}</p>
                       </div>
                       <div class="gaps-2x"></div>
                       <div class="row">
@@ -338,6 +338,7 @@ export default {
   data () {
     return {
       isLoading: false,
+      locale: '',
       nationalities: Nationalities,
       kycForm: {
         firstName: '',
@@ -499,6 +500,8 @@ export default {
     this.kycForm.eth_address = this.userData.eth_address
     // Apply fetched user token to user reactive data
     this.user.token = this.token
+    // Locale to reactive data
+    this.locale = this.$i18n.locale
   }
 }
 </script>
