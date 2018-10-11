@@ -1,13 +1,11 @@
 <template>
   <div>
     <a href="#" data-toggle="dropdown" aria-haspopup="true" class="text-uppercase"> {{ locale }} <em class="ti ti-angle-up"></em> </a>
-    <ul class="dropdown-menu">
-      <li v-for="(locale, key) in locales" :key="key">
-        <a href="javascript:void(0)" class="text-uppercase" @click.prevent="changeLocale(locale)">
-          {{ locale }}
-        </a>
-      </li>
-    </ul>
+    <div class="dropdown-menu">
+      <a href="#" class="dropdown-item text-uppercase" v-for="(locale, key) in locales" :key="key" @click.prevent="changeLocale(locale)">
+        {{ locale }}
+      </a>
+    </div>
   </div>
 </template>
 
