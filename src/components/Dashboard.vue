@@ -88,19 +88,19 @@
                 </thead>
                 <tbody>
                   <tr>
-                    <td :key="index" v-for="(sale, index) in salesTableData">
+                    <td  :class="{'sold-out': isSaleEnded }":key="index" v-for="(sale, index) in salesTableData">
                       <span>Start Date</span>
                       {{ sale.startdate }}
                     </td>
                   </tr>
                   <tr>
-                    <td :key="index" v-for="(sale, index) in salesTableData">
+                    <td :class="{'sold-out': isSaleEnded }" :key="index" v-for="(sale, index) in salesTableData">
                       <span>End Date</span>
                       {{ sale.enddate }}
                     </td>
                   </tr>
                   <tr>
-                    <td :key="index" v-for="(sale, index) in salesTableData">
+                    <td :class="{'sold-out': isSaleEnded }" :key="index" v-for="(sale, index) in salesTableData">
                       <span>Bonus</span>
                       {{ sale.bonus_rate }}%
                     </td>
