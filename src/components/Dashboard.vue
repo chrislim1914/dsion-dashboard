@@ -45,10 +45,25 @@
                   <li><span>END DATE</span>{{ active.endDate}}</li>
                 </ul>
               </div>
-              <div class="token-countdown" v-if="active.endDate">
-                <span class="token-countdown-title">THE BONUS END IN</span>
-                <Countdown :deadline="active.endDate | readerDate" @callback="saleEnded"></Countdown>
-              </div>
+
+              <span v-if="isSaleEnded">
+                <div class="token-countdown">
+                  <span class="token-countdown-title">
+                    1ST PRE SALE OPEN
+                  </span>
+                  <Countdown deadline="November 5, 2018" @callback="saleEnded"></Countdown>
+                </div>
+              </span>
+
+              <span v-else>
+                <div class="token-countdown" v-if="active.endDate">
+                  <span class="token-countdown-title">
+                    THE BONUS END IN
+                  </span>
+                  <Countdown :deadline="active.endDate | readerDate" @callback="saleEnded"></Countdown>
+                </div>
+              </span>
+
             </div><!-- .token-card -->
             <div class="progress-card">
               <h4>Token Sale Progress</h4>
@@ -151,7 +166,7 @@ export default {
       },
       isLoading: false,
       isDataLoaded: false,
-      isSaleEnded: false
+      isSaleEnded: true
     }
   },
   computed: {
@@ -204,6 +219,9 @@ export default {
       this.active.endDate = this.activeSale.enddate
       this.fetchTotalSales().then(() => {
         if (this.salesData) {
+          if (this.active.endDate < this.moment().format('YYYY-MM-DD')) {
+            this.isSaleEnded = true
+          }
           this.isDataLoaded = true
           this.isLoading = false
         } else {
