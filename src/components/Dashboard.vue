@@ -78,6 +78,9 @@
             </div>
             <div class="gaps-3x"></div>
             <div class="table-responsive" v-if="salesTableData">
+              <div class="sold-out font-weight-bold" v-if="isSaleEnded">
+                {{ $t('dashboard.saleended') }}
+              </div>
               <table class="table">
                 <thead>
                   <tr>
@@ -244,17 +247,15 @@ export default {
     }
 }
 .sold-out {
-  font-size: 30px;
+  background: rgba(0,0,0,0.7);
   position:absolute;
-  line-height:200px;
   top:0;
   left:0;
-  width:100%;
-  height:100%;
-  background-color: rgba(0,0,0,0.7);
-  color:#ffff;
-  vertical-align:middle;
-  border:1px solid transparent;
-  border-radius:10px;
+  color:white;
+  z-index:1000;
+  width: 25%;
+  height: 100%;
+  line-height: 9;
+  font-size: 25px;
 }
 </style>

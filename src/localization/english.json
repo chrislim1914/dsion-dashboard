@@ -1,4 +1,7 @@
 {
+  "dashboard": {
+    "saleended": "SOLD OUT"
+  },
    "kyc":{
       "heading":"Identification",
       "paragraphOne":"When you apply for KYC, upload your ID card for proof. Your name and photo should be clearly visible along with the country name that issued your ID, and you can upload up to 2 pages. Your name mentioned on the form above must match the name of your government issued ID.",
