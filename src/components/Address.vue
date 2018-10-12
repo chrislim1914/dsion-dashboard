@@ -31,8 +31,7 @@
                   </h3>
                 </div>
 
-                <span class="col-12" v-if="isSaleEnded">
-                  {{ $t('address.noticesaleended' )}}
+                <span class="col-12" v-if="isSaleEnded" v-html="$t('address.noticesaleended')">
                 </span>
 
                 <span class="col-12" v-else>
