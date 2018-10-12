@@ -38,6 +38,7 @@
       "inputFileLabel":"No file selected"
    },
    "address":{
+     "noticesaleended": "<h6 class='text-danger'>Private sale is end.<br/><br/>1st Pre sale will start at 11.05<h6>",
       "notice":"If you deposit to the Ethereum address , you will receive a Dsion token in the Ethereum wallet when you enter KYC.",
       "agreeCheckbox":"I agree to the above",
       "confirmButton":"Confirm deposit address",

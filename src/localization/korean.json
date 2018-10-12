@@ -38,6 +38,7 @@
       "inputFileLabel":"선택된 파일 없음"
    },
    "address":{
+      "noticesaleended": "<h6 class='text-danger'>비공개 판매가 종료되었습니다.<br/><br/>1 차 예매는 11.05에 시작됩니다.</h6>",
       "notice":"해당 ETH 주소로 입금하시면, KYC 입력시 입력한 Ethereum Wallet으로 Dsion 토큰을 받게 됩니다.",
       "agreeCheckbox":"위 사항에 동의합니다.",
       "confirmButton":"입금 주소 확인",

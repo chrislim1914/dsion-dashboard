@@ -22,31 +22,42 @@
                   </a>
                 </div>
               </div>
+
               <div class="row" ref="notice" v-if="displays.isApproved && displays.showNotice">
+
                 <div class="col-12">
                   <h3 class="text-left font-weight-bold">
                       Notice
                   </h3>
                 </div>
-                <div class="col-10 ml-3 text-justify">
-                  <p>
-                    {{ $t('address.notice') }}
-                  </p>
-                </div>
-                <div class="col-10 ml-3 text-justify">
-                  <div class="form-check form-check-inline">
-                    <input class="form-check-input" type="checkbox" id="agree" v-model="displays.isChecked">
-                    <label class="form-check-label font-weight-bold" for="agree">
-                      {{ $t('address.agreeCheckbox') }}
-                    </label>
+
+                <span class="col-12" v-if="isSaleEnded">
+                  {{ $t('address.noticesaleended' )}}
+                </span>
+
+                <span class="col-12" v-else>
+                  <div class="col-10 ml-3 text-justify">
+                    <p>
+                      {{ $t('address.notice') }}
+                    </p>
                   </div>
-                </div>
-                <div class="col-12 col-lg-6 mt-3 mx-auto">
-                  <a @click="receive" class="btn btn-primary text-white" style="width:100%;">
-                      {{ $t('address.confirmButton') }}
-                  </a>
-                </div>
+                  <div class="col-10 ml-3 text-justify">
+                    <div class="form-check form-check-inline">
+                      <input class="form-check-input" type="checkbox" id="agree" v-model="displays.isChecked">
+                      <label class="form-check-label font-weight-bold" for="agree">
+                        {{ $t('address.agreeCheckbox') }}
+                      </label>
+                    </div>
+                  </div>
+                  <div class="col-12 col-lg-6 mt-3 mx-auto">
+                    <a @click="receive" class="btn btn-primary text-white" style="width:100%;">
+                        {{ $t('address.confirmButton') }}
+                    </a>
+                  </div>
+                </span>
+
               </div>
+
               <div class="get-token" v-if="!displays.showNotice">
                 <div class="row">
                   <div class="col-12">
@@ -69,6 +80,7 @@
                   </div>
                 </div>
               </div>
+
             </div>
             <!-- .user-panel -->
           </div>
@@ -112,18 +124,18 @@ export default {
         isChecked: false,
         showNotice: true
       },
-      isLoading: false
+      isLoading: false,
+      isSaleEnded: false
     }
   },
   computed: {
     ...mapState({
-      'userResponse': ({
-        users
-      }) => users.responseData
+      'userResponse': ({users}) => users.responseData,
+      'sales': ({sales}) => sales.activeSale
     })
   },
   methods: {
-    ...mapActions(['fetchUserInfo']),
+    ...mapActions(['fetchUserInfo', 'fetchActiveSale']),
     receive () {
       if (this.displays.isChecked) {
         this.displays.showNotice = false
@@ -137,6 +149,11 @@ export default {
     onErrorCopy () {
       this.$awn.alert('Failed to copy the code.')
     }
+  },
+  created () {
+    this.fetchActiveSale().then(() => {
+      console.log(this.sales)
+    })
   }
 }
 </script>
