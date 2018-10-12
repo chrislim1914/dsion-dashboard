@@ -240,4 +240,18 @@ export default {
         }
     }
 }
+.sold-out {
+  font-size: 30px;
+  position:absolute;
+  line-height:200px;
+  top:0;
+  left:0;
+  width:100%;
+  height:100%;
+  background-color: rgba(0,0,0,0.7);
+  color:#ffff;
+  vertical-align:middle;
+  border:1px solid transparent;
+  border-radius:10px;
+}
 </style>
