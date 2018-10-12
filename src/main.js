@@ -12,11 +12,13 @@ import store from './store'
 import './filters'
 import { shifters, pickANumber, cookieNameCutter } from './libs'
 import { jwtHeader } from './config'
+import moment from 'moment'
 
 require('vue-awesome-notifications/dist/styles/style.css')
 var VueCookie = require('vue-cookie')
 
 Vue.config.productionTip = false
+Vue.prototype.moment = moment
 
 Vue.use(VueAWN)
 Vue.use(VueClipboard)

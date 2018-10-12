@@ -152,7 +152,9 @@ export default {
   },
   created () {
     this.fetchActiveSale().then(() => {
-      console.log(this.sales)
+      if (this.sales.enddate === moment().format('YYYY-MM-DD')) {
+        this.isSaleEnded = true
+      }
     })
   }
 }
