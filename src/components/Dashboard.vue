@@ -46,23 +46,19 @@
                 </ul>
               </div>
 
-              <span class="token-countdown" v-if="isSaleEnded">
-                <div class="token-countdown">
-                  <span class="token-countdown-title">
-                    1ST PRE SALE OPEN
-                  </span>
-                  <Countdown deadline="November 5, 2018" @callback="saleEnded"></Countdown>
-                </div>
-              </span>
+              <div class="token-countdown" v-if="isSaleEnded">
+                <span class="token-countdown-title">
+                  1ST PRE SALE OPEN
+                </span>
+                <Countdown deadline="November 5, 2018" @callback="saleEnded"></Countdown>
+              </div>
 
-              <span class="token-countdown" v-else>
-                <div class="token-countdown" v-if="active.endDate">
-                  <span class="token-countdown-title">
-                    THE BONUS END IN
-                  </span>
-                  <Countdown :deadline="active.endDate | readerDate" @callback="saleEnded"></Countdown>
-                </div>
-              </span>
+              <div class="token-countdown" v-else>
+                <span class="token-countdown-title">
+                  THE BONUS END IN
+                </span>
+                <Countdown :deadline="active.endDate | readerDate" @callback="saleEnded"></Countdown>
+              </div>
 
             </div><!-- .token-card -->
             <div class="progress-card">
