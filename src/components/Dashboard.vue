@@ -88,7 +88,7 @@
                 </thead>
                 <tbody>
                   <tr>
-                    <td  :class="{'sold-out': isSaleEnded }":key="index" v-for="(sale, index) in salesTableData">
+                    <td :class="{'sold-out': isSaleEnded }" :key="index" v-for="(sale, index) in salesTableData">
                       <span>Start Date</span>
                       {{ sale.startdate }}
                     </td>
