@@ -46,7 +46,7 @@
                 </ul>
               </div>
 
-              <span v-if="isSaleEnded">
+              <span class="token-countdown" v-if="isSaleEnded">
                 <div class="token-countdown">
                   <span class="token-countdown-title">
                     1ST PRE SALE OPEN
@@ -55,7 +55,7 @@
                 </div>
               </span>
 
-              <span v-else>
+              <span class="token-countdown" v-else>
                 <div class="token-countdown" v-if="active.endDate">
                   <span class="token-countdown-title">
                     THE BONUS END IN
@@ -166,7 +166,7 @@ export default {
       },
       isLoading: false,
       isDataLoaded: false,
-      isSaleEnded: true
+      isSaleEnded: false
     }
   },
   computed: {
