@@ -93,8 +93,8 @@
                       <span>Start Date</span>
                       {{ sale.startdate }}
                     </td>
+                    <td class="sold-out d-none"></td>
                   </tr>
-                  <tr class="d-none sold-out"></tr>
                   <!-- -->
                   <tr>
                     <td :key="index" v-for="(sale, index) in salesTableData">
