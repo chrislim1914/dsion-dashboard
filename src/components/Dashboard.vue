@@ -162,7 +162,7 @@ export default {
       },
       isLoading: false,
       isDataLoaded: false,
-      isSaleEnded: false
+      isSaleEnded: true
     }
   },
   computed: {
