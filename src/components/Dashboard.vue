@@ -168,7 +168,7 @@ export default {
       },
       isLoading: false,
       isDataLoaded: false,
-      isSaleEnded: false
+      isSaleEnded: true
     }
   },
   computed: {
@@ -249,13 +249,11 @@ export default {
 .sold-out {
   background: rgba(0,0,0,0.7);
   position:absolute;
-  top:0;
-  left:0;
   color:white;
   z-index:1000;
-  width: 25%;
-  height: 100%;
+  width: 145px;
   line-height: 9;
   font-size: 25px;
+  text-align: center;
 }
 </style>
