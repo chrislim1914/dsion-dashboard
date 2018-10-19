@@ -64,6 +64,12 @@ const actions = {
   }
 }
 
+const getters = {
+  pendingSale: (state) => {
+    return state.sales.filter(sale => sale.status === 2)
+  }
+}
+
 /**
  * @const mutations
  * @type {object}
@@ -97,4 +103,4 @@ const mutations = {
   }
 }
 
-export default {state, actions, mutations}
+export default {state, actions, getters, mutations}

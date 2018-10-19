@@ -138,6 +138,7 @@ import Sidebar from './Globals/Sidebar'
 import Footer from './Globals/Footer'
 import {
   mapActions,
+  mapGetters,
   mapState
 } from 'vuex'
 export default {
@@ -173,13 +174,14 @@ export default {
   },
   computed: {
     ...mapState({
-      'token': ({tokens}) => tokens.token,
-      'sales': ({sales}) => sales.sales,
-      'userData': ({users}) => users.user,
-      'userResponse': ({users}) => users.responseData,
-      'salesData': ({sales}) => sales.responseData,
+      token: ({tokens}) => tokens.token,
+      sales: ({sales}) => sales.sales,
+      userData: ({users}) => users.user,
+      userResponse: ({users}) => users.responseData,
+      salesData: ({sales}) => sales.responseData,
       activeSale: ({sales}) => sales.activeSale
-    })
+    }),
+    ...mapGetters(['pendingSale'])
   },
   methods: {
     ...mapActions([
@@ -210,6 +212,7 @@ export default {
     // Fetch all sale status
     this.fetchAllSaleStatus().then(() => {
       this.salesTableData = this.sales
+      console.log(this.pendingSale)
     })
 
     // Fetch active sale
