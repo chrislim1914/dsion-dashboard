@@ -71,7 +71,6 @@
               </div>
             </div><!-- .token-card -->
 
-
             <div class="progress-card">
               <h4>Token Sale Progress</h4>
               <div class="progress-bar">
