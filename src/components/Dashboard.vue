@@ -65,7 +65,7 @@
             <div class="token-card" v-else>
               <div class="token-info">
                 <span class="token-smartag">
-                  {{ pendingSale[0].name }} OPEN
+                  {{ pendingSale[0].name }}
                 </span>
                 <h2 class="token-bonus">{{ pendingSale[0].bonus_rate }}% <span>Current Bonus</span></h2>
                 <ul class="token-timeline">
@@ -75,15 +75,15 @@
               </div>
               <div class="token-countdown" v-if="isSaleEnded">
                 <span class="token-countdown-title">
-                  {{ pendingSale[0].name }}
+                  {{ pendingSale[0].name }} OPEN
                 </span>
-                <Countdown :deadline="pendingSale[0].enddate" @callback="saleEnded"></Countdown>
+                <Countdown :deadline="pendingSale[0].startdate" @callback="saleEnded"></Countdown>
               </div>
               <div class="token-countdown" v-else>
                 <span class="token-countdown-title">
                   THE BONUS END IN
                 </span>
-                <Countdown :deadline="pendingSale[0].enddate" @callback="saleEnded"></Countdown>
+                <Countdown :deadline="pendingSale[0].startdate" @callback="saleEnded"></Countdown>
               </div>
             </div><!-- .token-card -->
 
