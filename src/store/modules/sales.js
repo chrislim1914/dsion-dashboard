@@ -65,6 +65,9 @@ const actions = {
 }
 
 const getters = {
+  currentSale: (state) => {
+    return state.sales.filter(sale => sale.status === 1)
+  },
   pendingSale: (state) => {
     return state.sales.filter(sale => sale.status === 2)
   }

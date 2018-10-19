@@ -36,13 +36,23 @@
                 </div>
               </div><!-- .col -->
             </div><!-- .row -->
-            <div class="token-card" v-if="active">
-              <div class="token-info">
+            <div class="token-card">
+
+              <div class="token-info" v-if="currentSale.length">
                 <span class="token-smartag">{{ active.name }}</span>
                 <h2 class="token-bonus">{{ active.bonusRate }}% <span>Current Bonus</span></h2>
                 <ul class="token-timeline">
                   <li><span>START DATE</span>{{ active.startDate}}</li>
                   <li><span>END DATE</span>{{ active.endDate}}</li>
+                </ul>
+              </div>
+
+              <div class="token-info" v-else>
+                <span class="token-smartag">{{ pendingSale.name }}</span>
+                <h2 class="token-bonus">{{ pendingSale.bonusRate }}% <span>Current Bonus</span></h2>
+                <ul class="token-timeline">
+                  <li><span>START DATE</span>{{ pendingSale.startDate}}</li>
+                  <li><span>END DATE</span>{{ pendingSale.endDate}}</li>
                 </ul>
               </div>
 
@@ -59,8 +69,9 @@
                 </span>
                 <Countdown :deadline="active.endDate | readerDate" @callback="saleEnded"></Countdown>
               </div>
-
             </div><!-- .token-card -->
+
+
             <div class="progress-card">
               <h4>Token Sale Progress</h4>
               <div class="progress-bar">
@@ -181,7 +192,7 @@ export default {
       salesData: ({sales}) => sales.responseData,
       activeSale: ({sales}) => sales.activeSale
     }),
-    ...mapGetters(['pendingSale'])
+    ...mapGetters(['currentSale', 'pendingSale'])
   },
   methods: {
     ...mapActions([
@@ -212,26 +223,25 @@ export default {
     // Fetch all sale status
     this.fetchAllSaleStatus().then(() => {
       this.salesTableData = this.sales
-      console.log(this.pendingSale)
-    })
+      // Fetch active sale
+      this.fetchActiveSale().then(() => {
+        this.active.name = this.activeSale.name
+        this.active.bonusRate = this.activeSale.bonus_rate
+        this.active.capLimit = this.activeSale.cap_limit
+        this.active.startDate = this.activeSale.startdate
+        this.active.endDate = this.activeSale.enddate
 
-    // Fetch active sale
-    this.fetchActiveSale().then(() => {
-      this.active.name = this.activeSale.name
-      this.active.bonusRate = this.activeSale.bonus_rate
-      this.active.capLimit = this.activeSale.cap_limit
-      this.active.startDate = this.activeSale.startdate
-      this.active.endDate = this.activeSale.enddate
-      this.fetchTotalSales().then(() => {
-        if (this.salesData) {
-          if (this.active.endDate < this.moment().format('YYYY-MM-DD')) {
-            this.isSaleEnded = true
+        this.fetchTotalSales().then(() => {
+          if (this.salesData) {
+            if (this.active.endDate < this.moment().format('YYYY-MM-DD')) {
+              this.isSaleEnded = true
+            }
+            this.isDataLoaded = true
+            this.isLoading = false
+          } else {
+            this.$awn.warning('Problem loading sales data.')
           }
-          this.isDataLoaded = true
-          this.isLoading = false
-        } else {
-          this.$awn.warning('Problem loading sales data.')
-        }
+        })
       })
     })
   }
