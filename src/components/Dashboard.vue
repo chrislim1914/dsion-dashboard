@@ -40,7 +40,7 @@
             <div class="token-card" v-if="currentSale.length > 0">
               <div class="token-info">
                 <span class="token-smartag">
-                  {{ active.name }}
+                  {{ active.name }} ENDS
                 </span>
                 <h2 class="token-bonus">{{ active.bonusRate }}% <span>Current Bonus</span></h2>
                 <ul class="token-timeline">
