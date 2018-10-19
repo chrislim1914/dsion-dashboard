@@ -36,38 +36,54 @@
                 </div>
               </div><!-- .col -->
             </div><!-- .row -->
-            <div class="token-card">
 
-              <div class="token-info" v-if="currentSale.length">
-                <span class="token-smartag">{{ active.name }}</span>
+            <div class="token-card" v-if="currentSale.length > 0">
+              <div class="token-info">
+                <span class="token-smartag">
+                  {{ active.name }}
+                </span>
                 <h2 class="token-bonus">{{ active.bonusRate }}% <span>Current Bonus</span></h2>
                 <ul class="token-timeline">
                   <li><span>START DATE</span>{{ active.startDate}}</li>
                   <li><span>END DATE</span>{{ active.endDate}}</li>
                 </ul>
               </div>
-
-              <div class="token-info" v-else>
-                <span class="token-smartag">{{ pendingSale.name }}</span>
-                <h2 class="token-bonus">{{ pendingSale.bonusRate }}% <span>Current Bonus</span></h2>
-                <ul class="token-timeline">
-                  <li><span>START DATE</span>{{ pendingSale.startDate}}</li>
-                  <li><span>END DATE</span>{{ pendingSale.endDate}}</li>
-                </ul>
-              </div>
-
               <div class="token-countdown" v-if="isSaleEnded">
                 <span class="token-countdown-title">
                   1ST PRE SALE OPEN
                 </span>
                 <Countdown deadline="November 5, 2018" @callback="saleEnded"></Countdown>
               </div>
-
               <div class="token-countdown" v-else>
                 <span class="token-countdown-title">
                   THE BONUS END IN
                 </span>
                 <Countdown :deadline="active.endDate | readerDate" @callback="saleEnded"></Countdown>
+              </div>
+            </div><!-- .token-card -->
+
+            <div class="token-card" v-else>
+              <div class="token-info">
+                <span class="token-smartag">
+                  {{ pendingSale[0].name }}
+                </span>
+                <h2 class="token-bonus">{{ pendingSale[0].bonus_rate }}% <span>Current Bonus</span></h2>
+                <ul class="token-timeline">
+                  <li><span>START DATE</span>{{ pendingSale[0].startdate}}</li>
+                  <li><span>END DATE</span>{{ pendingSale[0].enddate}}</li>
+                </ul>
+              </div>
+              <div class="token-countdown" v-if="isSaleEnded">
+                <span class="token-countdown-title">
+                  {{ pendingSale[0].name }}
+                </span>
+                <Countdown :deadline="pendingSale[0].enddate" @callback="saleEnded"></Countdown>
+              </div>
+              <div class="token-countdown" v-else>
+                <span class="token-countdown-title">
+                  THE BONUS END IN
+                </span>
+                <Countdown :deadline="pendingSale[0].enddate" @callback="saleEnded"></Countdown>
               </div>
             </div><!-- .token-card -->
 
@@ -224,12 +240,13 @@ export default {
       this.salesTableData = this.sales
       // Fetch active sale
       this.fetchActiveSale().then(() => {
-        this.active.name = this.activeSale.name
-        this.active.bonusRate = this.activeSale.bonus_rate
-        this.active.capLimit = this.activeSale.cap_limit
-        this.active.startDate = this.activeSale.startdate
-        this.active.endDate = this.activeSale.enddate
-
+        if (this.currentSale.length) {
+          this.active.name = this.activeSale.name
+          this.active.bonusRate = this.activeSale.bonus_rate
+          this.active.capLimit = this.activeSale.cap_limit
+          this.active.startDate = this.activeSale.startdate
+          this.active.endDate = this.activeSale.enddate
+        }
         this.fetchTotalSales().then(() => {
           if (this.salesData) {
             if (this.active.endDate < this.moment().format('YYYY-MM-DD')) {
