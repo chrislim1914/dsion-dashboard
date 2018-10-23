@@ -104,9 +104,9 @@
             </div>
             <div class="gaps-3x"></div>
             <div class="table-responsive" v-if="salesTableData">
-              <div class="sold-out font-weight-bold" v-if="isSaleEnded">
+              <!-- <div class="sold-out font-weight-bold" v-if="isSaleEnded">
                 {{ $t('dashboard.saleended') }}
-              </div>
+              </div> -->
               <table class="table">
                 <thead>
                   <tr>
@@ -120,7 +120,12 @@
                   <tr>
                     <td :key="index" v-for="(sale, index) in salesTableData">
                       <span>Start Date</span>
-                      {{ sale.startdate }}
+                      <p v-if="moment().format('YYYY-MM-DD') > moment(sale.startdate).format('YYYY-MM-DD')">
+                        SOLD OUT
+                      </p>
+                      <p v-else>
+                        {{ sale.startdate }}
+                      </p>
                     </td>
                     <td class="sold-out d-none"></td>
                   </tr>
@@ -128,7 +133,12 @@
                   <tr>
                     <td :key="index" v-for="(sale, index) in salesTableData">
                       <span>End Date</span>
-                      {{ sale.enddate }}
+                      <p v-if="moment().format('YYYY-MM-DD') > moment(sale.enddate).format('YYYY-MM-DD')">
+                        SOLD OUT
+                      </p>
+                      <p v-else>
+                        {{ sale.enddate }}
+                      </p>
                     </td>
                   </tr>
                   <tr>
