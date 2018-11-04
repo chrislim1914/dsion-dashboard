@@ -121,10 +121,10 @@ export default {
       displays: {
         isApproved: true,
         isChecked: false,
-        showNotice: true
+        showNotice: false
       },
       isLoading: false,
-      isSaleEnded: false
+      isSaleEnded: true
     }
   },
   computed: {
