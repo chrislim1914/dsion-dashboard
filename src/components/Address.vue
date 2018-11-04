@@ -117,7 +117,7 @@ export default {
   },
   data () {
     return {
-      tokenCode: '0x4418CB33A28598EA0B1A81678c0C68986A3FC08C',
+      tokenCode: '0xf99913776c4c9B3c07446d7a2151d3144B2b4048',
       displays: {
         isApproved: true,
         isChecked: false,
