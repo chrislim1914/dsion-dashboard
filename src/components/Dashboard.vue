@@ -120,7 +120,7 @@
                   <tr>
                     <td :key="index" v-for="(sale, index) in salesTableData">
                       <span>Start Date</span>
-                      <p v-if="moment().format('YYYY-MM-DD') > moment(sale.startdate).format('YYYY-MM-DD')">
+                      <p v-if="moment().format('YYYY-MM-DD') > moment(sale.enddate).format('YYYY-MM-DD')">
                         SOLD OUT
                       </p>
                       <p v-else>
