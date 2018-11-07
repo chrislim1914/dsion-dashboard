@@ -51,7 +51,7 @@
                   </div>
                 </span>
               </div>
-              <div class="get-token" v-if="!displays.showNotice">
+              <div class="get-token" v-if="!displays.showNotice && !this.isSaleEnded">
                 <div class="row">
                   <div class="col-12">
                     <h5 class="text-left font-weight-bold">
