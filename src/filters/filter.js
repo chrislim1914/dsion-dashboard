@@ -35,7 +35,7 @@ export function breadify (entry = '') {
 }
 
 export function readerDate (entry = '') {
-  return moment(entry).add(1, 'days').format('MMMM D, Y')
+  return moment(entry).format('MMMM D, Y')
 }
 
 export function shorterDate (entry = '') {

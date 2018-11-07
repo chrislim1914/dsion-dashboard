@@ -24,16 +24,12 @@
               </div>
 
               <div class="row" ref="notice" v-if="displays.isApproved && displays.showNotice">
-
                 <div class="col-12">
                   <h3 class="text-left font-weight-bold">
                       Notice
                   </h3>
                 </div>
-
-                <span class="col-12" v-if="isSaleEnded" v-html="$t('address.noticesaleended')">
-                </span>
-
+                <span class="col-12" v-if="isSaleEnded" v-html="$t('address.noticesaleended')"></span>
                 <span class="col-12" v-else>
                   <div class="col-10 ml-3 text-justify">
                     <p>
@@ -54,10 +50,8 @@
                     </a>
                   </div>
                 </span>
-
               </div>
-
-              <div class="get-token" v-if="!displays.showNotice">
+              <div class="get-token" v-if="displays.showNotice">
                 <div class="row">
                   <div class="col-12">
                     <h5 class="text-left font-weight-bold">
@@ -79,7 +73,6 @@
                   </div>
                 </div>
               </div>
-
             </div>
             <!-- .user-panel -->
           </div>
@@ -117,20 +110,20 @@ export default {
   },
   data () {
     return {
-      tokenCode: '0xf99913776c4c9B3c07446d7a2151d3144B2b4048',
+      tokenCode: '',
       displays: {
         isApproved: true,
         isChecked: false,
-        showNotice: false
+        showNotice: true
       },
       isLoading: false,
-      isSaleEnded: true
+      isSaleEnded: false
     }
   },
   computed: {
     ...mapState({
-      'userResponse': ({users}) => users.responseData,
-      'sales': ({sales}) => sales.activeSale
+      userResponse: ({users}) => users.responseData,
+      activeSale: ({sales}) => sales.activeSale,
     })
   },
   methods: {
@@ -151,9 +144,12 @@ export default {
   },
   created () {
     this.fetchActiveSale().then(() => {
-      // if (this.sales.enddate < this.moment().format('YYYY-MM-DD')) {
-      this.isSaleEnded = true
-      // }
+      if (this.activeSale.result) {
+        this.tokenCode = this.activeSale.address
+      } else {
+        this.isSaleEnded = true
+        this.displays.showNotice = false
+      }
     })
   }
 }
