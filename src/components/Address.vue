@@ -123,7 +123,7 @@ export default {
   computed: {
     ...mapState({
       userResponse: ({users}) => users.responseData,
-      activeSale: ({sales}) => sales.activeSale,
+      activeSale: ({sales}) => sales.activeSale
     })
   },
   methods: {
