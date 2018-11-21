@@ -94,7 +94,9 @@
                   <div>Hard cap <span>{{ salesData.Hard_Cap | digitCommafy }} DSN</span></div>
                 </div>
                 <div class="progress-scap" style="width:30%">
-                  <div><!--{{ active.name }}--> <span style="margin-left:58px">Private Sale</span><span style="margin-left:65px">50,000,000 DSN</span></div>
+                  <div>
+                    <span style="margin-left:58px">Private Sale</span><span style="margin-left:65px">50,000,000 DSN</span>
+                  </div>
                 </div>
                 <div class="progress-psale" style="width:12%">
                   <div>Soft cap<span>45,000,000 DSN</span></div>
@@ -250,23 +252,18 @@ export default {
       this.salesTableData = this.sales
       // Fetch active sale
       this.fetchActiveSale().then(() => {
-        if (this.currentSale.length) {
+        // Current active sale
+        if (this.activeSale.result) {
           this.active.name = this.activeSale.name
           this.active.bonusRate = this.activeSale.bonus_rate
           this.active.capLimit = this.activeSale.cap_limit
           this.active.startDate = this.activeSale.startdate
           this.active.endDate = this.activeSale.enddate
+        } else {
+          this.isSaleEnded = true
         }
         this.fetchTotalSales().then(() => {
-          if (this.salesData) {
-            if (this.active.endDate < this.moment().format('YYYY-MM-DD')) {
-              this.isSaleEnded = true
-            }
-            this.isDataLoaded = true
-            this.isLoading = false
-          } else {
-            this.$awn.warning('Problem loading sales data.')
-          }
+          this.isDataLoaded = true
         })
       })
     })
