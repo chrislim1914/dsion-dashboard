@@ -148,7 +148,7 @@ export default {
         this.tokenCode = this.activeSale.address
       } else {
         this.isSaleEnded = true
-        this.displays.showNotice = false
+        this.displays.showNotice = true
       }
     })
   }
