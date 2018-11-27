@@ -77,8 +77,9 @@ export default {
     return {
       locale: '',
       user: {
-        email: '',
-        kycStatus: 'KYC Pending',
+        email: ''
+      },
+      kyc: {
         kycVerified: false
       }
     }
@@ -91,7 +92,7 @@ export default {
       'userData': ({users}) => users.user
     }),
     kycStatus: (oldV, newV) => {
-      if (this.user.kycVerified) {
+      if (this.kyc.kycVerified) {
         return 'KYC Verified'
       } else {
         return 'KYC Pending'
@@ -100,7 +101,7 @@ export default {
   },
   created () {
     this.user.email = this.userData.email
-    this.user.kycVerified = this.userData.kyc_verified
+    this.kyc.kycVerified = this.userData.kyc_verified
     this.locale = this.$i18n.locale
   }
 }
