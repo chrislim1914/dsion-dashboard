@@ -17,7 +17,7 @@
                 <h6 class="btn btn-xs bg-danger" v-if="kyc.kycApplication === 'Rejected'">
                   KYC Rejected
                 </h6>
-                <h6 class="btn btn-xs bg-success" v-if="kyc.kycApplication === 'Verified'">
+                <h6 class="btn btn-xs bg-success" v-if="kyc.kycApplication === 'Approved'">
                   KYC Verified
                 </h6>
             </ul>
