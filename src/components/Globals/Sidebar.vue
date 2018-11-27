@@ -8,7 +8,7 @@
             </div>
             <h6 class="user-name">{{ user.email }}</h6>
             <ul class="btn-grp guttar-10px">
-                <h6 :class="{'bg-success': !kycVerified, 'bg-warning': kycVerified }" class="btn btn-xs" v-if="!kycVerified">
+                <h6 :class="{'bg-success': !kyc.kycVerified, 'bg-warning': kyc.kycVerified }" class="btn btn-xs" v-if="!kyc.kycVerified">
                   {{ kycStatus }}
                 </h6>
             </ul>
