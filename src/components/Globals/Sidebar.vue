@@ -92,9 +92,9 @@ export default {
     }),
     kycStatus: (oldV, newV) => {
       if (this.kycVerified) {
-        this.kycStatus = 'KYC Verified'
+        return 'KYC Verified'
       } else {
-        this.kycStatus = 'KYC Pending'
+        return 'KYC Pending'
       }
     }
   },
