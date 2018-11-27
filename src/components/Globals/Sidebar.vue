@@ -18,7 +18,7 @@
                   KYC Rejected
                 </h6>
                 <h6 class="btn btn-xs bg-success" v-if="kyc.kycApplication === 'Approved'">
-                  KYC Verified
+                  KYC Approved
                 </h6>
             </ul>
         </div><!-- .user-box -->
