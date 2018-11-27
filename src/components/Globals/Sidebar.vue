@@ -91,7 +91,7 @@ export default {
       'userData': ({users}) => users.user
     }),
     kycStatus: (oldV, newV) => {
-      if (this.kycVerified) {
+      if (this.user.kycVerified) {
         return 'KYC Verified'
       } else {
         return 'KYC Pending'
