@@ -8,7 +8,7 @@
             </div>
             <h6 class="user-name">{{ user.email }}</h6>
             <ul class="btn-grp guttar-10px">
-                <h6 :class="{'bg-success': !kycVerified}" class="btn btn-xs bg-warning" v-if="!kycVerified">
+                <h6 :class="{'bg-success': !kycVerified, 'bg-warning': kycVerified }" class="btn btn-xs" v-if="!kycVerified">
                   {{ kycStatus }}
                 </h6>
             </ul>
@@ -86,7 +86,10 @@ export default {
   components: {
     locale: Locale
   },
-  watch: {
+  computed: {
+    ...mapState({
+      'userData': ({users}) => users.user
+    }),
     kycStatus: (oldV, newV) => {
       if (this.kycVerified) {
         this.kycStatus = 'KYC Verified'
@@ -94,11 +97,6 @@ export default {
         this.kycStatus = 'KYC Pending'
       }
     }
-  },
-  computed: {
-    ...mapState({
-      'userData': ({users}) => users.user
-    })
   },
   created () {
     this.user.email = this.userData.email
