@@ -7,6 +7,11 @@
                 <img src="/static/images/user-thumb-lg.png" alt="thumb">
             </div>
             <h6 class="user-name">{{ user.email }}</h6>
+            <ul class="btn-grp guttar-10px">
+                <h6 :class="{'bg-success': !kycVerified}" class="btn btn-xs bg-warning" v-if="!kycVerified">
+                  {{ kycStatus }}
+                </h6>
+            </ul>
         </div><!-- .user-box -->
         <ul class="user-icon-nav">
             <li>
@@ -72,12 +77,23 @@ export default {
     return {
       locale: '',
       user: {
-        email: ''
+        email: '',
+        kycStatus: 'KYC Pending',
+        kycVerified: false
       }
     }
   },
   components: {
     locale: Locale
+  },
+  watch: {
+    kycStatus: (oldV, newV) => {
+      if (this.kycVerified) {
+        this.kycStatus = 'KYC Verified'
+      } else {
+        this.kycStatus = 'KYC Pending'
+      }
+    }
   },
   computed: {
     ...mapState({
@@ -86,6 +102,7 @@ export default {
   },
   created () {
     this.user.email = this.userData.email
+    this.user.kycVerified = this.userData.kyc_verified
     this.locale = this.$i18n.locale
   }
 }
