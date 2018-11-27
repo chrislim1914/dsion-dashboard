@@ -8,8 +8,11 @@
             </div>
             <h6 class="user-name">{{ user.email }}</h6>
             <ul class="btn-grp guttar-10px">
-                <h6 :class="{'bg-success': !kyc.kycVerified, 'bg-warning': kyc.kycVerified }" class="btn btn-xs" v-if="!kyc.kycVerified">
-                  {{ kycStatus }}
+                <h6 class="btn btn-xs bg-success" v-if="!kyc.kycVerified">
+                  KYC Verified
+                </h6>
+                <h6 class="btn btn-xs bg-warning" v-else>
+                  KYC Pending
                 </h6>
             </ul>
         </div><!-- .user-box -->
