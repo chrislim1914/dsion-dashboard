@@ -8,11 +8,17 @@
             </div>
             <h6 class="user-name">{{ user.email }}</h6>
             <ul class="btn-grp guttar-10px">
-                <h6 class="btn btn-xs bg-success" v-if="kyc.kycVerified">
-                  KYC Verified
+                <h6 class="btn btn-xs bg-warning" v-if="kyc.kycApplication === 'Not Entered'">
+                  KYC Not Entered
                 </h6>
-                <h6 class="btn btn-xs bg-warning" v-else>
+                <h6 class="btn btn-xs bg-info" v-if="kyc.kycApplication === 'Pending'">
                   KYC Pending
+                </h6>
+                <h6 class="btn btn-xs bg-danger" v-if="kyc.kycApplication === 'Rejected'">
+                  KYC Rejected
+                </h6>
+                <h6 class="btn btn-xs bg-success" v-if="kyc.kycApplication === 'Verified'">
+                  KYC Verified
                 </h6>
             </ul>
         </div><!-- .user-box -->
@@ -83,7 +89,7 @@ export default {
         email: ''
       },
       kyc: {
-        kycVerified: false
+        kycApplication: ''
       }
     }
   },
@@ -93,18 +99,11 @@ export default {
   computed: {
     ...mapState({
       'userData': ({users}) => users.user
-    }),
-    kycStatus: (oldV, newV) => {
-      if (this.kyc.kycVerified) {
-        return 'KYC Verified'
-      } else {
-        return 'KYC Pending'
-      }
-    }
+    })
   },
   created () {
     this.user.email = this.userData.email
-    this.kyc.kycVerified = this.userData.kyc_verified
+    this.kyc.kycApplication = this.userData.kyc_application
     this.locale = this.$i18n.locale
   }
 }
