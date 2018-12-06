@@ -79,7 +79,7 @@
                             </label>
                             <select v-model="kycForm.countryCode" class="input-bordered" name="country-code" id="countrycode">
                               <option :value="countrycode.dial_code" :key="index" v-for="(countrycode, index) in countrycodes">
-                                {{ countrycode.name }}
+                                {{ countrycode.name }} {{ countrycode.dial_code }}
                               </option>
                             </select>
                             <div class="gaps-1x"></div>
@@ -389,13 +389,6 @@ export default {
       }
     }
   },
-  watch: {
-    'kycForm.countryCode': function (x, y) {
-      var i = this.kycForm.phoneNumber.replace(/[^0-9]/g, '')
-      var j = i.substr(0, 1) === '0' ? this.kycForm.countryCode + i.substr(1) : ''
-      this.kycForm.phoneNumber = j
-    }
-  },
   computed: {
     ...mapState({
       'token': ({
@@ -457,7 +450,9 @@ export default {
                   formData.append('first_name', this.kycForm.firstName) // firstName
                   formData.append('last_name', this.kycForm.lastName) // last_name
                   formData.append('email', this.kycForm.email) // email
-                  formData.append('contactnumber', this.kycForm.countryCode + this.kycForm.phoneNumber) // contactnumber
+                  var i = this.kycForm.phoneNumber.replace(/[^0-9]/g, '')
+                  var j = i.substr(0, 1) === '0' ? this.kycForm.countryCode + i.substr(1) : ''
+                  formData.append('contactnumber', this.kycForm.countryCode + j) // contactnumber
                   formData.append('doctype', this.kycForm.documentType) // doctype
                   formData.append('nationality', this.kycForm.nationality) // nationality
                   formData.append('docfront', this.kycForm.documentFront) // docfront
