@@ -67,14 +67,14 @@
                               <span :class="{'d-none': locale !== 'kr'}">(전화번호)</span>
                             </label>
                             <div class="row">
-                              <div class="col-4" style="padding-right: 5px;">
+                              <div class="col" style="padding-right: 5px;">
                                 <select v-model="kycForm.countryCode" class="input-bordered" name="country-code" id="countrycode">
                                   <option :value="countrycode.dial_code" :key="index" v-for="(countrycode, index) in countrycodes">
                                     {{ countrycode.code }} {{ countrycode.dial_code }}
                                   </option>
                                 </select>
                               </div>
-                              <div class="col-8" style="padding-left: 0px !important; margin-left: 0px;">
+                              <div class="col" style="padding-left: 0px !important; margin-left: 0px;">
                                 <input v-model="kycForm.phoneNumber" class="input-bordered" type="text" id="phone-number" name="phone-number" required>
                               </div>
                             </div>
