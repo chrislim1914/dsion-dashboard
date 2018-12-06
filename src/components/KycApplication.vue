@@ -435,9 +435,7 @@ export default {
                   formData.append('first_name', this.kycForm.firstName) // firstName
                   formData.append('last_name', this.kycForm.lastName) // last_name
                   formData.append('email', this.kycForm.email) // email
-                  //var i = this.kycForm.phoneNumber.replace(/[^0-9]/g, '')
-                  //var j = (i.substr(0, 1) === '0' ? this.kycForm.countryCode + i.substr(1) : this.kycForm.phoneNumber)
-                  //formData.append('contactnumber', j) // contactnumber
+                  formData.append('contactnumber', (this.kycForm.phoneNumber.replace(/[^0-9]/g, '').substr(0, 1) === '0' ? this.kycForm.countryCode + this.kycForm.phoneNumber.replace(/[^0-9]/g, '').substr(1) : this.kycForm.phoneNumber)) // contactnumber
                   formData.append('doctype', this.kycForm.documentType) // doctype
                   formData.append('nationality', this.kycForm.nationality) // nationality
                   formData.append('docfront', this.kycForm.documentFront) // docfront
