@@ -390,7 +390,7 @@ export default {
     }
   },
   watch: {
-    kycForm(x,y) {
+    'kycForm.countryCode': function (x,y) {
       console.log(x + " " + y)
     }
   },
