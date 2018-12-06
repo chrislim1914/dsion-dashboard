@@ -66,6 +66,11 @@
                               Phone Number
                               <span :class="{'d-none': locale !== 'kr'}">(전화번호)</span>
                             </label>
+                            <select v-model="kycForm.countryCode" class="input-bordered" name="country-code" id="countrcode">
+                              <option :value="countrycode.dial_code" :key="index" v-for="(countrycode, index) in CountryCodes">
+                                {{ countrycode.dial_code }} {{ countrycode.dial_code }}
+                              </option>
+                            </select>
                             <input v-model="kycForm.phoneNumber" class="input-bordered" type="text" id="phone-number" name="phone-number" required>
                           </div>
                           <!-- .input-item -->
@@ -333,6 +338,7 @@ import Topbar from './Globals/Topbar'
 import Sidebar from './Globals/Sidebar'
 import Footer from './Globals/Footer'
 import Nationalities from 'static/nationality.json'
+import CountryCodes from 'static/countrycode.json'
 import Validate from '@/validate'
 import {
   mapActions,
@@ -356,6 +362,7 @@ export default {
         lastName: '',
         email: '',
         phoneNumber: '',
+        countryCode: '',
         documentType: '여권',
         nationality: '',
         documentFront: '',

@@ -5,13 +5,7 @@
 </template>
 
 <script>
-import CountryCode from 'static/countrycode.json'
 export default {
-  name: 'Dashboard',
-  created () {
-    CountryCode.forEach(function (x){
-      console.log(x)
-    })
-  }
+  name: 'Dashboard'
 }
 </script>
