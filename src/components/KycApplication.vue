@@ -444,7 +444,7 @@ export default {
                   formData.append('first_name', this.kycForm.firstName) // firstName
                   formData.append('last_name', this.kycForm.lastName) // last_name
                   formData.append('email', this.kycForm.email) // email
-                  formData.append('contactnumber', this.kycForm.phoneNumber) // contactnumber
+                  formData.append('contactnumber', this.kycForm.countryCode + this.kycForm.phoneNumber) // contactnumber
                   formData.append('doctype', this.kycForm.documentType) // doctype
                   formData.append('nationality', this.kycForm.nationality) // nationality
                   formData.append('docfront', this.kycForm.documentFront) // docfront
@@ -505,6 +505,7 @@ export default {
       this.kycForm.lastName = ''
       this.kycForm.email = this.userData.email
       this.kycForm.phoneNumber = ''
+      this.kycForm.countryCode = ''
       this.kycForm.documentType = '여권'
       this.kycForm.nationality = ''
       this.kycForm.documentFront = ''
