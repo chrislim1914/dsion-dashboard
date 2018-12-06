@@ -88,21 +88,6 @@
                           <!-- .input-item -->
                         </div>
                         <!-- .col -->
-                        <div class="col-md-6">
-                          <!-- <div class="input-item input-with-label">
-                            <label for="nationality" class="input-item-label">
-                              Nationality
-                              <span :class="{'d-none': locale !== 'kr'}">(국적)</span>
-                            </label>
-                            <select v-model="kycForm.nationality" class="input-bordered" name="nationality" id="nationality">
-                              <option :value="nationality" :key="index" v-for="(nationality, index) in nationalities">
-                                {{ nationality }}
-                              </option>
-                            </select>
-                          </div> -->
-                          <!-- .input-item -->
-                        </div>
-                        <!-- .col -->
                       </div>
                       <!-- .row -->
                     </div>
@@ -451,7 +436,7 @@ export default {
                   formData.append('last_name', this.kycForm.lastName) // last_name
                   formData.append('email', this.kycForm.email) // email
                   var i = this.kycForm.phoneNumber.replace(/[^0-9]/g, '')
-                  var j = i.substr(0, 1) === '0' ? this.kycForm.countryCode + i.substr(1) : this.kycForm.phoneNumber
+                  var j = (i.substr(0, 1) === '0' ? this.kycForm.countryCode + i.substr(1) : this.kycForm.phoneNumber)
                   formData.append('contactnumber', j) // contactnumber
                   formData.append('doctype', this.kycForm.documentType) // doctype
                   formData.append('nationality', this.kycForm.nationality) // nationality
