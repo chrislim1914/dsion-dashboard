@@ -5,7 +5,7 @@
 </template>
 
 <script>
-import CountryCode from '~static/countrycode.json'
+import CountryCode from 'static/countrycode.json'
 export default {
   name: 'Dashboard',
   created () {
