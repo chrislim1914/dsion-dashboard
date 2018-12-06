@@ -394,8 +394,7 @@ export default {
       var i = this.kycForm.phoneNumber.replace(/[^0-9]/g, "")
       var j = this.kycForm.phoneNumber.substr(0, 1) === "0" ? this.kycForm.countryCode + this.kycForm.phoneNumber.substr(1) : false
 
-      console.log(this.kycForm.phoneNumber.substr(0,1))
-      console.log(i + " " + j)
+      this.kycForm.phoneNumber = j
     }
   },
   computed: {
@@ -420,7 +419,7 @@ export default {
       // Create form data for multipart
       const formData = new FormData()
       // Check if all data is filled
-      if (this.kycForm.firstName && this.kycForm.lastName && this.kycForm.email && this.kycForm.phoneNumber && this.kycForm.documentType && this.kycForm.nationality && this.kycForm.eth_address) {
+      if (this.kycForm.firstName && this.kycForm.lastName && this.kycForm.email && this.kycForm.countryCode && this.kycForm.phoneNumber && this.kycForm.documentType && this.kycForm.nationality && this.kycForm.eth_address) {
         // Validates if the email is valid
         if (Validate.isValidEmail(this.kycForm.email)) {
           // Identify document type
