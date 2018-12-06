@@ -57,6 +57,17 @@
                             </label>
                             <input v-model="kycForm.email" class="input-bordered" type="text" id="email-address" name="email-address" required>
                           </div>
+                          <div class="input-item input-with-label">
+                            <label for="nationality" class="input-item-label">
+                              Nationality
+                              <span :class="{'d-none': locale !== 'kr'}">(국적)</span>
+                            </label>
+                            <select v-model="kycForm.nationality" class="input-bordered" name="nationality" id="nationality">
+                              <option :value="nationality" :key="index" v-for="(nationality, index) in nationalities">
+                                {{ nationality }}
+                              </option>
+                            </select>
+                          </div>
                           <!-- .input-item -->
                         </div>
                         <!-- .col -->
@@ -71,13 +82,14 @@
                                 {{ countrycode.name }} {{ countrycode.dial_code }}
                               </option>
                             </select>
+                            <div class="gaps-1x"></div>
                             <input v-model="kycForm.phoneNumber" class="input-bordered" type="tel" id="phone-number" name="phone-number" required>
                           </div>
                           <!-- .input-item -->
                         </div>
                         <!-- .col -->
                         <div class="col-md-6">
-                          <div class="input-item input-with-label">
+                          <!-- <div class="input-item input-with-label">
                             <label for="nationality" class="input-item-label">
                               Nationality
                               <span :class="{'d-none': locale !== 'kr'}">(국적)</span>
@@ -87,7 +99,7 @@
                                 {{ nationality }}
                               </option>
                             </select>
-                          </div>
+                          </div> -->
                           <!-- .input-item -->
                         </div>
                         <!-- .col -->
