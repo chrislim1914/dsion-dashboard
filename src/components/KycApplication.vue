@@ -70,7 +70,7 @@
                               <div class="col-4" style="padding-right: 5px;">
                                 <select v-model="kycForm.countryCode" class="input-bordered" name="country-code" id="countrycode">
                                   <option :value="countrycode.dial_code" :key="index" v-for="(countrycode, index) in countrycodes">
-                                    {{ countrycode.dial_code }} {{ countrycode.dial_code }}
+                                    {{ countrycode.code }} {{ countrycode.dial_code }}
                                   </option>
                                 </select>
                               </div>
