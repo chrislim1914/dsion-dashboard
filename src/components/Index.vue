@@ -9,7 +9,9 @@ import CountryCode from 'static/countrycode.json'
 export default {
   name: 'Dashboard',
   created () {
-    console.log(CountryCode)
+    CountryCode.forEach(function (x){
+      console.log(x)
+    })
   }
 }
 </script>
