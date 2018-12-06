@@ -389,6 +389,11 @@ export default {
       }
     }
   },
+  watch: {
+    kycForm.countryCode (x,y) {
+      console.log(x + " " + y)
+    }
+  },
   computed: {
     ...mapState({
       'token': ({
