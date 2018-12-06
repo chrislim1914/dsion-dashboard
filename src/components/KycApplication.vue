@@ -66,18 +66,12 @@
                               Phone Number
                               <span :class="{'d-none': locale !== 'kr'}">(전화번호)</span>
                             </label>
-                            <div class="row">
-                              <div class="col" style="padding-right: 5px;">
-                                <select v-model="kycForm.countryCode" class="input-bordered" name="country-code" id="countrycode">
-                                  <option :value="countrycode.dial_code" :key="index" v-for="(countrycode, index) in countrycodes">
-                                    {{ countrycode.code }} {{ countrycode.dial_code }}
-                                  </option>
-                                </select>
-                              </div>
-                              <div class="col" style="padding-left: 0px !important; margin-left: 0px;">
-                                <input v-model="kycForm.phoneNumber" class="input-bordered" type="number" id="phone-number" name="phone-number" required>
-                              </div>
-                            </div>
+                            <select v-model="kycForm.countryCode" class="input-bordered" name="country-code" id="countrycode">
+                              <option :value="countrycode.dial_code" :key="index" v-for="(countrycode, index) in countrycodes">
+                                {{ countrycode.name }} {{ countrycode.dial_code }}
+                              </option>
+                            </select>
+                            <input v-model="kycForm.phoneNumber" class="input-bordered" type="tel" id="phone-number" name="phone-number" required>
                           </div>
                           <!-- .input-item -->
                         </div>
