@@ -392,7 +392,7 @@ export default {
   watch: {
     'kycForm.countryCode': function (x,y) {
       var i = this.kycForm.phoneNumber.replace(/[^0-9]/g, "")
-      var j = this.kycForm.phoneNumber.substr(0, 1) === "0" ? true : false
+      var j = this.kycForm.phoneNumber.substr(0, 1) === "0" ? this.kycForm.countryCode + this.kycForm.phoneNumber.substr(1) : false
 
       console.log(this.kycForm.phoneNumber.substr(0,1))
       console.log(i + " " + j)
