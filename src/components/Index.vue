@@ -5,7 +5,11 @@
 </template>
 
 <script>
+import CountryCode from '~static/countrycode.json'
 export default {
-  name: 'Dashboard'
+  name: 'Dashboard',
+  created () {
+    console.log(CountryCode)
+  }
 }
 </script>
