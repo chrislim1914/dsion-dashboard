@@ -452,7 +452,7 @@ export default {
                   formData.append('email', this.kycForm.email) // email
                   var i = this.kycForm.phoneNumber.replace(/[^0-9]/g, '')
                   var j = i.substr(0, 1) === '0' ? this.kycForm.countryCode + i.substr(1) : ''
-                  formData.append('contactnumber', this.kycForm.countryCode + j) // contactnumber
+                  formData.append('contactnumber', j) // contactnumber
                   formData.append('doctype', this.kycForm.documentType) // doctype
                   formData.append('nationality', this.kycForm.nationality) // nationality
                   formData.append('docfront', this.kycForm.documentFront) // docfront
