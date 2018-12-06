@@ -391,7 +391,11 @@ export default {
   },
   watch: {
     'kycForm.countryCode': function (x,y) {
-      console.log(x + " " + y)
+      var i = this.kycForm.phoneNumber.replace(/[^0-9]/g, "")
+      var j = this.kycForm.phoneNumber.substr(0, 1) === "0" ? true : false
+
+      console.log(this.kycForm.phoneNumber.substr(0,1))
+      console.log(i + " " + j)
     }
   },
   computed: {
