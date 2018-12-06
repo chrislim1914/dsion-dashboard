@@ -451,7 +451,7 @@ export default {
                   formData.append('last_name', this.kycForm.lastName) // last_name
                   formData.append('email', this.kycForm.email) // email
                   var i = this.kycForm.phoneNumber.replace(/[^0-9]/g, '')
-                  var j = i.substr(0, 1) === '0' ? this.kycForm.countryCode + i.substr(1) : ''
+                  var j = i.substr(0, 1) === '0' ? this.kycForm.countryCode + i.substr(1) : this.kycForm.phoneNumber
                   formData.append('contactnumber', j) // contactnumber
                   formData.append('doctype', this.kycForm.documentType) // doctype
                   formData.append('nationality', this.kycForm.nationality) // nationality
