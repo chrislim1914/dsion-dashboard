@@ -439,7 +439,7 @@ export default {
                   var x = this.kycForm.phoneNumber.replace(/[^0-9]/g, '')
                   var y = x.substr(0, 1)
 
-                  formData.append('contactnumber', y === '0' ? this.kycForm.countryCode + x.substr(1) : this.kycForm.phoneNumber) // contactnumber
+                  formData.append('contactnumber', y === '0' ? this.kycForm.countryCode + x.substr(1) : this.kycForm.countryCode + this.kycForm.phoneNumber) // contactnumber
 
                   formData.append('doctype', this.kycForm.documentType) // doctype
                   formData.append('nationality', this.kycForm.nationality) // nationality
