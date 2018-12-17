@@ -1,0 +1,51 @@
+{
+  "dashboard": {
+    "saleended": "SOLD OUT"
+  },
+   "kyc":{
+      "heading":"Identification",
+      "paragraphOne":"When you apply for KYC, upload your ID card for proof. Your name and photo should be clearly visible along with the country name that issued your ID, and you can upload up to 2 pages. Your name mentioned on the form above must match the name of your government issued ID.",
+      "paragraphTwo":" The attached identification document must be valid for at least one month. The validity of an expired or one month old identification document is not checked.",
+      "paragraphThree":"I certify that I am not a citizen of the United States of America, a resident of the United States of America or a resident of a jurisdiction that prohibits participation in the ICO.",
+      "acceptButton":"I agree",
+      "info":"Some countries and regions can not pass the KYC process, so token sales are limited."
+   },
+   "kycApplication":{
+      "stepOneHeading":"Enter personal information",
+      "stepOneParagraph":"Enter simple personal information required for authentication",
+      "stepOneNote":"Please enter your personal information correctly in the format below. Once submitted, it cannot be change.",
+      "stepTwoHeading":"Identification",
+      "stepTwoParagraph":"Please upload the following documents or photos to verify your identity.",
+      "stepTwoNote":"Please select one of the following documents and upload it.",
+      "stepThreeNoteTwo": "Exchange wallet addresses such as Upbeat, Bitsum, Coinone and Binance are not available.",
+      "uploadTypeOne": "Passport",
+      "uploadTypeTwo": "ID Card",
+      "uploadTypeThree": "Driver's License",
+      "uploadIdCardOne": "Please upload a copy of your id card front.",
+      "uploadIdCardTwo": "Please upload a copy of your id card back.",
+      "uploadIdCardThree": "Please upload a picture of you holding up your id card license.",
+      "uploadDriverLicenseOne": "Please upload a copy of your driver's license front.",
+      "uploadDriverLicenseTwo": "Please upload a copy of your driver's license back.",
+      "uploadDriverLicenseThree": "Please upload a picture of you holding up your driver's license.",
+      "uploadTitle":"Please check the following to make sure your upload does not interfere .",
+      "uploadFormat":"Formats allowed: JPG and PNG files. Maximum size: 6MB",
+      "uploadPassportNoteOne":"Please upload a copy of your passport.",
+      "uploadPassportNoteTwo":"Please upload a picture of you holding up your passport.",
+      "uploadWarning":"KYC certification may be rejected if your ID card is not match with your picture.",
+      "stepThreeHeading":"Ethereum sending wallet address",
+      "stepThreeNote":"Please send Ethereum and enter your wallet address to receive the token",
+      "walletAddressNote":"Please enter your Ethereum wallet address",
+      "walletAddressWarning":"Note: Wallet address must be compatible with ERC20. You must have a purse private key.",
+      "completedButton":"Completed",
+      "inputFileButton":"Select File",
+      "inputFileLabel":"No file selected"
+   },
+   "address":{
+     "noticesaleended": "<br/><h6 class='text-danger'>1st Pre sale is end.<br/>2st Pre sale will start at 12.05<h6>",
+      "notice":"If you deposit to the Ethereum address , you will receive a Dsion token in the Ethereum wallet when you enter KYC.",
+      "agreeCheckbox":"I agree to the above",
+      "confirmButton":"Confirm deposit address",
+      "walletHeading": "Ethereum deposit address",
+      "walletCopy": "Copy"
+   }
+}
