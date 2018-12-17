@@ -9,7 +9,7 @@ Vue.use(VueI18n)
 const messages = {}
 messages.en = english
 messages.kr = korean
-messages.ch = chinese
+messages.cn = chinese
 
 const i18n = new VueI18n({
   locale: 'kr',
