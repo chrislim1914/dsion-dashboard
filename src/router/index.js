@@ -63,9 +63,8 @@ export default new Router({
           component: DashboardAddress,
           beforeEnter: (to, from, next) => {
             // Check if user is kyc applied
-            if (store.state.users.user.kyc_status) {
+            if (store.state.users.user.kyc_status && store.state.users.user.kyc_status != "Rejected") {
               // Proceed to next
-              console.log(store)
               next()
             } else {
               // Proceed to kyc
