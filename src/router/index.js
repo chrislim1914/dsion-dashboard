@@ -65,6 +65,7 @@ export default new Router({
             // Check if user is kyc applied
             if (store.state.users.user.kyc_status) {
               // Proceed to next
+              console.log(store)
               next()
             } else {
               // Proceed to kyc
