@@ -77,7 +77,13 @@
                 <span class="token-countdown-title">
                   {{ pendingSale[0].name }} OPEN
                 </span>
-                <Countdown :deadline="pendingSale[0].startdate" @callback="saleEnded"></Countdown>
+                <span v-if="pendingSale[0].startdate && pendingSale[0].enddate">
+                  <Countdown class="countdown" v-if="pendingSale[0].startdate" :end="pendingSale[0].startdate" @callback="saleEnded"></Countdown>
+                </span>
+
+                <span  v-if="!pendingSale[0].enddate">
+                  <Countdown class="countdown" end="December 25, 1600"></Countdown>
+                </span>
               </div>
               <div class="token-countdown" v-else>
                 <span class="token-countdown-title">
