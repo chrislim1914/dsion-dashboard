@@ -97,11 +97,7 @@
                 </span>
                 <Countdown :deadline="pendingSale[0].startdate" @callback="saleEnded"></Countdown>
               </div>
-
             </div><!-- .token-card -->
-
-
-
 
             <div class="progress-card">
               <h4>Token Sale Progress</h4>
