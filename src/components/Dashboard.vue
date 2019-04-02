@@ -247,7 +247,6 @@ export default {
     }
   },
   created () {
-    alert('flag')
     // Fetch user contribution
     this.getUserContribution({
       iduser: this.userData.iduser,
