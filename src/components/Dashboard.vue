@@ -78,7 +78,7 @@
                 <span class="token-countdown-title">
                   No on-going sale
                 </span>
-                <span  v-if="!pendingSale[0].enddate">
+                <span>
                   <Countdown class="countdown" end="December 25, 1600"></Countdown>
                 </span>
               </div>
