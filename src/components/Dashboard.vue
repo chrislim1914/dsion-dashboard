@@ -91,13 +91,17 @@
                   <Countdown class="countdown" v-if="pendingSale[0].startdate" :end="pendingSale[0].startdate" @callback="saleEnded"></Countdown>
                 </span>
               </div>
-              <!-- <div class="token-countdown" v-else>
+              <div class="token-countdown" v-if="!isSaleEnded && !pendingSale.length">
                 <span class="token-countdown-title">
                   THE BONUS END IN
                 </span>
                 <Countdown :deadline="pendingSale[0].startdate" @callback="saleEnded"></Countdown>
-              </div> -->
+              </div>
+
             </div><!-- .token-card -->
+
+
+
 
             <div class="progress-card">
               <h4>Token Sale Progress</h4>
