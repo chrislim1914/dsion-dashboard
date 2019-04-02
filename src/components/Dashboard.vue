@@ -63,7 +63,7 @@
             </div><!-- .token-card -->
 
             <div class="token-card" v-else>
-              <div class="token-info">
+              <div class="token-info" v-if="pendingSale.length">
                 <span class="token-smartag">
                   {{ pendingSale[0].name }}
                 </span>
@@ -73,16 +73,22 @@
                   <li><span>END DATE</span>{{ pendingSale[0].enddate}}</li>
                 </ul>
               </div>
-              <div class="token-countdown" v-if="isSaleEnded">
+
+              <div class="token-countdown" v-if="!pendingSale.length">
+                <span class="token-countdown-title">
+                  No on-going sale
+                </span>
+                <span  v-if="!pendingSale[0].enddate">
+                  <Countdown class="countdown" end="December 25, 1600"></Countdown>
+                </span>
+              </div>
+
+              <div class="token-countdown" v-if="isSaleEnded && pendingSale.length">
                 <span class="token-countdown-title">
                   {{ pendingSale[0].name }} OPEN
                 </span>
                 <span v-if="pendingSale[0].startdate && pendingSale[0].enddate">
                   <Countdown class="countdown" v-if="pendingSale[0].startdate" :end="pendingSale[0].startdate" @callback="saleEnded"></Countdown>
-                </span>
-
-                <span  v-if="!pendingSale[0].enddate">
-                  <Countdown class="countdown" end="December 25, 1600"></Countdown>
                 </span>
               </div>
               <div class="token-countdown" v-else>
@@ -241,6 +247,7 @@ export default {
     }
   },
   created () {
+    alert('flag')
     // Fetch user contribution
     this.getUserContribution({
       iduser: this.userData.iduser,
