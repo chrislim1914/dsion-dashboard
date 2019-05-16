@@ -58,7 +58,7 @@
               </a>
             </li>
             <li>Contact Support<a href="mailto:contact@dsion.io" style="font-weight: 300 !important; text-transform: none;color: #6783b8;">contact@dsion.io</a></li>
-            <li class="text-center mt-3">
+            <li class="text-left mt-3">
               <a class="text-danger" @click="deleteAccount">
                 Delete account
               </a>
