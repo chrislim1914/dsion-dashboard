@@ -111,12 +111,15 @@ export default {
     ...mapActions(['deleteUser']),
     deleteAccount () {
       if (confirm('Do you really want to  delete account?')) {
-        console.log(this.userData)
-        // this.deleteUser({
-        //   iduser: 
-        // }).then(() => {
-        //   console.log('')
-        // })
+        this.deleteUser({
+          iduser: this.userData.iduser
+        }).then(() => {
+          this.$cookie.delete('tka', {domain: '.dsion.io'})
+          this.$cookie.delete('tkp', {domain: '.dsion.io'})
+          this.$cookie.delete('tks', {domain: '.dsion.io'})
+          this.$cookie.delete('b', {domain: '.dsion.io'})
+          window.location.href = 'https://dsion.io'
+        })
       }
     }
   },
