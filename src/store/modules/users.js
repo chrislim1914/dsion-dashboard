@@ -43,6 +43,14 @@ const actions = {
       context.commit('updateResponseData', 'General Error')
     }
   },
+  deleteUser: async (context, payload) => {
+    try {
+      var resp = await axios.post(user.removeUser, payload)
+      context.commit('updateResponseData', resp.data)
+    } catch (error) {
+      context.commit('updateResponseData', 'General Error')
+    }
+  },
   logoutUser: async (context, payload) => {
     try {
       axios.defaults.headers.common['Authorization'] = 'Bearer ' + payload.token

@@ -58,12 +58,12 @@
               </a>
             </li>
             <li>Contact Support<a href="mailto:contact@dsion.io" style="font-weight: 300 !important; text-transform: none;color: #6783b8;">contact@dsion.io</a></li>
-            <li>
-              <a href="#!" @click="deleteAccount" class="btn btn-xs bg-danger">
-                Delete account
-              </a>
-            </li>
         </ul><!-- .user-nav -->
+        <ul class="btn-grp guttar-10px">
+          <a @click="deleteAccount" class="btn btn-xs bg-danger">
+            Delete account
+          </a>
+        </ul>
         <div class="d-lg-none">
             <div class="user-sidebar-sap"></div>
             <div class="gaps-1x"></div>
@@ -83,7 +83,8 @@
 <script>
 import Locale from './Locale'
 import {
-  mapState
+  mapState,
+  mapActions
 } from 'vuex'
 export default {
   name: 'UnknownComponent',
@@ -107,6 +108,7 @@ export default {
     })
   },
   methods: {
+    ...mapActions(['deleteUser']),
     deleteAccount () {
       if (confirm('Do you really want to  delete account?')) {
         console.log('affirmed....')
