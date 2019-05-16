@@ -14,7 +14,8 @@ export const user = {
   getContribution: apiURL + '/user/deposit/',
   changePassword: apiURL + '/User/changePassword',
   changeWalletAddress: apiURL + '/User/addAddress',
-  googleLogin: 'https://api.dsion.io/googleLogin'
+  googleLogin: 'https://api.dsion.io/googleLogin',
+  removeUser: apiURL + '/User/delete'
 }
 
 export const sales = {
