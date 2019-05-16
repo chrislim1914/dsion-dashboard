@@ -58,6 +58,11 @@
               </a>
             </li>
             <li>Contact Support<a href="mailto:contact@dsion.io" style="font-weight: 300 !important; text-transform: none;color: #6783b8;">contact@dsion.io</a></li>
+            <li>
+              <a href="#!" @click="deleteAccount" class="btn btn-danger">
+                Delete account
+              </a>
+            </li>
         </ul><!-- .user-nav -->
         <div class="d-lg-none">
             <div class="user-sidebar-sap"></div>
@@ -100,6 +105,13 @@ export default {
     ...mapState({
       'userData': ({users}) => users.user
     })
+  },
+  methods: {
+    deleteAccount () {
+      if (confirm('Do you really want to  delete account?')) {
+        console.log('affirmed....')
+      }
+    }
   },
   created () {
     this.user.email = this.userData.email
