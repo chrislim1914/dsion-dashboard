@@ -58,12 +58,12 @@
               </a>
             </li>
             <li>Contact Support<a href="mailto:contact@dsion.io" style="font-weight: 300 !important; text-transform: none;color: #6783b8;">contact@dsion.io</a></li>
+            <li>
+              <a @click="deleteAccount">
+                Delete account
+              </a>
+            </li>
         </ul><!-- .user-nav -->
-        <ul class="btn-grp guttar-10px">
-          <h6 @click="deleteAccount" class="btn btn-xs bg-danger">
-            Delete account
-          </h6>
-        </ul>
         <div class="d-lg-none">
             <div class="user-sidebar-sap"></div>
             <div class="gaps-1x"></div>
