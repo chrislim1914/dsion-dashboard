@@ -111,6 +111,7 @@ export default {
     ...mapActions(['deleteUser']),
     deleteAccount () {
       if (confirm('Do you really want to  delete account?')) {
+        console.log(this.userData)
         // this.deleteUser({
         //   iduser: 
         // }).then(() => {
